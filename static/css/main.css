@@ -1,0 +1,312 @@
+/*
+*  ============================================================================
+*  HTML Selectors
+*  ============================================================================
+*/
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+html {
+    background: #4B90E0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*
+*  ============================================================================
+*  Cross-Page Elements
+*  ============================================================================
+*/
+
+.container {
+  /*min-height: 1024px;*/
+  width: 1140px;
+  line-height: 1.75;
+  margin-bottom: 30px;
+}
+
+.content {
+  width: 40%;
+  margin-bottom: 30px;
+}
+
+.content h4 {
+  font-size: 16px;
+}
+
+.timeline-events-container {
+  width: 30%;
+  margin-bottom: 10px;
+}
+
+.timeline-events {
+  border: 2px solid #4B90E0;
+  box-sizing: border-box;
+  border-radius: 11px;
+  /* top | right | bottom | left */
+  margin-bottom: 10px;
+  padding: 5px 10px 5px 11px;
+}
+
+/*hide centerBlock class at breakpoint*/
+.centerBlock {
+  display: table;
+  margin: 0 auto;
+}
+
+.more-services {
+  margin: 0px 0px 10px 35px;
+}
+
+.right-section {
+  margin-left: 14%;
+  display: inline-block;
+}
+
+/*
+*  ============================================================================
+*  Navigation Bar
+*  ============================================================================
+*/
+.navbar-nav li {
+    border-top: 2px solid transparent;
+}
+
+.navbar {
+  /*height: 60px;*/
+  margin-bottom: 0px;
+}
+
+.container-navbar {
+  box-shadow: 0px 4px 10px #ECECEC;
+  color: #4B90E0;
+}
+
+.navbar-brand img {
+  margin-top: -10px;
+}
+
+.main-img {
+    height: 427px;
+    width: 100%;
+    background-size: cover;
+}
+
+/*.heading {
+  margin-bottom: 20px;
+}*/
+
+.heading-text {
+  background: rgba(74, 144, 226, 0.5);
+  position: relative;
+  bottom: 75px;
+  margin-bottom: -35px;
+  width: 100%;
+  height: 55px;
+}
+
+.heading-text h1 {
+  color: rgba(255, 255, 255, 1);
+  padding-top: 10px;
+  padding-left: 90px;
+  font-size: 30px;
+}
+
+/*
+* =============================================================================
+* Search Bar
+* =============================================================================
+*/
+
+#searchBox {
+    position: relative;
+    top: 6px;
+    
+#searchBoxIcon {
+    padding-top: 6px;
+}
+}
+
+/*
+* =============================================================================
+* Community Support
+* =============================================================================
+*/
+
+.partner {
+  margin-bottom: 30px;
+  word-wrap: break-word;
+}
+
+.partner h4 {
+  font-weight: bold;
+}
+
+.button-wrap {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.button-link {
+  width: 99px;
+  height: 38px;
+  padding-top: 8px;
+  border: none;
+  border-radius: 11px;
+  background-color: #4a90e2;
+  color: white;
+}
+
+/*
+* =============================================================================
+* Prevention
+* Brochures
+* =============================================================================
+*/
+
+.prevention .container {
+  width: 721px;
+}
+
+.prevention .content {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.brochure {
+  width: 49%;
+  height: auto;
+  margin-bottom: 37px;
+  margin-right: 42px;
+}
+
+.brochure img {
+  width: 115px;
+  height: auto;
+  /*float: left;*/
+}
+
+.brochure h4, .brochure p {
+  /*word-wrap: break-word;*/
+}
+
+/*
+* ============================================================================
+* Videos
+* ============================================================================
+*/
+
+.videos .content {
+  width: 50%;
+}
+
+/*
+* ============================================================================
+* Header images
+* ============================================================================
+*/
+
+#about-header-image {
+  background-image: url(../img/AboutUs.jpg);
+}
+
+#support-header-image {
+  background-position: 50% 50%;
+  background-image: url(../img/CommunitySupport.jpg);
+}
+
+#testing-header-image {
+  background-image: url(../img/Testing.jpg);
+  opacity: 0.90;
+}
+
+#hivinformation-header-image {
+  background-image: url(../img/HIVinformation.jpg);
+  background-position: 25% 45%;
+}
+
+#prevention-header-image {
+  /*get image*/
+}
+
+#videos-header-image {
+  background-image: url(../img/Videos.jpg);
+  background-position: 50% 50%;
+}
+
+#partners-header-image {
+  background-image: url(../img/Partners.jpg);
+  opacity: 0.75;
+}
+
+#advocacy-header-image {
+  background-image: url(../img/Advocacy.jpg);
+}
+
+#volunteer-header-image {
+  background-image: url(../img/Volunteering.jpg);
+  background-position: 50% 60%;
+}
+
+#classes-header-image {
+  background-image: url(../img/classes.jpg);
+  background-position: 50% 50%;
+}
+
+
+/*
+*  ============================================================================
+*  Footer
+*  ============================================================================
+*/
+
+#footer {
+  height: 40px;
+  background: #4B90E0;
+  color: #fff;
+}
+
+#footer div {
+  display: inline-block;
+}
+
+#footer .footer-nav {
+  position: relative;
+  left: 0px;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+#footer .footer-nav li {
+  display: inline;
+  margin-right: 45px;
+}
+
+#footer .footer-nav a {
+  /* possibly change color */
+  color: #f8f8ff;
+}
+
+#footer .share {
+  width: 70%;
+  position: absolute;
+  right: 0px;
+  text-align: right;
+  overflow: auto;
+  margin-right: 25px;
+}
+
+.share p {
+  padding-top: 5px;
+  margin-top: -19px;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.share-icons li {
+  display: inline;
+  font-size: 11px;
+}

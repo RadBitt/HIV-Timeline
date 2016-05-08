@@ -1,0 +1,122 @@
+#hiv-timeline-container {
+	background: #EDEDED;
+}
+
+/* Timeline Text */
+#timeline-heading {
+	padding: 20px 0; 
+}
+
+#timeline-heading h1 {
+	margin: 0;
+	text-align: center;
+}
+
+/* Container Styles */
+#event-viewer-container, #timeline-container {
+	position: relative;
+	margin: 0 auto;
+	background-color: #EDEDED;
+}
+
+#event-viewer {
+	border-left: 0.5px solid black; 
+}
+
+#event-view {
+	height: 90%;
+	width: 90%;
+	margin: 0 auto;
+	padding: 100px;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 20px;
+
+}
+
+.death-text {
+	position: relative;
+	top: 0;
+	border-left: 1px solid red;  
+	width: 1px;
+}
+
+/*Line Segment*/
+#timeline-container hr {
+	position: absolute;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px 0 0 0;
+    padding: 0;
+    margin: 0;
+}
+
+/*Line rules*/
+.vertical-line {
+	position: absolute;
+	width: 1px;
+	height: 20px;
+	border-left: 2px solid black;
+	float: left;
+}
+
+.vertical-line, #timeline-container hr {
+	top: 0px;
+}
+
+.rule-text {
+	position: absolute;
+	top: 0;
+}
+
+.death-text p {
+	position: relative;
+	color: red;
+	top: -20px;
+}
+
+/* Control Styles */
+#next-button {
+	background-image: url(../../img/icons/arrow.right.years.png);
+}
+
+#prev-button {
+	background-image: url(../../img/icons/arrow.left.years.png);
+}
+
+/* Event Styles */
+.event {
+	position: absolute;
+	top: -17px;
+	width: 22px;
+	height: 22px;
+	float: left;
+}
+
+.oldEvent {
+	position: absolute;
+	top: -17px;
+	width: 22px;
+	height: 22px;
+	float: left;
+}
+
+.political {
+	background-image: url(../../img/icons/Circle.timeline.png);
+}
+
+.celebrity {
+	background-image: url(../../img/icons/Square.timeline.png);
+}
+
+.social {
+	background-image: url(../../img/icons/Triangle.timeline.png);
+}
+
+.health {
+	background-image: url(../../img/icons/Pentagon.timeline.png);
+}
+
+.international {
+	background-image: url(../../img/icons/Hexagon.timeline.png);
+}
