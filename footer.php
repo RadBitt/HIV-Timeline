@@ -15,13 +15,7 @@
               <p>Copyright CCSF xxxx Department. All Rights Reserved.</p>
             </div>
           </div>
-
-
-        <!-- Content Block Begin -->
-
-
-
-        <!-- Footer Block Begin -->
+          
         <!-- Footer Block End -->
 
     </body>

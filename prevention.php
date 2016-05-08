@@ -1,32 +1,9 @@
-<?php require("header.php")?>
-
-
-
-	
-
-	
-		
-	
-
-	
-		
-	
-
-	
-	
-
-
-
-
-	<!-- super function renders HTML from base.html
-		 that is within the content block. -->
-	
-	 		<!-- Navigation -->
+<?php require("header.php"); ?>
 	 		
-	 		<!-- end navigation -->
-	
+	 <!-- end navigation -->
 
 	<!-- body html here -->
+
 	<div class="heading">
 		<div class="main-img" id="prevention-header-image"></div>
 		<div class="heading-text">
@@ -91,12 +68,4 @@
 	</div>
 	<!-- end body html -->
 	
-		
-	
-
-
-
-
-	
-
-<?php require("footer.php")?>
+<?php require("footer.php"); ?>

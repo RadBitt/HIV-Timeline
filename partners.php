@@ -1,30 +1,6 @@
-<?php require("header.php")?>
-
-
-
+<?php require("header.php"); ?>
 	
-
-	
-		
-	
-
-	
-		
-	
-
-	
-	
-
-
-
-
-	<!-- super function renders HTML from base.html
-		 that is within the content block. -->
-	
-	 		<!-- Navigation -->
-	 		
-	 		<!-- end navigation -->
-	
+	<!-- end navigation -->
 
 	<!-- body html here -->
 	<div class="heading">
@@ -51,27 +27,19 @@
 		<div class="timeline-events-container col-md-3">
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
-					<li><a href="/#">Testing</a></li>
-					<li><a href="/#">Screening</a></li>
-					<li><a href="/#">Research</a></li>
+					<li><a href="#">Testing</a></li>
+					<li><a href="#">Screening</a></li>
+					<li><a href="#">Research</a></li>
 				</ul>
 			</div>
 		</div> <!-- end timeline-events-container -->
 
 		<div class="more-services col-md-3">
 			<ul>More Services
-				<li><a href="/support">Community Support</a></li>
+				<li><a href="support.php">Community Support</a></li>
 			</ul>
 		</div>
 	</div>
 	<!-- end body html -->
 	
-		
-	
-
-
-
-
-	
-
-<?php require("footer.php")?>
+<?php require("footer.php"); ?>

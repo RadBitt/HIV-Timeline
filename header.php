@@ -4,25 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-        
+      
         <!-- External CSS files FOR ALL pages are referenced here -->
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="static\css\lib\bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+        <link rel="stylesheet" href="static/css/lib/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="static/css/main.css" />
         <!-- Head_CSS Block End -->
         
-
-        
-          <!-- External JS files FOR ALL pages are referenced here -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-          <script type="text/javascript" src="/static/js/lib/bootstrap.min.js"></script>
-          <script type="text/javascript" src="/static/js/main.js"></script>
-          <!-- Head_JS Block End -->
-        
-
-        
-        
+        <!-- External JS files FOR ALL pages are referenced here -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript" src="static/js/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="static/js/main.js"></script>
+        <!-- Head_JS Block End -->
 
     </head>
     <body>
@@ -43,39 +36,39 @@
                 </button>
 
                 <a class="navbar-brand" href="/">
-                  <img alt="Brand" src="../static/img/icons/logo.png">
+                  <img alt="Brand" src="static/img/icons/logo.png">
                 </a>
               </div>
 
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                  <li id="home"><a href="/">home<span class="sr-only">(current)</span></a></li>
+                  <li id="home"><a href="index.php">home<span class="sr-only">(current)</span></a></li>
 
-                  <li id="about"><a href="/about">about us</a></li>
+                  <li id="about"><a href="about.php">about us</a></li>
 
                   <li class="dropdown services" id="services">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">services<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="/support">community support</a></li>
-                      <li><a href="/testing">testing</a></li>
+                      <li><a href="support.php">community support</a></li>
+                      <li><a href="testing.php">testing</a></li>
                     </ul>
                   </li>
 
                   <li class="dropdown information" id="information">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">information<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="/aboutHIV">about HIV</a></li>
-                      <li><a href="/prevention">prevention</a></li>
-                      <li><a href="/videos">videos</a></li>
+                      <li><a href="aboutHIV.php">about HIV</a></li>
+                      <li><a href="prevention.php">prevention</a></li>
+                      <li><a href="videos.php">videos</a></li>
                     </ul>
                   </li>
 
-                  <li id="partners"><a href="/partners">community partners</a></li>
+                  <li id="partners"><a href="partners.php">community partners</a></li>
 
-                  <li id="advocacy"><a href="/advocacy">advocacy</a></li>
+                  <li id="advocacy"><a href="advocacy.php">advocacy</a></li>
 
-                  <li id="classes"><a href="/classes">classes</a></li>
+                  <li id="classes"><a href="classes.php">classes</a></li>
 
                   <li id="searchBox">
                     <form action="" class="search-form">
