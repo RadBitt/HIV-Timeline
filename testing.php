@@ -41,7 +41,7 @@
 
 		<div class="more-services col-md-3">
 			<ul>More Services
-				<li><a href="/support">Community Support</a></li>
+				<li><a href="support.php">Community Support</a></li>
 			</ul>
 		</div>
 	</div>

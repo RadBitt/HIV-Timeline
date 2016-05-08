@@ -1,3 +1,14 @@
+<?php 
+
+$deployment = false;
+
+if ($deployment)
+  $ext = '.html';
+else 
+  $ext = '.php';
+
+?>
+
 <html>
     <head>
         <title></title>
@@ -43,32 +54,32 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                  <li id="home"><a href="index.php">home<span class="sr-only">(current)</span></a></li>
+                  <li id="home"><a href="index<?php echo $ext ?>">home<span class="sr-only">(current)</span></a></li>
 
-                  <li id="about"><a href="about.php">about us</a></li>
+                  <li id="about"><a href="about<?php echo $ext ?>">about us</a></li>
 
                   <li class="dropdown services" id="services">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">services<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="support.php">community support</a></li>
-                      <li><a href="testing.php">testing</a></li>
+                      <li><a href="support<?php echo $ext ?>">community support</a></li>
+                      <li><a href="testing<?php echo $ext ?>">testing</a></li>
                     </ul>
                   </li>
 
                   <li class="dropdown information" id="information">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">information<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="aboutHIV.php">about HIV</a></li>
-                      <li><a href="prevention.php">prevention</a></li>
-                      <li><a href="videos.php">videos</a></li>
+                      <li><a href="aboutHIV<?php echo $ext ?>">about HIV</a></li>
+                      <li><a href="prevention<?php echo $ext ?>">prevention</a></li>
+                      <li><a href="videos<?php echo $ext ?>">videos</a></li>
                     </ul>
                   </li>
 
-                  <li id="partners"><a href="partners.php">community partners</a></li>
+                  <li id="partners"><a href="partners<?php echo $ext ?>">community partners</a></li>
 
-                  <li id="advocacy"><a href="advocacy.php">advocacy</a></li>
+                  <li id="advocacy"><a href="advocacy<?php echo $ext ?>">advocacy</a></li>
 
-                  <li id="classes"><a href="classes.php">classes</a></li>
+                  <li id="classes"><a href="classes<?php echo $ext ?>">classes</a></li>
 
                   <li id="searchBox">
                     <form action="" class="search-form">
