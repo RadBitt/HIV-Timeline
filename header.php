@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      
+
         <!-- External CSS files FOR ALL pages are referenced here -->
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="static/css/lib/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="static/css/main.css" />
         <!-- Head_CSS Block End -->
-        
+
         <!-- External JS files FOR ALL pages are referenced here -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script type="text/javascript" src="static/js/lib/bootstrap.min.js"></script>
@@ -19,9 +19,9 @@
 
     </head>
     <body>
-        
+
         <!-- Content Block Begin -->
-          
+
           <!-- Header Block Begin -->
           <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -35,7 +35,7 @@
                   <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="index.php">
                   <img alt="Brand" src="static/img/icons/logo.png">
                 </a>
               </div>
