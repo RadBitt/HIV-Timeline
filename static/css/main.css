@@ -122,12 +122,12 @@ ul {
 */
 
 #searchBox {
-    position: relative;
-    top: 6px;
-    
-#searchBoxIcon {
-    padding-top: 6px;
+  position: relative;
+  top: 6px;
 }
+
+#searchBoxIcon {
+  padding-top: 6px;
 }
 
 /*
@@ -158,6 +158,25 @@ ul {
   border-radius: 11px;
   background-color: #4a90e2;
   color: white;
+}
+
+/*
+* =============================================================================
+* About HIV
+* =============================================================================
+*/
+
+.abouthiv .content p {
+  margin-bottom: 40px;
+}
+/* ugh */
+
+.abouthiv .content li {
+  list-style-type: disc;
+}
+
+.external-links {
+  margin-top: 20px;
 }
 
 /*
@@ -229,7 +248,7 @@ ul {
 }
 
 #prevention-header-image {
-  /*get image*/
+  background-image: url(../img/takethelead.png);
 }
 
 #videos-header-image {

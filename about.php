@@ -1,7 +1,5 @@
 <?php require("header.php"); ?>
 
-	<!-- Navigation -->
-	 		
 	<!-- end navigation -->
 
 	<div class="heading">
@@ -32,5 +30,5 @@
 	</div>
 
 <!--end here -->
-	 	
+
 <?php require("footer.php"); ?>

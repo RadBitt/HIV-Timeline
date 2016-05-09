@@ -64,7 +64,7 @@
                     </ul>
                   </li>
 
-                  <li id="partners"><a href="partners.php">community partners</a></li>
+                  <li id="partners"><a href="partners.php">partners</a></li>
 
                   <li id="advocacy"><a href="advocacy.php">advocacy</a></li>
 
