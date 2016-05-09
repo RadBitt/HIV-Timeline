@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 $deployment = false;
 
 if ($deployment)
   $ext = '.html';
-else 
+else
   $ext = '.php';
 
 ?>
@@ -75,11 +75,7 @@ else
                     </ul>
                   </li>
 
-<<<<<<< HEAD
-                  <li id="partners"><a href="partners.php">partners</a></li>
-=======
-                  <li id="partners"><a href="partners<?php echo $ext ?>">community partners</a></li>
->>>>>>> origin/master
+                  <li id="partners"><a href="partners<?php echo $ext ?>">partners</a></li>
 
                   <li id="advocacy"><a href="advocacy<?php echo $ext ?>">advocacy</a></li>
 
