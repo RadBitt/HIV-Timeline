@@ -30,17 +30,17 @@
 		<div class="right-section col-md-3">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="/support">Community Support</a></li>
-					<li><a href="/testing">Testing</a></li>
-					<li><a href="/prevention">HIV Prevention</a></li>
+					<li><a href="support<?php echo $ext ?>">Community Support</a></li>
+					<li><a href="testing<?php echo $ext ?>">Testing</a></li>
+					<li><a href="prevention<?php echo $ext ?>">HIV Prevention</a></li>
 				</ul>
 			</div>
 
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
-					<li><a href="/#">Testing</a></li>
-					<li><a href="/#">Screening</a></li>
-					<li><a href="/#">Research</a></li>
+					<li><a href="#">Testing</a></li>
+					<li><a href="#">Screening</a></li>
+					<li><a href="#">Research</a></li>
 				</ul>
 			</div>
 		</div> <!-- end right-section -->
