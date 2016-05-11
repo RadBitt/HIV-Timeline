@@ -300,7 +300,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function DisplayOptions() {
-		this.width = $('event-viewer-container').innerWidth();
+		this.width = $('#event-viewer-container').innerWidth();
 		this.height = '100px';
 		this.eventViewWidth = this.width;
 		this.eventViewHeight = '400px';
@@ -308,7 +308,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		this.firstRulePos = parseInt(this.width) / this.segmentLength; 
 		this.container = '#timeline-container';
 		this.timelineContiner = '#timeline';
-		this.eventViewContainer = '#event-viewer-container'; 
+		this.eventViewContainer = '#event-viewer-container';
+
 	}
 
 	function Control(display) {

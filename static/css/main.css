@@ -23,13 +23,13 @@ ul {
 
 .container {
   /*min-height: 1024px;*/
-  width: 1140px;
+  /*max-width: 1140px;*/
   line-height: 1.75;
   margin-bottom: 30px;
 }
 
 .content {
-  width: 40%;
+  /*max-width: 40%;*/
   margin-bottom: 30px;
 }
 
@@ -38,7 +38,7 @@ ul {
 }
 
 .timeline-events-container {
-  width: 30%;
+  /*width: 30%;*/
   margin-bottom: 10px;
 }
 

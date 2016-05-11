@@ -11,7 +11,6 @@ function navHighlight()
     //  does not match the ID they have.
     //  the cases with pages with matching IDs and pathnames are caught at the end
 
-
     if (active === "")
     {
             // document.getElementById("home").setAttribute("class", "active");
@@ -45,9 +44,8 @@ $(document).ready(function() {
     $('iframe.goog-te-menu-frame').remove()
     $('#google_translate_element').prev().remove();
     $('#google_translate_element').remove();
+
 });
-
-
 
 
 // function navHighlight()

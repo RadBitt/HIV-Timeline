@@ -10,12 +10,12 @@
 	</div>
 
 	<div class="container">
-		<div class="content col-md-9">
+		<div class="content col-md-6 col-sm-12">
 			<p>The HIV/STI Prevention Studies Office is part of the Health Education Department of City College of San Francisco.</p>
 			<p>Our goal is to provide quality education and career training that links learning with action. Harm Reduction and social justice education form the foundation of our classes, programs, and activities. We have been serving the CCSF campur community and beyong throung community partnerships to deliver prevention activities, services, and advocacy since the mind 1980's.</p>
 		</div>
 
-		<div class="timeline-events-container col-md-3">
+		<div class="timeline-events-container col-md-6 col-sm-12">
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
 					<li><a href="/#">social justice</a></li>

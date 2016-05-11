@@ -29,13 +29,13 @@ else
         <!-- Head_JS Block End -->
 
     </head>
-    <body>
+    <body class="container-fuild">
 
         <!-- Content Block Begin -->
 
           <!-- Header Block Begin -->
           <nav class="navbar navbar-default">
-            <div class="container-fluid">
+            <div>
 
               <!-- Brand and toggle get grouped for better mobile display aka hamburger menu -->
               <div class="navbar-header">
@@ -102,7 +102,7 @@ else
 
           </nav>
             <script type="text/javascript">
-              navHighlight();
+              // navHighlight();
             </script>
 
           <!-- Header Block End -->

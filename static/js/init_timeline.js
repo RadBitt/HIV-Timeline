@@ -27,7 +27,7 @@ for (var i = 0; i < timelineArray.length; i++) {
 }
 
 // Timeline.sortEvents(Timeline.getArray(), 0, Timeline.numOfEvents()-1);
-Timeline.firstEvent()
+Timeline.firstEvent();
 Display.drawContainer();
 Display.drawEventViewer();
 Display.drawSegment();
