@@ -1,5 +1,10 @@
-#hiv-timeline-container {
+body {
 	background: #EDEDED;
+}
+
+#hiv-timeline-container {
+	width: 1200px;
+	margin: 0 auto;
 }
 
 /* Timeline Text */
@@ -13,7 +18,18 @@
 }
 
 /* Container Styles */
+#event-viewer-container,
+#event-viewer,
+#timeline-container,
+#timeline,
+.timeline {
+	width: 100%; 
+}
+
+
+
 #event-viewer-container, #timeline-container {
+	width: 100%;
 	position: relative;
 	margin: 0 auto;
 	background-color: #EDEDED;
@@ -119,4 +135,15 @@
 
 .international {
 	background-image: url(../../img/icons/Hexagon.timeline.png);
+}
+
+@media (max-width: 768px) { 
+  #hiv-timeline-container {
+    width: 100%
+  }
+
+  #event-viewer-container {
+  	width: 100%;
+  }
+
 }

@@ -54,7 +54,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			left: 0		
 		};
 
-		line.append('<hr style="width:' + this.Options.width + ';">');
+		line.append('<hr class="timeline">');
 
 		for (var i = 0; i < segmL; i++) {
 			vLine = line.append(div)
@@ -137,7 +137,9 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	this.nextEvent = function() {
-
+		// Remove excissting view if any
+		// Draw event view
+		// Next and prev buttons target next event. 
 	}
 
 	this.prevEvent = function() {
@@ -298,7 +300,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function DisplayOptions() {
-		this.width = '1200px';
+		this.width = $('event-viewer-container').innerWidth();
 		this.height = '100px';
 		this.eventViewWidth = this.width;
 		this.eventViewHeight = '400px';
@@ -312,9 +314,19 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	function Control(display) {
 		
 		this.filterContainer = '#filter-container';
-		this.closeEventView = '#close-button'; 
+		this.closeEventView = '#close-button';
+		this.nextEvent = '#next-event';
+		this.prevEvent = '#prev-event'; 
 		this.nextButton = '#next-button';
 		this.prevButton = '#prev-button';
+
+		this.drawNextEventButton = function() {
+
+		}
+
+		this.drawPrevEventButton = function() {
+
+		}
 
 		this.drawCloseButton = function() {
 			var eventView = '#event-view';
@@ -343,7 +355,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				position: 'absolute',
 				width: '14px',
 				height: '23px',
-				top: '50%',
+				bottom: '0',
 				right: '-28px'
 			};
 			
@@ -362,7 +374,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				position: 'absolute',
 				width: '14px',
 				height: '23px',
-				top: '50%',
+				bottom: '0',
 				left: '-28px'
 			};
 			

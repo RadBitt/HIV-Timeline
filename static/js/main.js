@@ -42,7 +42,7 @@ function navHighlight()
 }
 
 $(document).ready(function() {
-    $('iframe').remove()
+    $('iframe.goog-te-menu-frame').remove()
     $('#google_translate_element').prev().remove();
     $('#google_translate_element').remove();
 });

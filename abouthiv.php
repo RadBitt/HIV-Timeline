@@ -22,7 +22,7 @@
 
 				<h3>How does one get HIV?</h3>
 				<p>HIV can be transmitted through these (and only these) body fluids: blood, semen (pre-cum), vaginal and cervical fluid, and breast milk.</p>
-				<p>There are three basic modes of HIV transmission:</p>
+				<p style="margin-bottom: 0;">There are three basic modes of HIV transmission:</p>
 				<ul>
 					<li>Sexual contact through anal and vaginal sex</li>
 					<li>Blood exposure through sharing needles</li>
