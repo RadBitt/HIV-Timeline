@@ -11,23 +11,23 @@
 	</div>
 
 	<div class="videos container">
-		<div class="content col-md-9">
-			<div class="video">
+		<div class="content col-md-9 col-sm-12">
+			<div class="">
 				<h3>Demystifying HIV Pre-Exposure Prophylaxis</h3>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/-Xx92whZS0o" frameborder="0" allowfullscreen></iframe>
+				<iframe class="video" height="315" src="https://www.youtube.com/embed/-Xx92whZS0o" frameborder="0" allowfullscreen></iframe>
 				<p>PrEP, short for pre-exposure prophylaxis, is a relatively new HIV prevention strategy in which an HIV-negative person takes a daily pill to reduce the risk for HIV infection.</p>
 				<p>PrEP has made headlines recently—and the messages haven't always been clear. Watch this video to get the facts about how PrEP works and see three PrEP myths busted.</p>
 			</div>
 
-			<div class="video">
+			<div class="">
 				<h3>Treatment Cascade</h3>
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/DNaAlWWMG2k" frameborder="0" allowfullscreen></iframe>
+				<iframe class="video" height="315" src="https://www.youtube.com/embed/DNaAlWWMG2k" frameborder="0" allowfullscreen></iframe>
 				<p>This 2-minute animated video provides a brief overview of HIV in the United States and illustrates how improvements along each step of the treatment cascade can help us achieve an AIDS-free generation. It focuses on a number of key steps that are consistent with the National HIV/AIDS Strategy.</p>
 			</div>
 
 		</div>
 
-		<div class="right-section col-md-3">
+		<div class="right-section col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="support<?php echo $ext ?>">Community Support</a></li>

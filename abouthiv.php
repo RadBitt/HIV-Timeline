@@ -32,7 +32,13 @@
 		</div>
 
 		<div class="right-section col-md-3 col-sm-12">
-	
+			<div class="more-services">
+				<ul>More Information
+					<li><a href="prevention.php">Prevention</a></li>
+					<li><a href="videos.php">Videos</a></li>
+				</ul>
+			</div>
+
 			<div class="">
 				<ul class="timeline-events centerBlock">Timeline Events
 					<li><a href="/#">key event relating to Social Justice</a></li>
@@ -53,14 +59,6 @@
 					<li><a href="">Center for Disease Control and Prevention (CDC)</a></li>
 				</ul>
 			</div>
-
-			<div class="more-services">
-				<ul>More Information
-					<li><a href="prevention.php">Prevention</a></li>
-					<li><a href="videos.php">Videos</a></li>
-				</ul>
-			</div>
-
 		</div> <!-- end right-section -->
 
 	</div> <!-- end container -->

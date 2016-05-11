@@ -214,9 +214,15 @@ ul {
 * ============================================================================
 */
 
-.videos .content {
-  width: 50%;
+.video {
+  width: 100%;
+  max-width: 570px;
+  max-height: 315px; 
 }
+
+/*.videos .content {
+  width: 50%;
+}*/
 
 /*
 * ============================================================================
@@ -308,6 +314,11 @@ ul {
 }
 
 @media (max-width: 990px) {
+
+  .main-img {
+    max-height: 300px;
+  }
+
   .centerBlock {
     display: block;
   }
