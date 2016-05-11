@@ -312,7 +312,7 @@ ul {
     display: block;
   }
 
-  .more-services ul {
+  .more-services ul, .right-section {
     padding: 0; 
     margin: 0; 
   }
