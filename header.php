@@ -75,11 +75,13 @@ else
                     </ul>
                   </li>
 
-                  <li id="partners"><a href="partners<?php echo $ext ?>">partners</a></li>
-
-                  <li id="partners"><a href="partners<?php echo $ext ?>">community partners</a></li>
-
-                  <li id="advocacy"><a href="advocacy<?php echo $ext ?>">advocacy</a></li>
+                  <li class="dropdown community" id="community">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">community<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="partners<?php echo $ext ?>">partners</a></li>
+                      <li><a href="advocacy<?php echo $ext ?>">advocacy</a></li>
+                    </ul>
+                  </li>
 
                   <li id="classes"><a href="classes<?php echo $ext ?>">classes</a></li>
 

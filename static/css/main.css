@@ -126,10 +126,6 @@ ul {
   top: 6px;
 }
 
-#searchBoxIcon {
-  padding-top: 6px;
-}
-
 /*
 * =============================================================================
 * Community Support
@@ -286,10 +282,8 @@ ul {
   height: 40px;
   background: #4B90E0;
   color: #fff;
-}
-
-#footer div {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
 }
 
 #footer .footer-nav {
@@ -305,27 +299,10 @@ ul {
 }
 
 #footer .footer-nav a {
-  /* possibly change color */
   color: #f8f8ff;
 }
 
-#footer .share {
-  width: 70%;
-  position: absolute;
-  right: 0px;
-  text-align: right;
-  overflow: auto;
-  margin-right: 25px;
-}
-
-.share p {
-  padding-top: 5px;
-  margin-top: -19px;
-  font-size: 10px;
+#footer p {
+  margin: 10px 10px;
   overflow: hidden;
-}
-
-.share-icons li {
-  display: inline;
-  font-size: 11px;
 }
