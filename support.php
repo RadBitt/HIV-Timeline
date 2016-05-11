@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="container">
-		<div class="content col-md-6">
+		<div class="content col-md-6 col-sm-12">
 			<section class="partner">
 				<h4>San Francisco Aids Foundation</h4>
 				<p>Offers several activities every week. This includes free testing, support groups, counseling, sterile syringes and more.</p>
@@ -103,7 +103,7 @@
 			</section>
 		</div>
 
-		<div class="timeline-events-container col-md-3">
+		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
 					<li><a href="#">Community</a></li>
@@ -115,7 +115,7 @@
 			</div>
 		</div> <!-- end timeline-events-container -->
 
-		<div class="more-services col-md-3">
+		<div class="more-services col-md-3 col-sm-12">
 			<ul>More Services
 				<li><a href="/testing">Testing</a></li>
 			</ul>
