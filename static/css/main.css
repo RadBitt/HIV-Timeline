@@ -214,9 +214,15 @@ ul {
 * ============================================================================
 */
 
-.videos .content {
-  width: 50%;
+.video {
+  width: 100%;
+  max-width: 570px;
+  max-height: 315px; 
 }
+
+/*.videos .content {
+  width: 50%;
+}*/
 
 /*
 * ============================================================================
@@ -307,6 +313,7 @@ ul {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 /*
 *  ============================================================================
 *  Breakpoints
@@ -319,3 +326,21 @@ ul {
     border: 
   }
 }
+=======
+@media (max-width: 990px) {
+
+  .main-img {
+    max-height: 300px;
+  }
+
+  .centerBlock {
+    display: block;
+  }
+
+  .more-services ul, .right-section {
+    padding: 0; 
+    margin: 0; 
+  }
+
+}
+>>>>>>> b073068df6f6a6577120c1de15dc056d8c8d5cad

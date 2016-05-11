@@ -11,7 +11,7 @@
 
 	<div class="abouthiv container">
 		<div class="content-wrapper">
-			<div class="content col-md-9">
+			<div class="content col-md-6 col-sm-12">
 				<h3>What is HIV?</h3>
 				<h4>HIV stands for Human Immunodeficiency Virus.</h4>
 				<p>An HIV virus infection causes chronic inflammation and weakens the body's immune system. Over time, this inflammation can affect many systems in the body and make it increasingly difficult for the body to fight off other infections. People with the HIV infection may experience serious symptoms, or none at all. They may not even know they have the infection and are able to pass it on to others. <strong>There is no cure.</strong> New treatment for this chronic disease is less toxic than the virus and suppresses viral load (amount of HIV virus in the body) which decreases transmission to others, and allows people to live longer fuller lives.</p>
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 
-		<div class="right-section col-md-3">
+		<div class="right-section col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Information
 					<li><a href="prevention.php">Prevention</a></li>

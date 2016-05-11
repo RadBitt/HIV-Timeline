@@ -19,6 +19,13 @@
 		</div>
 
 		<div class="timeline-events-container col-md-3">
+
+			<div class="more-services col-md-3">
+				<ul>More Services
+					<li><a href="/support">Community Support</a></li>
+				</ul>
+			</div>
+
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
 					<li><a href="/#">Testing</a></li>
@@ -27,12 +34,6 @@
 				</ul>
 			</div>
 		</div> <!-- end timeline-events-container -->
-
-		<div class="more-services col-md-3">
-			<ul>More Services
-				<li><a href="/support">Community Support</a></li>
-			</ul>
-		</div>
 
 	</div>
 
