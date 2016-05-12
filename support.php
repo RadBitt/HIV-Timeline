@@ -13,95 +13,68 @@
 	</div>
 
 	<div class="container">
-		<div class="content col-md-6 col-sm-12">
+		<div class="content col-md-5 col-sm-12">
 			<section class="partner">
-				<h4>San Francisco Aids Foundation</h4>
+				<h4><a href="http://www.sfaf.org/">San Francisco Aids Foundation</a></h4>
 				<p>Offers several activities every week. This includes free testing, support groups, counseling, sterile syringes and more.</p>
-				<div class="button-wrap">
-					<a href="http://www.sfaf.org/" class="btn btn-default button-link">Visit Site</a>
-				</div>
 			</section>
 
 			<section class="partner">
-				<h4>Shanti PROJECT</h4>
+				<h4><a href="http://www.shanti.org/">Shanti PROJECT</a></h4>
 				<p>Provides counseling to educate about HIV disease, how to navigate the healthcare system and they provide emotional support with drop-in couselling.</p>
-				<div class="button-wrap">
-					<a href="http://www.shanti.org/" class="btn btn-default button-link">Visit Site</a>
-				</div>
 			</section>
 
 			<section class="partner">
-				<h4>Bay Positives</h4>
+				<h4><a href="http://www.baypositives.org/">Bay Positives</a></h4>
 				<p>Provides services to help young people (ages 26 and younger) with a weekly drop-in support group and social events. They also provide personal one-on-one help on a case by case basis and more.</p>
-				<div class="button-wrap">
-					<a href="http://www.baypositives.org/" class="btn btn-default button-link">Visit Site</a>
-				</div>
 			</section>
 
 			<!--<section class="partner">-->
 			<!--	<h4>AIDS Walk San Francisco</h4>-->
 			<!--	<p>is a yearly fundraiser event. Since 1987, AIDS Walk San Francisco has raised $86 million for HIV programs and services in the Bay Area and has grown into the largest AIDS fundraising even in Northern California.</p>-->
-			<!--	<div class="button-wrap">-->
-			<!--		<a href="https://sf.aidswalk.net/" class="btn btn-default button-link">Visit Site</a>-->
-			<!--	</div>-->
 			<!--</section>-->
 
 			<section class="partner">
-				<h4>Larkin St. Youth Services</h4>
-				<p></p>
-				<div class="button-wrap">
-					<a href="http://larkinstreetyouth.org/" class="btn btn-default button-link">Visit Site</a>
-				</div>
-			</section>
-			
-			<section class="partner">
-			    <h4>LINCS</h4>
-			    <p></p>
-			    <div class="button-wrap">
-			        <a href="http://www.sfhiv.org/our-services/linkage-integration-navigation-and-comprehensive-services-lincs/" class="btn btn-defualt button-link">Visit Site</a>
-			    </div>
-			</section>
-			
-			<section class="partner">
-			    <h4>Native American Health Center</h4>
-			    <p></p>
-			    <div class="button-wrap">
-			        <a href="http://www.nativehealth.org/content/san-francisco-0" class="btn btn-default button-link">Visit Site</a>
-			    </div>
+				<h4><a href="http://larkinstreetyouth.org/">Larkin St. Youth Services</a></h4>
+				<p>Provides homeless youth with safe temporary housing, peer-based subtance abuse treatment programs, tools for medical care, education, job training, and more.</p>
 			</section>
 
 			<section class="partner">
-				<h4>Positive Resource Center</h4>
-				<p></p>
-				<div class="button-wrap">
-					<a href="http://www.positiveresource.org/" class="btn btn-default button-link">Visit Site</a>
-				</div>
-			</section>
-			
-			<section class="partner">
-			    <h4>TransThrive</h4>
-			    <p></p>
-			    <div class="button-wrap">
-			        <a href="http://apiwellness.org/site/transthrive/" class="btn btn-default button-link">Visit Site</a>
-			    </div>
+			    <h4><a href="http://www.sfhiv.org/our-services/linkage-integration-navigation-and-comprehensive-services-lincs">LINCS</a></h4>
+			    <p>Provides coordinated comprehensive linkage to care, navigation and partner services for HIV-positive people living in San Francisco.</p>
 			</section>
 
 			<section class="partner">
-				<h4>UCSF Center for Excellence in Transgender Health</h4>
-				<p></p>
-				<div class="button-wrap">
-					<a href="http://transhealth.ucsf.edu/" class="btn btn-default button-link">Visit Site</a>
-				</div>
+			    <h4><a href="http://www.nativehealth.org/content/san-francisco-0">Native American Health Center</a></h4>
+			    <p>Offers a spectrum of services including counseling, rapid testing, referrals, support, treatment and education to all.</p>
 			</section>
 
 			<section class="partner">
-				<h4>SF Office of Workforce Development</h4>
-				<p></p>
-				<div class="button-wrap">
-					<a href="http://oewd.org/" class="btn btn-default button-link">Visit Site</a>
-				</div>
+				<h4><a href="http://www.positiveresource.org/">Positive Resource Center</a></h4>
+				<p>Provides professional benefits analysis, advocacy, counseling,  employment and vocational rehabilitation planning, counseling and coordination, job development and job search assistance, support groups, and computer access and training for people living with HIV/AIDS or mental health disabilities in San Francisco.</p>
 			</section>
+
+			<section class="partner">
+			    <h4><a href="http://apiwellness.org/site/transthrive/">TransThrive</a></h4>
+			    <p>A safe place for the transgender community with free HIV testing, counseling and case management, primary medical care, needle exchange, and mental health therapy.</p>
+			</section>
+
+			<section class="partner">
+				<h4><a href="http://transhealth.ucsf.edu/">UCSF Center for Excellence in Transgender Health</a></h4>
+				<p>Provides comprehensive, effective, and affirming health care services for trans communities including HIV prevention programs and clinical services.</p>
+			</section>
+
+			<section class="partner">
+				<h4><a href="http://oewd.org/">SF Office of Workforce Development</a></h4>
+				<p>Provides city-wide leadership for workforce development, business attraction and retention, neighborhood commercial revitalization, international business and development planning.</p>
+			</section>
+
+			<section class="partner">
+				<h4><a href="http://www.magnetsf.org/">Magnet</a></h4>
+				<p>Provides free sexual health services, counseling, massage, acupuncture, an art gallery and lounge</p>
 		</div>
+
+		<div class="col-md-1 col-sm-12"></div>
 
 		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="centerBlock">

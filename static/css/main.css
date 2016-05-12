@@ -1,7 +1,7 @@
-/* 
+/*
   If you need help modifying the website:
   Email Leo -> Leo@radbitt.com
-              & 
+              &
         Allison -> allisonlu820@gmail.com
 */
 
@@ -325,11 +325,6 @@ ul {
   color: #f8f8ff;
 }
 
-#footer p {
-  margin: 10px 10px;
-  overflow: hidden;
-}
-
 /*
 *  ============================================================================
 *  Breakpoints
@@ -376,5 +371,9 @@ ul {
 @media (max-width: 480px) {
   .centerBlock {
     display: block;
+  }
+
+  .heading-text {
+    width: 100%;
   }
 }

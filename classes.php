@@ -28,18 +28,12 @@
 			</div>
 		</div>
 
-		<div class="timeline-events-container col-md-3 col-sm-12">
+		<div class="col-md-3"></div>
+
+		<div class="col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="/support">Community Support</a></li>
-				</ul>
-			</div>
-
-			<div class="centerBlock">
-				<ul class="timeline-events">Timeline Events
-					<li><a href="/#">Testing</a></li>
-					<li><a href="/#">Screening</a></li>
-					<li><a href="/#">Research</a></li>
+					<li><a href="support<?php echo $ext ?>">Community Support</a></li>
 				</ul>
 			</div>
 		</div> <!-- end timeline-events-container -->
