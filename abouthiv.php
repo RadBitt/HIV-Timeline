@@ -34,18 +34,18 @@
 		<div class="right-section col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Information
-					<li><a href="prevention.php">Prevention</a></li>
-					<li><a href="videos.php">Videos</a></li>
+					<li><a href="prevention<?php echo $ext ?>">Prevention</a></li>
+					<li><a href="videos<?php echo $ext ?>">Videos</a></li>
 				</ul>
 			</div>
 
 			<div class="">
 				<ul class="timeline-events centerBlock">Timeline Events
-					<li><a href="/#">key event relating to Social Justice</a></li>
-					<li><a href="/#">key event relating to Education</a></li>
-					<li><a href="/#">key event relating to Prevention</a></li>
-					<li><a href="/#">key event relating to Community</a></li>
-					<li><a href="/#">key event relating to Advocacy</a></li>
+					<li><a href="/#">Social Justice</a></li>
+					<li><a href="/#">Education</a></li>
+					<li><a href="/#">Prevention</a></li>
+					<li><a href="/#">Community</a></li>
+					<li><a href="/#">Advocacy</a></li>
 				</ul>
 			</div>
 
