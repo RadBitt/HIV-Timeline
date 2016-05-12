@@ -139,6 +139,11 @@ body {
 	float: left;
 }
 
+.highlighted {
+	background-color: orange;
+	border-radius: 50%;
+}
+
 .political {
 	background-image: url(../../img/icons/Circle.timeline.png);
 }
@@ -164,8 +169,12 @@ body {
     width: 100%;
   }
 
-  #event-viewer-container {
+  #timeline {
+  	height: initial;
+  }
 
+  #event-viewer-container {
+  	display: none;
   }
 
   #the-line,
@@ -178,5 +187,46 @@ body {
   .mobile-event {
   	display: block;
   }
+
+  .event {
+  	position: initial;
+  	left: initial;
+  	top: initial;
+  	width: 80%;
+  	height: initial;
+  	margin: 0 auto;
+  	display: block;
+  	float: none;
+  }
+
+	.highlighted {
+		background-color: inherit;
+		border-radius: 0;
+	}
+
+	.political {
+		background-image: url(../../img/icons/Circle.timeline.png);
+		background-repeat: no-repeat;
+	}
+
+	.celebrity {
+		background-image: url(../../img/icons/Square.timeline.png);
+		background-repeat: no-repeat;
+	}
+
+	.social {
+		background-image: url(../../img/icons/Triangle.timeline.png);
+		background-repeat: no-repeat;
+	}
+
+	.health {
+		background-image: url(../../img/icons/Pentagon.timeline.png);
+		background-repeat: no-repeat;
+	}
+
+	.international {
+		background-image: url(../../img/icons/Hexagon.timeline.png);
+		background-repeat: no-repeat;
+	}
 
 }

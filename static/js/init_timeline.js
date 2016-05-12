@@ -26,7 +26,8 @@ for (var i = 0; i < timelineArray.length; i++) {
 	Timeline.addEvent(id, date, category, description, photos);
 }
 
-// Timeline.sortEvents(Timeline.getArray(), 0, Timeline.numOfEvents()-1);
+Timeline.sortEvents(Timeline.getArray(), 1, Timeline.numOfEvents());
+Timeline.resetIds();
 Timeline.firstEvent();
 Display.drawContainer();
 Display.drawEventViewer();

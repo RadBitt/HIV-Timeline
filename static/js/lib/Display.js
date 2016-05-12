@@ -172,7 +172,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		});
 		
 		while (Event.getDate().getFullYear() <= endYear) {
-			console.log(Event.getDate().getFullYear() + ' < ' + endYear)
+			console.log(startYear + ' < ' + endYear)
 			EventId = Event.getId(); 
 			eventElementString = '<div id="' + EventId + '" class="' + Event.getType() + ' event"></div>';
 			line.append(eventElementString);
@@ -276,7 +276,14 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		that.Control.drawNextEventButton();
 		that.Control.drawPrevEventButton();
 		hideDeathText();
-		checkEventControl(id); 
+		checkEventControl(id);
+		highlightEvent(id); 
+	}
+
+	function highlightEvent(id) {
+		var Element = $('#'+id);
+		$('#timeline div.event.highlighted').removeClass('highlighted');
+		Element.addClass('highlighted'); 
 	}
 
 	function checkEventView() {

@@ -12,6 +12,10 @@ function Event(id, dateString, category, description, imgStringUrl) {
 
 	this.imgURI = imgStringUrl;
 
+	this.setId = function(newId) {
+		this.id = newId; 
+	}
+
 	this.getId = function() {
 		return this.id; 
 	}
