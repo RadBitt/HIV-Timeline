@@ -31,6 +31,10 @@ function navHighlight()
         // document.getElementById("information").setAttribute("class", "active");
         //  console.log("hit info");
     }
+    else if (active == "partners" || active == "advocacy")
+    {
+        document.getElementById("community").style.borderTopColor = "#4B90E0";
+    }
     else
     {
         document.getElementById(active).style.borderTopColor = "#4B90E0";

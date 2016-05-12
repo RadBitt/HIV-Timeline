@@ -61,25 +61,25 @@ else
                   <li class="dropdown services" id="services">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">services<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="support<?php echo $ext ?>">community support</a></li>
-                      <li><a href="testing<?php echo $ext ?>">testing</a></li>
+                      <li id="support"><a href="support<?php echo $ext ?>">community support</a></li>
+                      <li id="testing"><a href="testing<?php echo $ext ?>">testing</a></li>
                     </ul>
                   </li>
 
                   <li class="dropdown information" id="information">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">information<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="aboutHIV<?php echo $ext ?>">about HIV</a></li>
-                      <li><a href="prevention<?php echo $ext ?>">prevention</a></li>
-                      <li><a href="videos<?php echo $ext ?>">videos</a></li>
+                      <li id="about"><a href="aboutHIV<?php echo $ext ?>">about HIV</a></li>
+                      <li id="about"><a href="prevention<?php echo $ext ?>">prevention</a></li>
+                      <li id="about"><a href="videos<?php echo $ext ?>">videos</a></li>
                     </ul>
                   </li>
 
                   <li class="dropdown community" id="community">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">community<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="partners<?php echo $ext ?>">partners</a></li>
-                      <li><a href="advocacy<?php echo $ext ?>">advocacy</a></li>
+                      <li id="partners"><a href="partners<?php echo $ext ?>">partners</a></li>
+                      <li id="advocacy"><a href="advocacy<?php echo $ext ?>">advocacy</a></li>
                     </ul>
                   </li>
 

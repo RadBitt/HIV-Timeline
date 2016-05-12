@@ -17,8 +17,9 @@
 			<p><strong>Project SAFE</strong> is a peer education component of the projects and programs of the HIV/STI Prevention Studies Office. Our peer educators are involved in a wide range of activities such as safer sex fairs, World AIDS day and Transgender Awareness Day events, staffing a Peer education and Resources Room in MUB 301, and the projects of Community Leadership Training and the Gender Diversity Project. The Project SAFE club is supported by the CCSF Interclub Council of the Associated Students (A.S.). The club supports students in the above and/or other activities as determined by elected club officers, club members, and the faculty advisors under thebylaws of the A.S. This student club meets in the LINK Center (Linking Learning and Action) MUB 301. For more information, click <a href="http://sanfranciscopolice.org/project-safe">here</a>.</p>
 		</div>
 
-		<div class="timeline-events-container col-md-3 col-sm-3">
+		<div class="col-md-3 col-sm-12"></div>
 
+		<div class="timeline-events-container col-md-3 col-sm-3">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="/support">Community Support</a></li>
