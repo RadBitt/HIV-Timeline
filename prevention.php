@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<div class="right-section col-md-3">
+		<div class="col-md-3">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="#">Community Support</a></li>

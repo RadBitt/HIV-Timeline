@@ -54,15 +54,15 @@ ul {
 /*hide centerBlock class at breakpoint*/
 .centerBlock {
   display: table;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
-.more-services {
-  margin: 0px 0px 10px 35px;
+.more-services ul, .external-links {
+  margin: 0;
+  padding: 0 0px 20px 0px;
 }
 
 .right-section {
-  margin-left: 14%;
   display: inline-block;
 }
 
@@ -337,10 +337,4 @@ ul {
     display: block;
   }
 
-  .more-services ul, .right-section {
-    padding: 0; 
-    margin: 0; 
-  }
-
-}
->>>>>>> b073068df6f6a6577120c1de15dc056d8c8d5cad
+}>>>>>>> b073068df6f6a6577120c1de15dc056d8c8d5cad
