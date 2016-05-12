@@ -51,12 +51,12 @@
 
 			<div>
 				<ul class="external-links">For more HIV/STI Information, click the following sites:
-					<li><a href="">San Francisco AIDS Foundation</a></li>
-					<li><a href="">Project Inform</a></li>
-					<li><a href="">San Francisco Syringe Exchange</a></li>
-					<li><a href="">San Francisco Sex Information</a></li>
-					<li><a href="">California AIDS Hotline</a></li>
-					<li><a href="">Center for Disease Control and Prevention (CDC)</a></li>
+					<li><a href="http://sfaf.org/hiv-info/?referrer=http://www.sfaf.org/">San Francisco AIDS Foundation</a></li>
+					<li><a href="http://www.projectinform.org/information/">Project Inform</a></li>
+					<li><a href="http://www.sfaf.org/client-services/syringe-access/site-schedule.html">San Francisco Syringe Exchange</a></li>
+					<li><a href="http://sfsi.org/">San Francisco Sex Information</a></li>
+					<li><a href="https://npin.cdc.gov/ca/">California AIDS Hotline:</a> 1.800.367.2437</li>
+					<li><a href="http://www.cdc.gov/hiv/default.html">Center for Disease Control and Prevention (CDC)</a></li>
 				</ul>
 			</div>
 		</div> <!-- end right-section -->
