@@ -27,15 +27,15 @@
 
 		</div>
 
-		<div class="right-section col-md-6 col-sm-12">
-			<div class="more-services">
-				<ul>More Services
-					<li><a href="support<?php echo $ext ?>">Community Support</a></li>
-					<li><a href="testing<?php echo $ext ?>">Testing</a></li>
-					<li><a href="prevention<?php echo $ext ?>">HIV Prevention</a></li>
-				</ul>
-			</div>
+		<div class="more-services col-md-3">
+			<ul>More Services
+				<li><a href="support<?php echo $ext ?>">Community Support</a></li>
+				<li><a href="testing<?php echo $ext ?>">Testing</a></li>
+				<li><a href="prevention<?php echo $ext ?>">HIV Prevention</a></li>
+			</ul>
+		</div>
 
+		<div class="timeline-events-container col-md-3">
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
 					<li><a href="#">Testing</a></li>
@@ -43,7 +43,8 @@
 					<li><a href="#">Research</a></li>
 				</ul>
 			</div>
-		</div> <!-- end right-section -->
+		</div>
+	<!-- end right-section -->
 	</div>
 	<!-- end body html -->
 
