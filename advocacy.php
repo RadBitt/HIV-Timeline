@@ -19,7 +19,7 @@
 
 		<div class="timeline-events-container col-md-3 col-sm-3">
 
-			<div class="more-services col-md-3 col-sm-3">
+			<div class="more-services">
 				<ul>More Services
 					<li><a href="/support">Community Support</a></li>
 				</ul>

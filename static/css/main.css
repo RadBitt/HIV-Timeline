@@ -54,15 +54,15 @@ ul {
 /*hide centerBlock class at breakpoint*/
 .centerBlock {
   display: table;
-  margin: 0 auto;
+  /*margin: 0 auto;*/
 }
 
-.more-services {
-  margin: 0px 0px 10px 35px;
+.more-services ul, .external-links {
+  margin: 0;
+  padding: 0 0px 20px 0px;
 }
 
 .right-section {
-  margin-left: 14%;
   display: inline-block;
 }
 
@@ -337,9 +337,13 @@ ul {
   }
 }
 
+<<<<<<< HEAD
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
   .centerBlock {
     display: block;
   }
 }
+=======
+}>>>>>>> b073068df6f6a6577120c1de15dc056d8c8d5cad
+>>>>>>> 4b0eeb0343bf59c6c3645f0f4afaf49dc4ce2286
