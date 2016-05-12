@@ -68,6 +68,23 @@ function Timeline() {
         }
         console.log(Event); 
     }
+	
+	this.searchText = function(searchString) {
+		var first = this.firstEventInt;
+		var last = this.numOfEvents();		
+		var Event = this.firstEvent();
+		var returnArr = [];
+
+		for (var i = first; i <= last; i++){
+			var text = Event.getText();
+			if (text.search(new RegExp(searchString, "i")) > 0){
+				returnArr.push(Event.getId());
+				console.log("searchText() success");	
+			}
+			Event = this.nextEvent();
+		}
+		return returnArr;
+	}
 
 }
 
