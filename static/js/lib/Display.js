@@ -19,13 +19,13 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	this.drawContainer = function() {
 		var newElement; 
 		var styles = {
-	      width: this.Options.width,
-	      height: this.Options.height
+	      // width: 100%,
+	      // height: this.Options.height
 	    };
 
 	    this.container = $(this.container).append('<div id="timeline"></div>');
 	    newElement = $(this.timelineContiner);
-	    this.container.css({width: styles.width}); 
+	    this.container.css(styles); 
 		newElement.css(styles);
 
 	}
@@ -33,12 +33,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	this.drawEventViewer = function() {
 		var newElement;
 		var styles = {
-	      width: this.Options.eventViewWidth,
-	      height: this.Options.eventViewHeight
+	      // width: this.Options.eventViewWidth,
+	      // height: this.Options.eventViewHeight
 	    };
 
 	    this.eventViewContainer = $(this.eventViewContainer).append('<div id="event-viewer"></div>');
-	    this.eventViewContainer.css({width: styles.width}); 
+	    this.eventViewContainer.css(styles); 
 	    newElement = $('#event-viewer');
 		newElement.css(styles);
 		this.Control.drawNextButton();
@@ -54,7 +54,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			left: 0		
 		};
 
-		line.append('<hr class="timeline">');
+		line.append('<hr id="the-line">');
 
 		for (var i = 0; i < segmL; i++) {
 			vLine = line.append(div)
@@ -134,6 +134,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		$('#timeline div.event').click(function() {
 			drawEventView(this.id); 
 		});
+
+		addMobileText(); 
 	}
 
 	this.nextEvent = function() {
@@ -167,6 +169,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			eventStyles.opacity = 0; 
 			thisElement.css(eventStyles);
 			thisElement.animate({left: findPosition(that, Event), opacity: 1}, 1000);
+			addMobileElement(thisElement);
 			if (this.Timeline.isLast()) {
 				this.Control.removeNextButton();
 				break;
@@ -178,7 +181,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				if ($(this.Control.prevButton).length == 0)
 					this.Control.drawPrevButton();
 			}
-					
+
 			Event = this.Timeline.nextEvent();
 		}
 
@@ -211,6 +214,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			eventStyles.opacity = 0; 
 			thisElement.css(eventStyles);
 			thisElement.animate({left: findPosition(that, Event), opacity: 1}, 1000);
+			addMobileElement(thisElement);
 			if (this.Timeline.isFirst()) {
 				this.Control.removePrevButton();
 				break;
@@ -222,15 +226,33 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				if ($(this.Control.prevButton).length == 0)
 					this.Control.drawPrevButton();
 			}
-					
 			Event = this.Timeline.prevEvent();
 		}
+	}
+
+	function addMobileElement(Element) {
+		var newElement;
+		var newElementString = '<div class="mobile-event"></div>';
+		newElement = $(newElementString).appendTo(Element);
+	}
+
+	function addMobileText() {
+		var Event, mobileElement, id;
+		$('.event').each(function(){
+			id = $(this).attr('id'); 
+			console.log(id);
+			Event = that.Timeline.getId(id);
+			mobileElement = $(this).children(":first");
+			mobileElement.append('<p>' + Event.getDate() +  '</p>');
+			mobileElement.append('<p>' + Event.getType() +  '</p>');
+			mobileElement.append('<p>' + Event.getText() +  '</p>');
+		});
 	}
 
 	function drawEventView(id) {
 		var eventView;
 		var eventViewString = '<div id="event-view"></div>';
-		var Event = this.Timeline.getId(id);
+		var Event = that.Timeline.getId(id);
 		eventView = $(eventViewString).appendTo('#event-viewer'); 
 		eventView.append('<p>' + Event.getDate() +  '</p>');
 		eventView.append('<p>' + Event.getType() +  '</p>');
