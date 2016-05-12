@@ -31,7 +31,9 @@
 			</div>
 		</div>
 
-		<div class="right-section col-md-3 col-sm-12">
+		<div class="col-md-2"></div>
+
+		<div class="right-section col-md-4 col-sm-12">
 			<div class="more-services">
 				<ul>More Information
 					<li><a href="prevention<?php echo $ext ?>">Prevention</a></li>
