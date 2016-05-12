@@ -124,6 +124,8 @@ ul {
 #searchBox {
   position: relative;
   top: 6px;
+	float: right;
+	overflow: hidden;
 }
 
 /*
@@ -214,8 +216,22 @@ ul {
 * ============================================================================
 */
 
-.videos .content {
-  width: 50%;
+.videos section {
+  margin-bottom: 75px;
+}
+
+.video {
+  margin-bottom: 10px;
+}
+
+/*
+* =============================================================================
+* Classes
+* =============================================================================
+*/
+
+.classes .content a {
+  font-weight: bold;
 }
 
 /*
@@ -330,6 +346,18 @@ ul {
   }
 }
 
+/* fix nav bar overflow */
+@media (max-width: 908px) {
+  #searchBox input {
+    display: none;
+  }
+
+  #searchBoxIcon {
+    margin-top:-15px;
+    margin-right:-15px;
+  }
+}
+
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
   .centerBlock {
@@ -337,13 +365,9 @@ ul {
   }
 }
 
-<<<<<<< HEAD
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
   .centerBlock {
     display: block;
   }
 }
-=======
-}>>>>>>> b073068df6f6a6577120c1de15dc056d8c8d5cad
->>>>>>> 4b0eeb0343bf59c6c3645f0f4afaf49dc4ce2286
