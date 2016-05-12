@@ -61,7 +61,7 @@ function EventArray() {
 			return true;
 		else 
 			return false; 
-	}	
+	}
 
 	this.getArray = function() {
 		return this.eventsArray; 
@@ -78,6 +78,10 @@ function EventArray() {
 			return this.eventsArray[id]; 
 		}
 		
+	}
+
+	this.getInt = function() {
+		return this.currentEventInt; 
 	}
 	
 }

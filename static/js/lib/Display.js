@@ -139,19 +139,30 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	this.nextEvent = function() {
-		// Remove excissting view if any
-		// Draw event view
-		// Next and prev buttons target next event. 
+		var id = this.Timeline.getInt();
+
+		checkEventView();
+
+		checkEventControl(id-1);
+
+		drawEventView(id+1);
+
 	}
 
 	this.prevEvent = function() {
+		var id = this.Timeline.getInt();
 
+		checkEventView(); 
+
+		drawEventView(id-1);
+
+		checkEventControl(id-1);
 	}
 
 	this.nextSegment = function(Event) {
 		var segmL = this.Options.segmentLength;
-		var startYear = Event.getDate().getFullYear();
-		var endYear = startYear + segmL + 1; 
+		var startYear = getDecade(Event.getDate().getFullYear());
+		var endYear = startYear + segmL; 
 		var line = $(this.timelineContiner);
 		var eventElementString, thisElement, EventId, endCondition;
 		var eventStyles = {left: parseInt(this.Options.width)}; 
@@ -160,7 +171,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			$('#timeline div.oldEvent').remove();
 		});
 		
-		while (Event.getDate().getFullYear() < endYear) {
+		while (Event.getDate().getFullYear() <= endYear) {
+			console.log(Event.getDate().getFullYear() + ' < ' + endYear)
 			EventId = Event.getId(); 
 			eventElementString = '<div id="' + EventId + '" class="' + Event.getType() + ' event"></div>';
 			line.append(eventElementString);
@@ -189,8 +201,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	this.prevSegment = function(Event) {
 		var segmL = this.Options.segmentLength;
-		var startYear = Event.getDate().getFullYear();
-		var endYear = startYear - (segmL + 1);
+		var startYear = getDecade(Event.getDate().getFullYear());
+		var endYear = startYear - segmL;
 		var line = $(this.timelineContiner);
 		var eventElementString, thisElement, EventId, endCondition, firstEvent;
 		var eventStyles = {}; 
@@ -199,7 +211,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			$('#timeline div.oldEvent').remove();
 		});
 
-		while (Event.getDate().getFullYear() > endYear) {
+		while (Event.getDate().getFullYear() >= endYear) {
 			EventId = Event.getId(); 
 			eventElementString = '<div id="' + EventId + '" class="' + Event.getType() + ' event"></div>';
 			firstEvent = $('#timeline div.event');
@@ -240,7 +252,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var Event, mobileElement, id;
 		$('.event').each(function(){
 			id = $(this).attr('id'); 
-			console.log(id);
+			// console.log(id);
 			Event = that.Timeline.getId(id);
 			mobileElement = $(this).children(":first");
 			mobileElement.append('<p>' + Event.getDate() +  '</p>');
@@ -253,12 +265,44 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var eventView;
 		var eventViewString = '<div id="event-view"></div>';
 		var Event = that.Timeline.getId(id);
+
+		checkEventView();
+
 		eventView = $(eventViewString).appendTo('#event-viewer'); 
 		eventView.append('<p>' + Event.getDate() +  '</p>');
 		eventView.append('<p>' + Event.getType() +  '</p>');
 		eventView.append('<p>' + Event.getText() +  '</p>');
 		that.Control.drawCloseButton(); 
-		hideDeathText(); 
+		that.Control.drawNextEventButton();
+		that.Control.drawPrevEventButton();
+		hideDeathText();
+		checkEventControl(id); 
+	}
+
+	function checkEventView() {
+		var eventView = $('#event-view');
+		if ( eventView.length == 1)
+			eventView.remove();
+	}
+
+	function checkEventControl(id) {
+		var firstInt = $('#timeline div.event').first().attr('id');
+		var lastInt = $('#timeline div.event').last().attr('id');
+		console.log(id + ' == ' + firstInt);
+		console.log(id + ' == ' + lastInt);  
+		if (id == lastInt && id == firstInt) { 
+			that.Control.removeNextEventButton();
+			that.Control.removePrevEventButton();
+		} else if (id == firstInt) {
+			that.Control.removePrevEventButton();
+		} else if (id == lastInt) {
+			that.Control.removeNextEventButton(); 
+		} else {
+			if ($(that.Control.nextEvent).length == 0)
+				that.Control.drawNextEventButton();
+			if ($(that.Control.prevEvent).length == 0)
+				that.Control.drawPrevEventButton();
+		}
 	}
 
 	function removeEventView() {
@@ -307,6 +351,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		return eventPos; 
 	}
 
+	function getDecade(year) {
+		var ones = parseInt(year.toString().charAt(3));
+		year = year - ones;
+		return year; 
+	}
+
 	function setOptions() {
 		if (optionsObject == undefined)
 			return new DisplayOptions();
@@ -344,11 +394,39 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		this.prevButton = '#prev-button';
 
 		this.drawNextEventButton = function() {
-
+			var eventView = '#event-view';
+			var newElement = '<div id="next-event"></div>';
+			var styles = {
+				position: 'absolute',
+				width: '17px',
+				height: '30px',
+				top: '40%',
+				right: '8%',
+			};
+			
+			$(eventView).append(newElement); 
+			$(this.nextEvent).css(styles);
+			$(this.nextEvent).click(function() {
+				that.nextEvent(); 
+			});
 		}
 
 		this.drawPrevEventButton = function() {
-
+			var eventView = '#event-view';
+			var newElement = '<div id="prev-event"></div>';
+			var styles = {
+				position: 'absolute',
+				width: '17px',
+				height: '30px',
+				top: '40%',
+				left: '8%',
+			};
+			
+			$(eventView).append(newElement); 
+			$(this.prevEvent).css(styles);
+			$(this.prevEvent).click(function() {
+				that.prevEvent(); 
+			});
 		}
 
 		this.drawCloseButton = function() {
@@ -406,6 +484,14 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			$(this.prevButton).click(function() {
 				that.drawEvents('prev'); 
 			});
+		}
+
+		this.removeNextEventButton = function () {
+			$(this.nextEvent).remove();
+		}
+
+		this.removePrevEventButton = function () {
+			$(this.prevEvent).remove(); 
 		}
 
 		this.removeNextButton = function() {

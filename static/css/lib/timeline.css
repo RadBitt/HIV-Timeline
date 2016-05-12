@@ -114,6 +114,14 @@ body {
 	background-image: url(../../img/icons/arrow.left.years.png);
 }
 
+#next-event {
+	background-image: url(../../img/icons/arrow.right.event.png);
+}
+
+#prev-event {
+	background-image: url(../../img/icons/arrow.left.event.png);
+}
+
 /* Event Styles */
 .event {
 	position: absolute;
