@@ -155,7 +155,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	this.nextSegment = function(Event) {
 		var segmL = this.Options.segmentLength;
-		var startYear = getDecade(Event.getDate().getFullYear());
+		var startYear = getDecade(Event.getDate().getFullYear(), 'next');
 		var endYear = startYear + segmL; 
 		var line = $(this.timelineContiner);
 		var eventElementString, thisElement, EventId, endCondition;
@@ -195,7 +195,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	this.prevSegment = function(Event) {
 		var segmL = this.Options.segmentLength;
-		var startYear = getDecade(Event.getDate().getFullYear());
+		var startYear = getDecade(Event.getDate().getFullYear(), 'prev');
 		var endYear = startYear - segmL;
 		var line = $(this.timelineContiner);
 		var eventElementString, thisElement, EventId, endCondition, firstEvent;
@@ -205,6 +205,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			$('#timeline div.oldEvent').remove();
 		});
 
+
+		console.log(Event.getDate().getFullYear() + '>=' + endYear)
 		while (Event.getDate().getFullYear() >= endYear) {
 			EventId = Event.getId(); 
 			eventElementString = '<div id="' + EventId + '" class="' + Event.getType() + ' event"></div>';
@@ -366,10 +368,15 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		return eventPos; 
 	}
 
-	function getDecade(year) {
-		var ones = parseInt(year.toString().charAt(3));
-		year = year - ones;
-		return year; 
+	function getDecade(year, direction) {
+		var ones;
+		if (direction == 'next') {
+			ones = parseInt(year.toString().charAt(3));
+			year = year - ones;
+			return year;
+		} else if (direction == 'prev') {
+			return year;
+		} 
 	}
 
 	function setOptions() {
