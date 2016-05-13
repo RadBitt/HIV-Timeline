@@ -49,7 +49,25 @@ $(document).ready(function() {
     $('#google_translate_element').prev().remove();
     $('#google_translate_element').remove();
 
+    if (window.innerWidth <= 900) {
+
+    }
+
 });
+
+$(window).scroll(function() {
+
+    if (window.innerWidth <= 900) {
+        if ($(window).scrollTop() > 50){
+            $('nav').css({marginBottom: '51px'});
+            $('#event-viewer-container').css({position: 'fixed', top: 0}); 
+        } else {
+            $('nav').css({marginBottom: '0'});
+            $('#event-viewer-container').css({position: 'relative', top: 'initial'});
+        }
+    }
+
+ });
 
 
 // function navHighlight()

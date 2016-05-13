@@ -30,18 +30,16 @@ function Timeline() {
                 i       = left,
                 j       = right;
 
-                console.log('======new pivot=========');
-
             while (i <= j) {
                 while (items[i].getDate() < pivot) {
-                    console.log(items[i].getDate() + ' > ' + pivot);
-                    console.log(items[i].getDate() > pivot);
+                    // console.log(items[i].getDate() + ' > ' + pivot);
+                    // console.log(items[i].getDate() > pivot);
                     i++;
                 }
                     
                 while (items[j].getDate() > pivot) {
-                    console.log(items[j].getDate() + ' > ' + pivot);
-                    console.log(items[j].getDate() > pivot);
+                    // console.log(items[j].getDate() + ' > ' + pivot);
+                    // console.log(items[j].getDate() > pivot);
                     j--;
                 }
                     
@@ -60,13 +58,13 @@ function Timeline() {
         var first = this.firstEventInt;
         var last = this.numOfEvents();
         var Event = this.firstEvent(); 
-        console.log(first);
-        console.log(last);
+        // console.log(first);
+        // console.log(last);
         for(var i = first; i <= last; i++) {
             Event.setId(i);
             Event = this.nextEvent(); 
         }
-        console.log(Event); 
+        // console.log(Event); 
     }
 	
 	this.searchText = function(searchString) {
@@ -85,6 +83,8 @@ function Timeline() {
 		}
 		return returnArr;
 	}
+
+
 
 }
 

@@ -1,5 +1,5 @@
         <!-- Footer Block start -->
-          <div id="footer">
+          <div id="footer" class="col-sm-12">
             <div class="footer-nav">
               <ul>
                 <li><a href="#">Contact Us</a></li>

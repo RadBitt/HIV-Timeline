@@ -99,6 +99,10 @@ body {
 	top: 0;
 }
 
+#mobile-decade {
+	display: none;
+}
+
 .death-text p {
 	position: relative;
 	color: red;
@@ -108,10 +112,21 @@ body {
 /* Control Styles */
 #next-button {
 	background-image: url(../../img/icons/arrow.right.years.png);
+	position: absolute;
+    width: 14px;
+    height: 23px;
+    bottom: 0px;
+    right: -28px;
+/*    background-color: white;*/
 }
 
 #prev-button {
 	background-image: url(../../img/icons/arrow.left.years.png);
+	position: absolute;
+    width: 14px;
+    height: 23px;
+    bottom: 0px;
+    left: -28px;
 }
 
 #next-event {
@@ -139,11 +154,6 @@ body {
 	float: left;
 }
 
-.highlighted {
-	background-color: orange;
-	border-radius: 50%;
-}
-
 .political {
 	background-image: url(../../img/icons/Circle.timeline.png);
 }
@@ -165,68 +175,114 @@ body {
 }
 
 @media (max-width: 900px) { 
-  #hiv-timeline-container {
-    width: 100%;
-  }
+	#footer {
+		width: 100%;
+		bottom: 0px;
+	}
 
-  #timeline {
-  	height: initial;
-  }
+	#hiv-timeline-container {
+		width: 100%;
+	}
 
-  #event-viewer-container {
-  	display: none;
-  }
+	#timeline-heading,
+	#the-line,
+	.rule-text,
+	.death-text,
+	.vertical-line {
+		display: none;
+	}
 
-  #the-line,
-  .rule-text,
-  .vertical-line
-  {
-  	display: none;
-  }
+	.mobile-event {
+		display: block;
+	}
 
-  .mobile-event {
-  	display: block;
-  }
+	#mobile-decade {
+		display: inherit;
+		position: relative;
+		top: 40%;
+		text-align: center; 
+	}
 
-  .event {
-  	position: initial;
-  	left: initial;
-  	top: initial;
-  	width: 80%;
-  	height: initial;
-  	margin: 0 auto;
-  	display: block;
-  	float: none;
-  }
+
+	#timeline {
+		height: initial;
+	}
+
+	#event-viewer-container {
+		position: relative;
+		z-index: 3;
+		bottom: 0px;
+		height: 50px;
+		border-bottom: 2px solid grey;
+		margin-bottom: 10px;
+	}
+
+	#next-button, #prev-button {
+		z-index: 4;
+		top: 15px;
+	}
+
+	#next-button {
+		position: absolute;
+    	right: 20px;
+	}
+
+	#prev-button {
+		position: absolute;
+    	left: 20px;
+	}
+
+	#event-viewer {
+		display: none;
+	}
+
+	.event {
+		position: initial;
+		left: initial;
+		top: initial;
+		width: 80%;
+		height: initial;
+		margin: 0 auto;
+		display: block;
+		float: none;
+	}
 
 	.highlighted {
 		background-color: inherit;
 		border-radius: 0;
 	}
 
-	.political {
+	.political .mobile-event{
 		background-image: url(../../img/icons/Circle.timeline.png);
 		background-repeat: no-repeat;
 	}
 
-	.celebrity {
+	.celebrity .mobile-event{
 		background-image: url(../../img/icons/Square.timeline.png);
 		background-repeat: no-repeat;
 	}
 
-	.social {
+	.social .mobile-event{
 		background-image: url(../../img/icons/Triangle.timeline.png);
 		background-repeat: no-repeat;
 	}
 
-	.health {
+	.health .mobile-event{
 		background-image: url(../../img/icons/Pentagon.timeline.png);
 		background-repeat: no-repeat;
 	}
 
-	.international {
+	.international .mobile-event{
 		background-image: url(../../img/icons/Hexagon.timeline.png);
 		background-repeat: no-repeat;
+	}
+
+	.political, 
+	.celebrity, 
+	.social, 
+	.health,
+	.international {
+		background-image: none;
 	}
 
 }

@@ -93,7 +93,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		drawText(); 
 
 		function drawText() {
-			var temp, year, newText, newDeath, lineHeight;
+			var temp, year, newText, newDeath, lineHeight, mobileYear;
 			var	viewHeight = that.Options.eventViewHeight; 
 			var firstEvent = $('#timeline div.event').first();
 			var Event = this.Timeline.getId(parseInt(firstEvent.attr('id')));
@@ -113,6 +113,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				lineHeight = Deaths[year] / Deaths.ratio; 
 				if (i == 0) {
 					vLine.before(newText);
+					addMobileDecade(year); 
 					if (deathText(year) != false) {
 						$(deathText(year)).insertBefore(vLine).animate(
 							{height: lineHeight+'px', top: -1*lineHeight}, 1000
@@ -140,22 +141,15 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	this.nextEvent = function() {
 		var id = this.Timeline.getInt();
-
 		checkEventView();
-
 		checkEventControl(id-1);
-
 		drawEventView(id+1);
-
 	}
 
 	this.prevEvent = function() {
 		var id = this.Timeline.getInt();
-
 		checkEventView(); 
-
 		drawEventView(id-1);
-
 		checkEventControl(id-1);
 	}
 
@@ -261,6 +255,14 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		});
 	}
 
+	function addMobileDecade(year) {
+		var eventViewContainer = $(that.Options.eventViewContainer);
+		if ($('#mobile-decade').length > 0)
+			$('#mobile-decade').html('' + year + ' - ' + (year + 9));
+		else
+			eventViewContainer.append('<p id="mobile-decade">' + year + ' - ' + (year + 9) + '</p>');
+	}
+
 	function drawEventView(id) {
 		var eventView;
 		var eventViewString = '<div id="event-view"></div>';
@@ -282,8 +284,14 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	function highlightEvent(id) {
 		var Element = $('#'+id);
-		$('#timeline div.event.highlighted').removeClass('highlighted');
-		Element.addClass('highlighted'); 
+		var oldElement = $('#timeline div.event.highlighted').removeClass('highlighted');
+
+		oldElement.animate({top: -17}, 500);
+
+		Element.animate({top: -40}, 500, function() {
+			Element.addClass('highlighted'); 
+		});
+		
 	}
 
 	function checkEventView() {
@@ -460,11 +468,11 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			var eventView = that.eventViewContainer
 			var newElement = '<div id="next-button"></div>';
 			var nextStyles = {
-				position: 'absolute',
-				width: '14px',
-				height: '23px',
-				bottom: '0',
-				right: '-28px'
+				// position: 'absolute',
+				// width: '14px',
+				// height: '23px',
+				// bottom: '0',
+				// right: '-28px'
 			};
 			
 			$(eventView).append(newElement); 
@@ -479,11 +487,11 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			var eventView = that.eventViewContainer
 			var newElement = '<div id="prev-button"></div>';
 			var prevStyles = {
-				position: 'absolute',
-				width: '14px',
-				height: '23px',
-				bottom: '0',
-				left: '-28px'
+				// position: 'absolute',
+				// width: '14px',
+				// height: '23px',
+				// bottom: '0',
+				// left: '-28px'
 			};
 			
 			$(eventView).append(newElement); 
