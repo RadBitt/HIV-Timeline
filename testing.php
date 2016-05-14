@@ -23,6 +23,11 @@
 		</div>
 
 		<div class="timeline-events-container col-md-3">
+			<div class="more-services">
+				<ul>More Services
+					<li><a href="support.php">Community Support</a></li>
+				</ul>
+			</div>
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
 					<li><a href="#">Testing</a></li>
@@ -30,12 +35,6 @@
 					<li><a href="#">Research</a></li>
 				</ul>
 			</div>
-		</div>
-
-		<div class="more-services col-md-3">
-			<ul>More Services
-				<li><a href="support.php">Community Support</a></li>
-			</ul>
 		</div>
 	</div>
 	<!-- end body html -->

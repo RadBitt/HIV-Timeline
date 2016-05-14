@@ -77,6 +77,11 @@
 		<div class="col-md-1 col-sm-12"></div>
 
 		<div class="timeline-events-container col-md-3 col-sm-12">
+			<div class="more-services">
+				<ul>More Services
+					<li><a href="/testing">Testing</a></li>
+				</ul>
+			</div>
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
 					<li><a href="#">Community</a></li>
@@ -88,11 +93,7 @@
 			</div>
 		</div> <!-- end timeline-events-container -->
 
-		<div class="more-services col-md-3 col-sm-12">
-			<ul>More Services
-				<li><a href="/testing">Testing</a></li>
-			</ul>
-		</div>
+		
 	</div>
 	<!-- end body html -->
 

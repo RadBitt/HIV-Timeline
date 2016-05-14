@@ -1,6 +1,6 @@
 <?php
 
-$deployment = true;
+$deployment = false;
 
 if ($deployment)
   $ext = '.html';

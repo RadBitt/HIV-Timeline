@@ -12,10 +12,16 @@
 	</div>
 
 	<div class="prevention container">
-		<div class="content col-md-9">
+		<div class="content col-md-4">
 			<div class="brochure">
 				<img src="http://www.w3schools.com/bootstrap/sanfran.jpg">
-				<h4>Brochure Title</h4>
+				<h4>HIV: HIV Treatment is HIV Prevention</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+
+			<div class="brochure">
+				<img src="http://www.w3schools.com/bootstrap/sanfran.jpg">
+				<h4>Safer Sex Self Reflection</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
 
@@ -24,22 +30,17 @@
 				<h4>Brochure Title</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
-
+        </div>
+   	 	<div class="content col-md-4">
 			<div class="brochure">
 				<img src="http://www.w3schools.com/bootstrap/sanfran.jpg">
-				<h4>Brochure Title</h4>
+				<h4>Sexually Transmitted Infection (STI)h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
 
 			<div class="brochure">
 				<img src="http://www.w3schools.com/bootstrap/sanfran.jpg">
-				<h4>Brochure Title</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-			</div>
-
-			<div class="brochure">
-				<img src="http://www.w3schools.com/bootstrap/sanfran.jpg">
-				<h4>Brochure Title</h4>
+				<h4>Harm Reduciton: Risk Prevention</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
 
@@ -49,7 +50,6 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
 		</div>
-
 		<div class="col-md-3">
 			<div class="more-services">
 				<ul>More Services
@@ -65,6 +65,9 @@
 				</ul>
 			</div>
 		</div>
+	</div>
+
+	
 	</div>
 	<!-- end body html -->
 	
