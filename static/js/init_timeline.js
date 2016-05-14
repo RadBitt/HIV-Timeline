@@ -46,7 +46,7 @@ function getCategory(string) {
 		return 'celebrity';
 }
 
-function reverseCategory(string) {
+function printType(string) {
 	if (string == 'international')
 		return 'International Information';
 	else if (string == 'political')

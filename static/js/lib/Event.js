@@ -24,6 +24,14 @@ function Event(id, dateString, category, description, imgStringUrl) {
 		return this.date;
 	}
 
+	this.getType = function() {
+		return this.category; 
+	}
+
+	this.getText = function() {
+		return this.eventText;
+	}
+
 	this.printDate = function() {
 		var printDate; 
 		var monthIndex; 
@@ -37,14 +45,6 @@ function Event(id, dateString, category, description, imgStringUrl) {
 		monthIndex = this.date.getMonth();
 		printDate = monthNames[monthIndex] + ' ' + this.date.getFullYear();
 		return printDate; 
-	}
-
-	this.getType = function() {
-		return this.category; 
-	}
-
-	this.getText = function() {
-		return this.eventText;
 	}
 
 }
