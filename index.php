@@ -3,7 +3,6 @@
 	<!-- Navigation -->
 		
 	<!-- End Navigation -->
-
 		<link rel="stylesheet" type="text/css" href="static/css/lib/timeline.css">
 		
 		<script type="text/javascript" src="static/js/lib/Display.js"></script>

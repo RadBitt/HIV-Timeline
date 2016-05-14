@@ -1,6 +1,6 @@
 <?php
 
-$deployment = false;
+$deployment = true;
 
 if ($deployment)
   $ext = '.html';
@@ -14,6 +14,7 @@ else
         <title></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='shortcut icon' href='static/img/icons/favicon.png' type='image/x-icon'>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <!-- External CSS files FOR ALL pages are referenced here -->
@@ -46,7 +47,7 @@ else
                   <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="index<?php echo $ext ?>">
                   <img alt="Brand" src="static/img/icons/logo.png">
                 </a>
               </div>

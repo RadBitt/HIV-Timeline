@@ -19,7 +19,7 @@ for (var i = 0; i < timelineArray.length; i++) {
 	description = timelineArray[i].description
 	if (date.length == 4) {
 		randMonth = getRandomArbitrary(1, 12);
-		date = date + '-' + randMonth + '-1';
+		date = date + '/' + randMonth + '/1';
 		// console.log(date); 
 	}
 		 
@@ -28,7 +28,6 @@ for (var i = 0; i < timelineArray.length; i++) {
 
 Timeline.sortEvents(Timeline.getArray(), 1, Timeline.numOfEvents());
 Timeline.resetIds();
-Timeline.firstEvent();
 Display.drawContainer();
 Display.drawEventViewer();
 Display.drawSegment();
@@ -45,6 +44,19 @@ function getCategory(string) {
 		return 'social';
 	else if (string == 'Celebrities and AIDS')
 		return 'celebrity';
+}
+
+function reverseCategory(string) {
+	if (string == 'international')
+		return 'International Information';
+	else if (string == 'political')
+		return 'Political Events';
+	else if (string == 'health')
+		return 'Public Health and Medicine';
+	else if (string == 'social')
+		return 'Social Activism';
+	else if (string == 'celebrity')
+		return 'Celebrities and AIDS';
 }
 
 function getRandomArbitrary(min, max) {

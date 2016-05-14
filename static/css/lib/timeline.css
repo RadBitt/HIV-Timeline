@@ -45,8 +45,31 @@ body {
 	width: 1px;
 }
 
+#img {
+	float: left;
+	width: 30%;
+	height: 200px;
+}
+
 .mobile-event {
 	display: none;
+}
+
+.event-text {
+    width: 66%;
+    float: right;
+}
+
+.event-text h3 {
+    margin-top: 0;
+    text-transform: capitalize;
+}
+
+.event-text p {
+	text-indent: 30px;
+	-moz-column-width: 300px;
+	-webkit-column-width: 300px;
+	column-width: 300px;
 }
 
 /* Container Styles */
@@ -65,10 +88,9 @@ body {
 	height: 90%;
 	width: 90%;
 	margin: 0 auto;
-	padding: 100px;
+	padding: 75px 50px 0 50px;
 	background-color: white;
 	border: 1px solid white;
-	border-radius: 20px;
 }
 
 /*Line Segment*/
@@ -117,7 +139,6 @@ body {
     height: 23px;
     bottom: 0px;
     right: -28px;
-/*    background-color: white;*/
 }
 
 #prev-button {
@@ -135,6 +156,10 @@ body {
 
 #prev-event {
 	background-image: url(../../img/icons/arrow.left.event.png);
+}
+
+#close-button {
+	background-image: url(../../img/icons/X.png);
 }
 
 /* Event Styles */
@@ -174,7 +199,36 @@ body {
 	background-image: url(../../img/icons/Hexagon.timeline.png);
 }
 
-@media (max-width: 900px) { 
+.political.highlighted {
+	width: 22px;
+	height: 22px;
+	background-image: url(../../img/icons/Circle.timeline.select.png);
+}
+
+.celebrity.highlighted {
+	background-image: url(../../img/icons/Square.timeline.select.png);
+}
+
+.social.highlighted {
+	background-image: url(../../img/icons/Triangle.timeline.select.png);
+}
+
+.health.highlighted {
+	background-image: url(../../img/icons/Pentagon.timeline.select.png);
+}
+
+.international.highlighted {
+	background-image: url(../../img/icons/Hexagon.timeline.select.png);
+}
+
+.highlighted {
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 22px;
+	height: 22px;
+}
+
+@media (max-width: 1200px) { 
 	#footer {
 		width: 100%;
 		bottom: 0px;
@@ -192,8 +246,8 @@ body {
 		display: none;
 	}
 
-	.mobile-event {
-		display: block;
+	#timeline {
+		height: initial;
 	}
 
 	#mobile-decade {
@@ -201,11 +255,6 @@ body {
 		position: relative;
 		top: 40%;
 		text-align: center; 
-	}
-
-
-	#timeline {
-		height: initial;
 	}
 
 	#event-viewer-container {
@@ -217,6 +266,7 @@ body {
 		margin-bottom: 10px;
 	}
 
+/* Control Styles */
 	#next-button, #prev-button {
 		z-index: 4;
 		top: 15px;
@@ -232,6 +282,7 @@ body {
     	left: 20px;
 	}
 
+/* Event Styles */
 	#event-viewer {
 		display: none;
 	}
@@ -247,11 +298,25 @@ body {
 		float: none;
 	}
 
-	.highlighted {
-		background-color: inherit;
-		border-radius: 0;
+	.mobile-event {
+		display: block;
+		margin-bottom: 30px;
 	}
 
+	.mobile-event .date {
+		text-indent: 30px
+	}
+
+	.mobile-event .type {
+		text-indent: 30px;
+		text-transform: capitalize;
+	}
+
+	.mobile-event .text {
+		text-indent: 30px;
+	}
+ 
+/* Event Icon Styles */
 	.political .mobile-event{
 		background-image: url(../../img/icons/Circle.timeline.png);
 		background-repeat: no-repeat;

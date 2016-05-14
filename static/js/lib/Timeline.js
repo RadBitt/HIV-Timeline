@@ -84,8 +84,6 @@ function Timeline() {
 		return returnArr;
 	}
 
-
-
 }
 
 Timeline.prototype = Object.create(EventArray.prototype);

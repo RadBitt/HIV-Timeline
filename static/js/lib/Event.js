@@ -24,6 +24,21 @@ function Event(id, dateString, category, description, imgStringUrl) {
 		return this.date;
 	}
 
+	this.printDate = function() {
+		var printDate; 
+		var monthIndex; 
+		var monthNames = [
+		  "January", "February", "March",
+		  "April", "May", "June", "July",
+		  "August", "September", "October",
+		  "November", "December"
+		];
+
+		monthIndex = this.date.getMonth();
+		printDate = monthNames[monthIndex] + ' ' + this.date.getFullYear();
+		return printDate; 
+	}
+
 	this.getType = function() {
 		return this.category; 
 	}
