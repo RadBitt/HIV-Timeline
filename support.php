@@ -50,26 +50,6 @@
 			</section>
 
 			<section class="partner">
-				<h4><a href="http://www.positiveresource.org/">Positive Resource Center</a></h4>
-				<p>Provides professional benefits analysis, advocacy, counseling,  employment and vocational rehabilitation planning, counseling and coordination, job development and job search assistance, support groups, and computer access and training for people living with HIV/AIDS or mental health disabilities in San Francisco.</p>
-			</section>
-
-			<section class="partner">
-			    <h4><a href="http://apiwellness.org/site/transthrive/">TransThrive</a></h4>
-			    <p>A safe place for the transgender community with free HIV testing, counseling and case management, primary medical care, needle exchange, and mental health therapy.</p>
-			</section>
-
-			<section class="partner">
-				<h4><a href="http://transhealth.ucsf.edu/">UCSF Center for Excellence in Transgender Health</a></h4>
-				<p>Provides comprehensive, effective, and affirming health care services for trans communities including HIV prevention programs and clinical services.</p>
-			</section>
-
-			<section class="partner">
-				<h4><a href="http://oewd.org/">SF Office of Workforce Development</a></h4>
-				<p>Provides city-wide leadership for workforce development, business attraction and retention, neighborhood commercial revitalization, international business and development planning.</p>
-			</section>
-
-			<section class="partner">
 				<h4><a href="http://www.magnetsf.org/">Magnet</a></h4>
 				<p>Provides free sexual health services, counseling, massage, acupuncture, an art gallery and lounge</p>
 		</div>
@@ -79,7 +59,7 @@
 		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="/testing">Testing</a></li>
+					<li><a href="testing.php">Testing</a></li>
 				</ul>
 			</div>
 			<div class="centerBlock">
@@ -93,7 +73,7 @@
 			</div>
 		</div> <!-- end timeline-events-container -->
 
-		
+
 	</div>
 	<!-- end body html -->
 

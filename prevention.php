@@ -1,5 +1,5 @@
 <?php require("header.php"); ?>
-	 		
+
 	 <!-- end navigation -->
 
 	<!-- body html here -->
@@ -34,7 +34,7 @@
    	 	<div class="content col-md-4">
 			<div class="brochure">
 				<img src="http://www.w3schools.com/bootstrap/sanfran.jpg">
-				<h4>Sexually Transmitted Infection (STI)h4>
+				<h4>Sexually Transmitted Infection (STI)</h4>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 			</div>
 
@@ -53,7 +53,7 @@
 		<div class="col-md-3">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="#">Community Support</a></li>
+					<li><a href="support.php">Community Support</a></li>
 				</ul>
 			</div>
 
@@ -67,8 +67,8 @@
 		</div>
 	</div>
 
-	
+
 	</div>
 	<!-- end body html -->
-	
+
 <?php require("footer.php"); ?>

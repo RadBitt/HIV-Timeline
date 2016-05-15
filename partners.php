@@ -6,14 +6,14 @@
 	<div class="heading">
 		<div class="main-img" id="partners-header-image"></div>
 		<div class="heading-text">
-			<h1>Community Partners</h1>
+			<h1>Partners</h1>
 		</div>
 	</div>
 
 	<div class="container">
-		<div class="content col-md-6">
-			<p>Visit our friends</p>
-			<ul>
+		<div class="content col-md-6 col-sm-12">
+			<p>Visit our friends:</p>
+			<ul class="partners-list">
 				<li><a href="http://www.sfaf.org/">SF AIDS Foundation</a></li>
 				<li><a href="http://www.bridgehiv.org/">Bridge HIV</a></li>
 				<li><a href="http://stjamesinfirmary.org/">St. James Infirmary</a></li>
@@ -21,6 +21,10 @@
 				<li><a href="http://ifrsf.org/">Instituto de Familiar de la Raza</a></li>
 				<li><a href="https://www.sfdph.org/dph/default.asp">Department of Public Health</a></li>
 				<li><a href="http://www.jvs.org/">Jewish Vocational Services</a></li>
+				<li><a href="http://larkinstreetyouth.org/">Larkin St. Youth Services</a></li>
+				<li><a href="http://www.positiveresource.org/">Positive Resource Center</a></li>
+				<li><a href="http://transhealth.ucsf.edu/">UCSF Center for Excellence in Transgender Health</a></li>
+				<li><a href="http://oewd.org/">SF Office of Workforce Development</a></li>
 			</ul>
 		</div>
 
