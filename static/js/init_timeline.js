@@ -29,6 +29,7 @@ for (var i = 0; i < timelineArray.length; i++) {
 Timeline.sortEvents(Timeline.getArray(), 1, Timeline.numOfEvents());
 Timeline.resetIds();
 Display.drawContainer();
+Display.drawFilter(); 
 Display.drawEventViewer();
 Display.drawSegment();
 Display.drawEvents(); 

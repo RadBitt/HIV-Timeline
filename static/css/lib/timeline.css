@@ -4,15 +4,20 @@ body {
 
 /* Give the Timeline Dimensions */
 #hiv-timeline-container {
+	position: relative;
 	width: 1200px;
 	margin: 0 auto;
 }
 
-#event-viewer-container {
+#event-viewer-container, #y-line {
 	height: 400px;
 }
 
-#timeline {
+#timeline-container {
+	width: 95%;
+}
+
+#timeline {	
 	height: 100px; 
 }
 
@@ -20,12 +25,22 @@ body {
 	height: 100%; 
 }
 
+#event-view {
+	height: 90%;
+}
+
 #event-viewer-container,
 #event-viewer,
-#timeline-container,
+#event-view,
 #timeline,
-#the-line {
+#x-line {
 	width: 100%; 
+}
+
+#y-line {
+	position: absolute;
+	top: -400px;
+	border-left: 1px solid black;
 }
 
 /* Timeline Text */
@@ -47,7 +62,7 @@ body {
 
 #img {
 	float: left;
-	width: 30%;
+	width: 33%;
 	height: 200px;
 }
 
@@ -74,21 +89,17 @@ body {
 
 /* Container Styles */
 #event-viewer-container, #timeline-container {
-	width: 100%;
 	position: relative;
 	margin: 0 auto;
+}
+
+#timeline-container {
 	background-color: #EDEDED;
 }
 
-#event-viewer {
-	border-left: 0.5px solid black;
-}
-
 #event-view {
-	height: 90%;
-	width: 100%;
 	margin: 0 auto;
-	padding: 75px 10px 0 10px;
+	padding: 75px 50px 0 50px;
 	background-color: white;
 	border: 1px solid white;
 }
@@ -132,13 +143,111 @@ body {
 }
 
 /* Control Styles */
+#filter-button,
+#next-button,
+#prev-button,
+#next-event,
+#prev-event,
+#close-button,
+.event {
+	cursor: pointer;
+}
+
+#filter-button {
+	position: absolute;
+	top: 28px;
+	right: 100px;
+	width: 22px;
+	height: 22px;
+	background-color: red; 
+	/*background-image: url(../../img/icons/);*/
+}
+
+#filter-container {
+	position: relative;
+	height: 137px;
+	z-index: 5;
+}
+
+#filter-container form {
+	position: absolute;
+	right: 70px;
+}
+
+#filter-container form ul {
+	padding: 20px 0 0 0;
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+}
+
+#filter-container form li {
+	text-transform: capitalize;
+}
+
+#filter-container label {
+	cursor: pointer;
+}
+
+#filter-container input[type=checkbox] {
+	display: none;
+}
+
+#filter-container input[type=checkbox] + label {
+	background-repeat: no-repeat;
+	width: 22px;
+	height: 22px;
+	padding-left: 32px;
+}
+	/*un-selected*/
+	#filter-political + label {
+		background-image: url(../../img/icons/Circle.filter.unselected.png);
+	}
+
+	#filter-celebrity + label {
+		background-image: url(../../img/icons/Square.filter.unselected.png);
+	}
+
+	#filter-social + label {
+		background-image: url(../../img/icons/Triangle.filter.unselected.png);
+	}
+
+	#filter-health + label {
+		background-image: url(../../img/icons/Pentagon.filter.unselected.png);
+	}
+
+	#filter-international + label {
+		background-image: url(../../img/icons/Hexagon.filter.unselected.png);
+	}
+	/*Selected*/
+	#filter-political:checked + label {
+		background-image: url(../../img/icons/Circle.filter.png);
+	}
+
+	#filter-celebrity:checked + label {
+		background-image: url(../../img/icons/Square.filter.png);
+	}
+
+	#filter-social:checked + label {
+		background-image: url(../../img/icons/Triangle.filter.png);
+	}
+
+	#filter-health:checked + label {
+		background-image: url(../../img/icons/Pentagon.filter.png);
+	}
+
+	#filter-international:checked + label {
+		background-image: url(../../img/icons/Hexagon.filter.png);
+	}
+
+
 #next-button {
 	background-image: url(../../img/icons/arrow.right.years.png);
 	position: absolute;
     width: 14px;
     height: 23px;
     bottom: 0px;
-    right: -28px;
+    right: -10px;
 }
 
 #prev-button {
@@ -147,7 +256,7 @@ body {
     width: 14px;
     height: 23px;
     bottom: 0px;
-    left: -28px;
+    left: -10px;
 }
 
 #next-event {
@@ -158,8 +267,16 @@ body {
 	background-image: url(../../img/icons/arrow.left.event.png);
 }
 
+/*#next-event:hover {
+	background-image: url(../../img/icons/arrow.event.right.hover.png);
+}
+
+#prev-event:hover {
+	background-image: url(../../img/icons/arrow.event.left.hover.png);
+}
+*/
 #close-button {
-	background-image: url(../../img/icons/X.png);
+	background-image: url(../../img/icons/X2.png);
 }
 
 /* Event Styles */
@@ -228,7 +345,32 @@ body {
 	height: 22px;
 }
 
+/* z-index */
+#event-viewer-container {
+	z-index: 1;
+}
+
+#event-viewer {
+	z-index: 0;
+}
+
+.event {
+	z-index: 4
+}
+
+
+
 @media (max-width: 1200px) { 
+
+	/* z-index */
+	#event-viewer-container {
+		z-index: 3;
+	}
+
+	#next-button, #prev-button {
+		z-index: 4;
+	}
+
 	#footer {
 		width: 100%;
 		bottom: 0px;
@@ -239,7 +381,8 @@ body {
 	}
 
 	#timeline-heading,
-	#the-line,
+	#x-line,
+	#y-line,
 	.rule-text,
 	.death-text,
 	.vertical-line {
@@ -259,7 +402,6 @@ body {
 
 	#event-viewer-container {
 		position: relative;
-		z-index: 3;
 		bottom: 0px;
 		height: 50px;
 		border-bottom: 2px solid grey;
@@ -268,7 +410,6 @@ body {
 
 /* Control Styles */
 	#next-button, #prev-button {
-		z-index: 4;
 		top: 15px;
 	}
 

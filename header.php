@@ -103,7 +103,7 @@ else
 
           </nav>
             <script type="text/javascript">
-              // navHighlight();
+              navHighlight();
             </script>
 
           <!-- Header Block End -->

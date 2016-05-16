@@ -17,6 +17,7 @@
 			<div id="timeline-heading">
 				<h1>HIV Timeline</h1>
 			</div>
+			<div id="filter-container"></div>
 			<div id="event-viewer-container"></div>
 			<div id="timeline-container"></div>
 		</div>

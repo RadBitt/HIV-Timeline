@@ -13,11 +13,19 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	this.eventViewContainer = this.Options.eventViewContainer; 
 
+	this.filterContainer = this.Control.filterContainer; 
+
 	this.Timeline = TimelineObject;
 	
 	this.drawContainer = function() {
 	    d.getElementById(this.container).innerHTML += '<div id="timeline"></div>'; 
 	};
+
+	this.drawFilter = function() {
+		var container = d.getElementById(this.filterContainer); 
+		container.appendChild(this.Control.filter());
+		// this.Control.drawFilterButton();
+	}
 
 	this.drawEventViewer = function() {
 		var newElement;
@@ -33,7 +41,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var div = '<div class="vertical-line"></div>';
 		var leftValue = 0;
 
-		line.innerHTML += '<hr id="the-line">';
+		line.innerHTML += '<div id="y-line">';
+		line.innerHTML += '<hr id="x-line">';
 
 		for (var i = 0; i < segmL; i++) {
 			line.innerHTML += div; 
@@ -178,41 +187,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	};
 
-	function animateEvents() {
-		var id;
-		$('.event').each(function() {
-			id = $(this).attr('id');
-			Event = that.Timeline.getId(id); 
-			$(this).animate({left: findPosition(Event), opacity: 1}, 1000);  
-		});
-	}
-
-	function addMobileElement(Element) {
-		var newElementString = '<div class="mobile-event"></div>';
-		Element.innerHTML += newElementString;
-	}
-
-	function addMobileText() {
-		var Event, mobileElement, id;
-		$('.event').each(function(){
-			id = $(this).attr('id'); 
-			// console.log(id);
-			Event = that.Timeline.getId(id);
-			mobileElement = $(this).children(":first");
-			mobileElement.append('<p class="date">' + Event.printDate() +  '</p>');
-			mobileElement.append('<p class="type">' + Event.getType() +  '</p>');
-			mobileElement.append('<p class="text">' + Event.getText() +  '</p>');
-		});
-	}
-
-	function addMobileDecade(year) {
-		var eventViewContainer = $('#'+that.Options.eventViewContainer);
-		if ($('#mobile-decade').length > 0)
-			$('#mobile-decade').html('' + year + ' - ' + (year + 9));
-		else
-			eventViewContainer.append('<p id="mobile-decade">' + year + ' - ' + (year + 9) + '</p>');
-	}
-
 	function drawEventView(id) {
 		var eventView;
 		var eventViewString = '<div id="event-view"></div>';
@@ -230,24 +204,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		that.Control.drawCloseButton(); 
 		that.Control.drawNextEventButton();
 		that.Control.drawPrevEventButton();
-		hideDeathText();
+		// that.Control.hideFilter();
+		hideDeathText(); 
 		checkEventControl(id);
 		highlightEvent(id); 
-	}
-
-	function highlightEvent(id) {
-		var Element = $('#'+id);
-		var oldElement = $('.event.highlighted').removeClass('highlighted');
-		oldElement.animate({top: -17}, 500);
-		if (window.innerWidth > 1000)
-			Element.addClass('highlighted');
-		Element.animate({top: -40}, 400);
-	}
-
-	function checkEventView() {
-		var eventView = $('#event-view');
-		if ( eventView.length == 1)
-			eventView.remove();
 	}
 
 	function checkEventControl(id) {
@@ -268,21 +228,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			if ($(that.Control.prevEvent).length == 0)
 				that.Control.drawPrevEventButton();
 		}
-	}
-
-	function removeEventView() {
-		eventView = $('#event-view').remove(); 
-		showDeathText(); 
-	}
-
-	function clearSegment(oldEvents) {
-		
-		while (oldEvents.length > 0) {
-			oldEvents[oldEvents.length-1].classList.add('oldEvent');
-			oldEvents[oldEvents.length-1].classList.remove('event');
-		}
-
-		removeEventView();
 	}
 
 	function drawText() {
@@ -326,22 +271,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	}
 
-	function deathText(year) {
-		if (Deaths[year] != null) {
-			newDeath = '<div style="height: 0px; top: 0" class="death-text">';
-			newDeath += '<p>' + Deaths[year] + '</p></div>';
-			return newDeath;
-		} else return false; 
-	}
-
-	function hideDeathText() {
-		$('.death-text').hide(500);
-	}
-
-	function showDeathText() {
-		$('.death-text').show(500);
-	}
-
 	function findPosition(Event) {
 		var eventYear, eventPos;
 		var segmL = that.Options.segmentLength;
@@ -373,6 +302,85 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		} 
 	}
 
+	function addMobileText() {
+		var Event, mobileElement, id;
+		$('.event').each(function(){
+			id = $(this).attr('id'); 
+			// console.log(id);
+			Event = that.Timeline.getId(id);
+			mobileElement = $(this).children(":first");
+			mobileElement.append('<p class="date">' + Event.printDate() +  '</p>');
+			mobileElement.append('<p class="type">' + Event.getType() +  '</p>');
+			mobileElement.append('<p class="text">' + Event.getText() +  '</p>');
+		});
+	}
+
+	function addMobileDecade(year) {
+		var eventViewContainer = $('#'+that.Options.eventViewContainer);
+		if ($('#mobile-decade').length > 0)
+			$('#mobile-decade').html('' + year + ' - ' + (year + 9));
+		else
+			eventViewContainer.append('<p id="mobile-decade">' + year + ' - ' + (year + 9) + '</p>');
+	}
+
+	function addMobileElement(Element) {
+		var newElementString = '<div class="mobile-event"></div>';
+		Element.innerHTML += newElementString;
+	}
+
+	function checkEventView() {
+		var eventView = $('#event-view');
+		if ( eventView.length == 1)
+			eventView.remove();
+	}
+
+	function highlightEvent(id) {
+		var Element = $('#'+id);
+		var oldElement = $('.event.highlighted').removeClass('highlighted');
+		oldElement.animate({top: -17}, 500);
+		if (window.innerWidth > 1000)
+			Element.addClass('highlighted');
+		Element.animate({top: -40}, 400);
+	}
+
+	function deathText(year) {
+		if (Deaths[year] != null) {
+			newDeath = '<div style="height: 0px; top: 0" class="death-text">';
+			newDeath += '<p>' + Deaths[year] + '</p></div>';
+			return newDeath;
+		} else return false; 
+	}
+
+	function clearSegment(oldEvents) {
+		while (oldEvents.length > 0) {
+			oldEvents[oldEvents.length-1].classList.add('oldEvent');
+			oldEvents[oldEvents.length-1].classList.remove('event');
+		}
+		removeEventView();
+	}
+
+	function animateEvents() {
+		var id;
+		$('.event').each(function() {
+			id = $(this).attr('id');
+			Event = that.Timeline.getId(id); 
+			$(this).animate({left: findPosition(Event), opacity: 1}, 1000);  
+		});
+	}
+
+	function removeEventView() {
+		eventView = $('#event-view').remove(); 
+		showDeathText();
+	}
+
+	function hideDeathText() {
+		$('.death-text').hide(500);
+	}
+
+	function showDeathText() {
+		$('.death-text').show(500);
+	}
+
 	function setOptions() {
 		if (optionsObject == undefined)
 			return new DisplayOptions();
@@ -388,12 +396,14 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function DisplayOptions() {
-		this.width = d.getElementById('event-viewer-container').offsetWidth; 
+		this.width = d.getElementById('timeline-container').offsetWidth; 
 		this.height = '100px';
 		this.eventViewWidth = this.width;
 		this.eventViewHeight = '400px';
 		this.segmentLength = 9;
-		this.firstRulePos = parseInt(this.width) / this.segmentLength; 
+		this.firstRulePos = parseInt(this.width) / this.segmentLength;
+		this.masterContainer = 'hiv-timeline-container';
+		this.timelineHeading = 'timeline-heading'; 
 		this.container = 'timeline-container';
 		this.timelineContiner = 'timeline';
 		this.eventViewContainer = 'event-viewer-container';
@@ -401,13 +411,63 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function Control(display) {
-		
-		this.filterContainer = '#filter-container';
+		this.filterContainer = 'filter-container';
+		this.filterButton = 'filter-button'; 
 		this.closeEventView = '#close-button';
 		this.nextEvent = '#next-event';
 		this.prevEvent = '#prev-event'; 
 		this.nextButton = '#next-button';
 		this.prevButton = '#prev-button';
+
+		// this.drawFilterButton = function() {
+		// 	var container = d.getElementById(that.Options.masterContainer); 
+		// 	var heading = d.getElementById(that.Options.timelineHeading);
+		// 	var newElement = d.createElement('div');
+		// 	newElement.setAttribute('id', this.filterButton); 
+		// 	newElement.addEventListener("click", function(e) {
+		// 		that.Control.toggleFilter(); 
+		// 	});
+		// 	container.insertBefore(newElement, heading);
+		// }
+
+		this.filter = function() {
+			var f, i, s, u, l, checkbox;
+			var docFrag = d.createDocumentFragment(); 
+			var attrArr = ['political', 'celebrity', 'health', 'social', 'international'];
+
+			f = d.createElement('form');
+			f.setAttribute('method',"");
+			f.setAttribute('action',"");
+
+			i = d.createElement('input');
+			i.setAttribute('type', 'text');
+			i.setAttribute('name', 'search');
+			f.appendChild(i);
+
+			s = d.createElement("input"); //input element, Submit button
+			s.setAttribute('type',"submit");
+			s.setAttribute('value',"Submit");
+			f.appendChild(s);
+			
+			u = d.createElement('ul');
+			attrArr.forEach(function(e) {
+				checkbox = d.createElement("input"); //input element, text
+				checkbox.setAttribute('id', 'filter-' + e); 
+				checkbox.setAttribute('name', 'filter-' + e);
+				checkbox.setAttribute('type', "checkbox");
+				checkbox.setAttribute('checked', true); 
+				checkbox.setAttribute('value', e);
+				l = d.createElement('li');
+				l.appendChild(checkbox);
+				l.innerHTML += '<label for="' + 'filter-' + e +  '">' + e + '</label>';
+				u.appendChild(l);
+			})
+			f.appendChild(u);
+
+			docFrag.appendChild(f);
+			console.log(docFrag);
+			return docFrag;
+		};
 
 		this.drawNextEventButton = function() {
 			var eventView = '#event-view';
@@ -417,7 +477,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				width: '17px',
 				height: '30px',
 				top: '40%',
-				right: '8%',
+				right: '1%',
 			};
 			
 			$(eventView).append(newElement); 
@@ -435,7 +495,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				width: '17px',
 				height: '30px',
 				top: '40%',
-				left: '8%',
+				left: '1%',
 			};
 			
 			$(eventView).append(newElement); 
@@ -450,10 +510,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			var newElement = '<div id="close-button"></div>';
 			var closeStyles = {
 				position: 'absolute',
-				width: '25px',
-				height: '25px',
+				width: '18px',
+				height: '18px',
 				top: '20px',
-				right: '85px',
+				right: '20px',
 			};
 			
 			$(eventView).append(newElement); 
@@ -507,9 +567,17 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			$(this.prevButton).remove();
 		};
 
-		this.drawFilter = function() {
+		// this.hideFilter = function() {
+		// 	$('#'+this.filterContainer + ' form').hide(200);
+		// }
 
-		};
+		// this.showFilter = function() {
+		// 	$('#'+this.filterContainer + ' form').show(200);
+		// }
+
+		// this.toggleFilter = function() {
+		// 	$('#'+this.filterContainer + ' form').toggle();
+		// }
 
 	}
 
