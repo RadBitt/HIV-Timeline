@@ -28,7 +28,7 @@
 			</ul>
 		</div>
 
-		<div class="timeline-events-container col-md-3">
+		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="support.php">Community Support</a></li>

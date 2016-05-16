@@ -51,7 +51,7 @@
 
 			<section class="partner">
 				<h4><a href="http://www.magnetsf.org/">Magnet</a></h4>
-				<p>Provides free sexual health services, counseling, massage, acupuncture, an art gallery and lounge</p>
+				<p>Provides free sexual health services, counseling, massage, acupuncture, an art gallery and lounge.</p>
 		</div>
 
 		<div class="col-md-1 col-sm-12"></div>
