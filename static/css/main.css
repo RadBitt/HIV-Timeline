@@ -135,6 +135,16 @@ ul {
 	overflow: hidden;
 }
 
+.googley-search {
+  width: 300px;
+  position: relative;
+  float: right;
+}
+
+#___gcse_0 {
+  background-color: #F8F8F8;
+}
+
 /*
 * =============================================================================
 * Community Support

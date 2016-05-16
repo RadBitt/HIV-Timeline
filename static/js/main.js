@@ -5,6 +5,12 @@ $(document).ready(function() {
     $('#google_translate_element').prev().remove();
     $('#google_translate_element').remove();
 
+    // replace google search icon
+    $('.gsc-search-button').addClass('glyphicon');
+    $('.gsc-search-button').removeClass('.gsc-search-button');
+    $('.gsc-search-button-v2').addClass('glyphicon-search');
+    $('.gsc-search-button-v2').removeClass('.gsc-search-button-v2');
+
     if (window.innerWidth <= 900) {
 
     }

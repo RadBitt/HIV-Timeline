@@ -86,7 +86,7 @@ else
 
                   <li id="classes"><a href="classes<?php echo $ext ?>">classes</a></li>
 
-                  <li id="searchBox">
+                  <!-- <li id="searchBox">
                     <form action="" class="search-form">
                       <div class="form-group has-feedback">
                     		<label for="search" class="sr-only">Search</label>
@@ -95,15 +95,32 @@ else
                     	</div>
                     </form>
 
-                  </li>
+                  </li> -->
 
+                  <div class="googley-search">
+
+                    <script>
+  (function() {
+    var cx = '016465263694091210340:z8xif9ckduc';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+                  </div><!--end googley-search-->
                 </ul>
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
 
           </nav>
-            <script type="text/javascript">
-              navHighlight();
-            </script>
+
+          <script type="text/javascript">
+            navHighlight();
+          </script>
 
           <!-- Header Block End -->
