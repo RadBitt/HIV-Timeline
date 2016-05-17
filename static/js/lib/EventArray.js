@@ -71,13 +71,25 @@ function EventArray() {
 		id = parseInt(id);
 		if (id == 0)
 			return this.prevEvent();
-		else if (id > this.numOfEvents)
+		else if (id > this.numOfEvents())
 			return this.nextEvent()
 		else {
 			this.currentEventInt = id; 
 			return this.eventsArray[id]; 
 		}
 		
+	}
+
+	this.skipTo = function(id) {
+		if (id > 0 && id < this.numOfEvents()) {
+			this.currentEventInt = id;
+			return this.eventsArray[this.currentEventInt]; 
+		} else if (id <= 0) {
+			return this.eventsArray[this.firstEventInt];
+		} else if (id > this.numOfEvents()) {
+			return this.eventsArray[this.numOfEvents()];
+		}
+		    
 	}
 
 	this.getInt = function() {

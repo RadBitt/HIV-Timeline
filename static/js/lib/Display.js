@@ -60,14 +60,17 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		}
 	};
 
-	this.drawEvents = function(direction) {
+	this.drawEvents = function(direction, docFrag) {
 		var oldEvents, EventId, docFrag;
 		var line = d.getElementById(this.timelineContiner);
 		oldEvents = d.getElementsByClassName('event');
 
-		if (direction == undefined)
-			docFrag = this.nextSegment(this.Timeline.firstEvent()); 
-		else if (direction == 'next') {
+		if (direction == undefined && docFrag == undefined)
+			docFrag = this.nextSegment(this.Timeline.firstEvent());
+		else if (direction == null && docFrag != undefined) {
+			clearSegment(oldEvents);
+			removeAnimation(null);
+		} else if (direction == 'next') {
 			EventId = oldEvents[oldEvents.length-1].id; /* Last Event Id */
 			this.Timeline.getId(parseInt(EventId)); 
 			clearSegment(oldEvents);
@@ -79,22 +82,25 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			docFrag = this.prevSegment(this.Timeline.prevEvent());
 		}
 
-		line.appendChild(docFrag); 
+		line.appendChild(docFrag);
 		animateEvents();
 		drawText(); 
+		addMobileText(); 
+		checkSegmentControl();
 
 		$('.event').click(function() {
 			drawEventView(this.id); 
 		});
 
-		addMobileText(); 
-
 		if (window.location.href.indexOf("?") > -1) {
-			var id = document.location.search.split('=')[1];
-			id = parseInt(id);
-			console.log(id); 
-			drawEventView(id); 
+			if (this.Control.hrefBreaker) {
+				var id = document.location.search.split('=')[1];
+				id = parseInt(id); 
+				drawEventView(id);
+				this.Control.hrefBreaker = false;
+			}
 		}
+
 	};
 
 	this.nextEvent = function() {
@@ -139,10 +145,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var endYear = startYear + segmL; 
 		var initialLeft = this.Options.width + 'px'; 
 
-		$('.oldEvent').animate({left: -1, opacity: 0}, 1000, function() {
-			$('.oldEvent').remove();
-		});
-		
+		if (d.getElementsByClassName('oldEvent').length > 0) {
+			removeAnimation('next');
+		}
+			
 		while (Event.getDate().getFullYear() <= endYear) {
 			EventId = Event.getId();
 			EventType = Event.getType();
@@ -157,17 +163,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			lastElement.style['opacity'] = 0;
 			docFrag.appendChild(lastElement);
 			addMobileElement(lastElement);
-			if (this.Timeline.isLast()) {
-				this.Control.removeNextButton();
+			if (this.Timeline.isLast())
 				break;
-			} else if (this.Timeline.isFirst()) {
-				this.Control.removePrevButton(); 
-			} else {
-				if ($(this.Control.nextButton).length == 0)
-					this.Control.drawNextButton();
-				if ($(this.Control.prevButton).length == 0)
-					this.Control.drawPrevButton();
-			}
 
 			Event = this.Timeline.nextEvent();
 		}
@@ -184,11 +181,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var segmL = this.Options.segmentLength;
 		var startYear = getDecade(Event.getDate().getFullYear(), 'prev');
 		var endYear = startYear - segmL;
-		var initialLeft = this.Options.width; 
 
-		$('.oldEvent').animate({left: initialLeft, opacity: 0}, 1000, function() {
-			$('.oldEvent').remove();
-		});
+		if (d.getElementsByClassName('oldEvent').length > 0) { 
+			removeAnimation('prev');
+		}
 
 		while (Event.getDate().getFullYear() >= endYear) {
 			EventId = Event.getId();
@@ -204,18 +200,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			firstElement.style['opacity'] = 0;
 			docFrag.insertBefore(firstElement, docFrag.childNodes[0]);
 			addMobileElement(firstElement);
-			if (this.Timeline.isFirst()) {
-				this.Control.removePrevButton();
+
+			if (this.Timeline.isFirst())
 				break;
-			} else if (this.Timeline.isLast()) {
-				this.Control.removePrevButton(); 
-			} else {
-				if ($(this.Control.nextButton).length == 0)
-					this.Control.drawNextButton();
-				if ($(this.Control.prevButton).length == 0)
-					this.Control.drawPrevButton();
-			}
+
 			Event = this.Timeline.prevEvent();
+		
 		}
 
 		return docFrag;
@@ -224,7 +214,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	};
 
 	this.drawSearchResults = function(array) {
-		var resultViewElement;
+		var resultViewElement, i;
 		var resultList, resultElement, resultTxt, Event;
 		var docFrag = d.createDocumentFragment(); 
 
@@ -240,9 +230,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				resultElement = d.createElement('li');
 				resultTxt = d.createTextNode(Event.getText()); 
 				resultElement.setAttribute('class', Event.getType());
+				resultElement.setAttribute('data-id', Event.getId()); 
 				resultElement.appendChild(resultTxt);
-				resultElement.addEventListener('click', function() {
-					drawEventView(Event.getId()); 
+				resultElement.addEventListener('click', function(e) {
+					var element = e.target;
+					that.Control.preventEventView = false;
+					drawEventView(element.dataset['id']);
 				});
 				resultList.appendChild(resultElement);
 			}
@@ -304,44 +297,54 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function drawEventView(id) {
-		var eventView;
-		var eventViewString = '<div id="event-view"></div>';
+		var imgDiv, h3, p, eventText; 
+		var docFrag = d.createDocumentFragment(); 
 		var Event = that.Timeline.getId(id);
+		var eventView = d.createElement('div')
+		var eventViewer = d.getElementById('event-viewer'); 
 		var eventElement = d.getElementById(id.toString()); 
 
 		checkEventView();
 
-		eventView = $(eventViewString).appendTo('#event-viewer'); 
-		eventView.append(''+
-			'<div id="img" style="background-color: grey;"></div>' + 
-			'<div class="event-text">' + 
-			'<h3>' + Event.printDate() + 
-			' - ' + Event.getType() +  '</h3>' +
-			'<p>' + Event.getText() +  '</p>' + 
-			// '<div class="fb-share-button"' + 
-			// 'data-href="http://www.ccsf.edu/Departments/HIV_AIDS_Timeline/"' + 
-			// shareUrl(id) + 
-			// ' data-layout="box_count" data-mobile-iframe="false">
-			'</div>');
+		eventView.setAttribute('id', 'event-view'); 
+		imgDiv = d.createElement('div');
+		h3 = d.createElement('h3');
+		p = d.createElement('p');
+		eventText = d.createElement('div');
+		eventText.setAttribute('class', 'event-text'); 
+		imgDiv.setAttribute('id', 'event-card-img');
+		h3.appendChild(d.createTextNode(Event.printDate() + ' - ' + Event.getType()));
+		p.appendChild(d.createTextNode(Event.getText()));
+		eventText.appendChild(h3);
+		eventText.appendChild(p);
+		eventView.appendChild(imgDiv);
+		eventView.appendChild(eventText);
+		docFrag.appendChild(eventView);
+		eventViewer.appendChild(docFrag); 
 		that.Control.drawCloseButton(); 
 		that.Control.drawNextEventButton();
 		that.Control.drawPrevEventButton();
 		// that.Control.hideFilter();
-		hideDeathText(); 
+		
 		checkEventControl(id);
-		highlightEvent(id);
 
 		if (eventElement == null) {
 			console.log(eventElement);
 			console.log(id); 
 			adjustTimelinePosition(id);
+			this.Timeline.getId(id); 
 		}
+
+		hideDeathText(); 
+		highlightEvent(id);
 
 	}
 
-	function adjustTimelinePosition(id, docFrag) {
+	function adjustTimelinePosition(id, docFrag, count) {
 		var first, last, Event, docFrag;
 		var firstElement, lastElement, firstEvent, lastEvent;
+		
+		console.log(docFrag);
 
 		if (docFrag == undefined) {
 			docFrag = d.createDocumentFragment();
@@ -350,26 +353,23 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			    docFrag.appendChild(eventArr[i]);
 			}
 		}
-			
-		console.log(docFrag); 
+ 
 		firstElement = docFrag.childNodes[0];
 		lastElement = docFrag.childNodes[docFrag.childNodes.length-1]; 
-		first = firstElement['id'];
-		last = lastElement['id'];
-		firstEvent = that.Timeline.getId(first);
-		lastEvent = that.Timeline.getId(last); 
-
+		first = parseInt(firstElement['id']);
+		last = parseInt(lastElement['id']);
+		console.log('F: ' + first + ' < (' + id + ') > L: ' + last); 
 		if (id < first) {
-			docFrag = that.prevSegment(firstEvent);
-			adjustTimelinePosition(docFrag);
+			firstEvent = that.Timeline.skipTo(first-1);
+			docFrag = that.prevSegment(firstEvent, 'search');
+			adjustTimelinePosition(id, docFrag, count+1);
 		} else if (id > last) {
-			console.log('made it here'); 
-			
-			docFrag = that.nextSegment(lastEvent);
-			adjustTimelinePosition(last, docFrag);
+			lastEvent = that.Timeline.skipTo(last+1);
+			docFrag = that.nextSegment(lastEvent, 'search');
+			adjustTimelinePosition(id, docFrag, count+1);
 		} else if (id <= last && id >= first) {
-			console.log(docFrag); 
-			return docFrag
+			that.drawEvents(null, docFrag);
+			return
 		}
 
 	}
@@ -389,6 +389,23 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				that.Control.drawNextEventButton();
 			if ($(that.Control.prevEvent).length == 0)
 				that.Control.drawPrevEventButton();
+		}
+	}
+
+	function checkSegmentControl() {
+		var eventArr = d.getElementsByClassName('event');
+		var firstInt = eventArr[0]['id'];
+		var lastInt = eventArr[eventArr.length-1]['id'];
+
+		if (firstInt <= this.Timeline.firstEventInt) { 
+			that.Control.removePrevButton();
+		} else if (lastInt >= this.Timeline.numOfEvents()) {
+			that.Control.removeNextButton(); 
+		} else {
+			if ($(that.Control.nextButton).length == 0)
+				that.Control.drawNextButton();
+			if ($(that.Control.prevButton).length == 0)
+				that.Control.drawPrevButton();
 		}
 	}
 
@@ -483,7 +500,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			oldEvents[oldEvents.length-1].classList.add('oldEvent');
 			oldEvents[oldEvents.length-1].classList.remove('event');
 		}
-		removeEventView();
+		if (that.Control.preventEventView) {
+			removeEventView();	
+			that.Control.preventEventView = true; 
+		}	
 	}
 
 	function animateEvents() {
@@ -493,6 +513,23 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			Event = that.Timeline.getId(id); 
 			$(this).animate({left: findPosition(Event), opacity: 1}, 1000);  
 		});
+	}
+
+	function removeAnimation(direction) {
+		var initialLeft = that.Options.width; 
+		if (direction == 'next') {
+			$('.oldEvent').animate({left: -1, opacity: 0}, 1000, function() {
+				$('.oldEvent').remove();
+			});
+		} else if (direction == 'prev') {
+			$('.oldEvent').animate({left: initialLeft, opacity: 0}, 1000, function() {
+				$('.oldEvent').remove();
+			});
+		} else if (direction == null) {
+			$('.oldEvent').animate({ opacity: 0}, 500, function() {
+				$('.oldEvent').remove();
+			});
+		}	
 	}
 
 	function removeEventView() {
@@ -538,6 +575,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function Control(display) {
+		this.hrefBreaker = true;
+		this.preventEventView = true;
 		this.filterContainer = 'filter-container';
 		this.filterButton = 'filter-button'; 
 		this.closeEventView = '#close-button';
@@ -668,12 +707,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		
 		this.drawNextButton = function() {
 			var eventView = that.eventViewContainer
-			var newElement = '<div id="next-button"></div>';
-			var nextStyles = {
-			};
-			
-			$('#'+eventView).append(newElement); 
-			$(this.nextButton).css(nextStyles);
+			var newElement = d.createElement('div');
+			newElement.setAttribute('id', 'next-button');
+
+			d.getElementById(eventView).appendChild(newElement); 
 			$(this.nextButton).click(function() {
 				that.drawEvents('next'); 
 			});
@@ -682,12 +719,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 		this.drawPrevButton = function() {
 			var eventView = that.eventViewContainer
-			var newElement = '<div id="prev-button"></div>';
-			var prevStyles = {
-			};
-			
-			$('#'+eventView).append(newElement); 
-			$(this.prevButton).css(prevStyles);
+			var newElement = d.createElement('div');
+			newElement.setAttribute('id', 'prev-button');
+
+			d.getElementById(eventView).appendChild(newElement); 
 			$(this.prevButton).click(function() {
 				that.drawEvents('prev'); 
 			});

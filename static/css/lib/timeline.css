@@ -60,7 +60,8 @@ body {
 	width: 1px;
 }
 
-#img {
+#event-card-img {
+	background-color: grey;
 	float: left;
 	width: 33%;
 	height: 200px;
@@ -85,6 +86,34 @@ body {
 	-moz-column-width: 300px;
 	-webkit-column-width: 300px;
 	column-width: 300px;
+}
+
+.search-view {
+	overflow: hidden;
+}
+
+#result-list {
+	width: 100%;
+	height: 100%;
+	column-count: 2;
+	overflow: scroll;
+}
+
+#result-list li {
+	display: inline-block;
+	background-repeat: no-repeat;
+	padding-left: 32px;
+	padding-bottom: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 400px;
+    cursor: pointer;
+}
+
+.error-text {
+	font-weight: 600;
+	color: red;
 }
 
 /* Container Styles */
@@ -186,6 +215,12 @@ body {
 	background: none;
 	width: 200px;
 	margin-bottom: 20px;
+	padding-left: 10px;
+	border: 1px solid #4A90E2;
+	border-radius: 10px;
+}
+
+#filter-container input[name=search]:focus {
 	border: 1px solid #4A90E2;
 	border-radius: 10px;
 }

@@ -32,7 +32,7 @@ Display.drawContainer();
 Display.drawFilter(); 
 Display.drawEventViewer();
 Display.drawSegment();
-Display.drawEvents(); 
+Display.drawEvents();
 
 function getCategory(string) {
 	if (string == 'International Information')
