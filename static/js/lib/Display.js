@@ -107,7 +107,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		animateEvents();
 		drawText(); 
 		addMobileText(); 
-		checkSegmentControl();
+		addEventUiTitles(); 
 
 		$('.event').click(function() {
 			drawEventView(this.id); 
@@ -122,22 +122,24 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			}
 		}
 
+		checkSegmentControl();
+
+
 	};
 
 	this.nextEvent = function() {
 		this.Timeline.nextEvent();
 		var id = this.Timeline.getInt();
 		var Event = $('#'+id);
-		if(Event.length == 0) {
-			this.Control.removeNextEventButton();
-			return
+		if (Event.length == 0) {
+			this.Control.preventEventView = false;
+			drawEventView(id);  
 		} else if (Event.hasClass('hidden')) { 
 			this.nextEvent();
-			return
 		} else if (!Event.hasClass('hidden')) {
 			checkEventView();
 			drawEventView(id);
-			checkEventControl(id-1);
+			checkEventControl(id);
 		} 
 	};
 
@@ -145,12 +147,11 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		this.Timeline.prevEvent();
 		var id = this.Timeline.getInt();
 		var Event = $('#'+id);
-		if(Event.length == 0) {
-			this.Control.removePrevEventButton();
-			return
+		if (Event.length == 0) {
+			this.Control.preventEventView = false;
+			drawEventView(id); 
 		} else if (Event.hasClass('hidden')) { 
 			this.prevEvent();
-			return
 		} else if (!Event.hasClass('hidden')) {
 			checkEventView();
 			drawEventView(id);
@@ -246,6 +247,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		resultViewElement.setAttribute('class', 'seach-view');
 		resultList.setAttribute('id', 'result-list'); 
 		if (array.length > 0) {
+			resultTxt = d.createTextNode('Click a search result to view it\'s event card');
+			resultViewElement.appendChild(resultTxt); 
 			for (var i = 0; i < array.length; i++) {
 				Event = this.Timeline.getId(array[i]);
 				resultElement = d.createElement('li');
@@ -395,15 +398,13 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	}
 
-	function checkEventControl(id) {
-		var firstInt = $('.event').first().attr('id');
-		var lastInt = $('.event').last().attr('id'); 
-		if (id == lastInt && id == firstInt) { 
-			that.Control.removeNextEventButton();
+	function checkEventControl() {
+		var eventArr = d.getElementsByClassName('event');
+		var currentInt = that.Timeline.currentEventInt;  
+
+		if (currentInt <= that.Timeline.firstEventInt) {
 			that.Control.removePrevEventButton();
-		} else if (id == firstInt) {
-			that.Control.removePrevEventButton();
-		} else if (id == lastInt) {
+		} else if (currentInt >= that.Timeline.numOfEvents()) {
 			that.Control.removeNextEventButton(); 
 		} else {
 			if ($(that.Control.nextEvent).length == 0)
@@ -418,9 +419,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var firstInt = eventArr[0]['id'];
 		var lastInt = eventArr[eventArr.length-1]['id'];
 
-		if (firstInt <= this.Timeline.firstEventInt) { 
+		if (firstInt <= that.Timeline.firstEventInt) { 
+			console.log(firstInt + '<=' + that.Timeline.firstEventInt);
 			that.Control.removePrevButton();
-		} else if (lastInt >= this.Timeline.numOfEvents()) {
+		} else if (lastInt >= that.Timeline.numOfEvents()) {
 			that.Control.removeNextButton(); 
 		} else {
 			if ($(that.Control.nextButton).length == 0)
@@ -568,6 +570,13 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		$('.death-text').show(500);
 	}
 
+	function addEventUiTitles() {
+		var eventArr = d.getElementsByClassName('event');
+		for(var i = 0; i < eventArr.length; i++) {
+			eventArr[i].setAttribute('title', 'Click to read about this event.');
+		}
+	}
+
 	function setOptions() {
 		if (optionsObject == undefined)
 			return new DisplayOptions();
@@ -637,13 +646,16 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			i = d.createElement('input');
 			i.setAttribute('type', 'text');
 			i.setAttribute('name', 'search');
+			i.setAttribute('placeholder', 'Search events');
+			i.setAttribute('alt', 'search events'); 
+			i.setAttribute('title', 'Search for one keyword for the best results.'); 
 			f.appendChild(i);
 
 			s = d.createElement("input"); //input element, Submit button
 			s.setAttribute('type',"submit");
 			s.setAttribute('value',"Submit");
        		s.setAttribute('style', submitStyles);
-       		s.setAttribute('tabindex', '-1');
+       		s.setAttribute('tabindex', '1');
 			f.appendChild(s);
 			
 			u = d.createElement('ul');
@@ -658,6 +670,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				la = d.createElement('label'); 
 				txt = d.createTextNode(e);
 				la.setAttribute('for', 'filter-' + e);
+				la.setAttribute('title', 'Hide these events');
 				la.addEventListener('click', function(e) {
 					var element = e.target;
 					that.Control.toggleFilter(element.outerText); 
@@ -668,7 +681,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				u.appendChild(l);
 			})
 			f.appendChild(u);
-
 			docFrag.appendChild(f);
 			return docFrag;
 		};
@@ -684,11 +696,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				right: '1%',
 			};
 			
-			$(eventView).append(newElement); 
+			$(eventView).append(newElement);
 			$(this.nextEvent).css(styles);
 			$(this.nextEvent).click(function() {
 				that.nextEvent(); 
 			});
+			d.getElementById('next-event').setAttribute('title', 'Next event');
 		};
 
 		this.drawPrevEventButton = function() {
@@ -707,6 +720,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			$(this.prevEvent).click(function() {
 				that.prevEvent(); 
 			});
+			d.getElementById('prev-event').setAttribute('title', 'Prev event');
 		};
 
 		this.drawCloseButton = function() {
@@ -733,6 +747,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			var newElement = d.createElement('div');
 			newElement.setAttribute('id', 'next-button');
 
+			newElement.setAttribute('title', 'Next Decade');
 			d.getElementById(eventView).appendChild(newElement); 
 			$(this.nextButton).click(function() {
 				that.drawEvents('next'); 
@@ -745,6 +760,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			var newElement = d.createElement('div');
 			newElement.setAttribute('id', 'prev-button');
 
+			newElement.setAttribute('title', 'Previous Decade'); 
 			d.getElementById(eventView).appendChild(newElement); 
 			$(this.prevButton).click(function() {
 				that.drawEvents('prev'); 

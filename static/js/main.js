@@ -1,5 +1,9 @@
 d = document;
 
+$(function() {
+    $( document ).tooltip();
+});
+
 $(document).ready(function() {
     $('iframe.goog-te-menu-frame').remove()
     $('#google_translate_element').prev().remove();
