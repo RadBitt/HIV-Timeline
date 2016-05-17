@@ -15,7 +15,7 @@ for (var i = 0; i < timelineArray.length; i++) {
 	date = timelineArray[i].date + '';
 	category = getCategory(timelineArray[i].category)
 	title = timelineArray[i].title
-	photos = timelineArray[i].photos
+	photos = timelineArray[i].photo
 	description = timelineArray[i].description
 	if (date.length == 4) {
 		randMonth = getRandomArbitrary(1, 12);

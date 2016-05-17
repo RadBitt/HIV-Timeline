@@ -10,7 +10,7 @@ function Event(id, dateString, category, description, imgStringUrl) {
 
 	this.eventText = description;
 
-	this.imgURI = imgStringUrl;
+	this.photo = imgStringUrl;
 
 	this.setId = function(newId) {
 		this.id = newId; 
@@ -24,6 +24,10 @@ function Event(id, dateString, category, description, imgStringUrl) {
 		return this.date;
 	}
 
+	this.getPhoto = function() {
+		return this.photo;
+	}
+	
 	this.getType = function() {
 		return this.category; 
 	}
