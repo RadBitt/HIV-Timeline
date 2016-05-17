@@ -53,6 +53,18 @@ body {
 	text-align: center;
 }
 
+#y-line ul {
+	position: relative;
+	left: -30px;
+	top: -45px;
+	margin: 0;
+	padding-left: 3px;
+}
+
+#y-line li {
+	padding-bottom: 25px;
+}
+
 .death-text {
 	position: relative;
 	top: 0;
@@ -111,8 +123,9 @@ body {
     cursor: pointer;
 }
 
-.error-text {
-	font-weight: 600;
+.error-text, .red-txt {
+	font-weight: 100;
+	font-size: 12px;
 	color: red;
 }
 

@@ -35,17 +35,38 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	};
 
 	this.drawSegment = function() {
-		var lineRule, divsArr, unit;
+		var lineRule, divsArr, unit, div, hr, para, txt, uList;
 		var segmL = this.Options.segmentLength;
-		var line = d.getElementById(this.timelineContiner);
-		var div = '<div class="vertical-line"></div>';
+		var line = d.getElementById(this.timelineContiner); 
 		var leftValue = 0;
+		var yoLine = d.createElement('div');
+		uList = d.createElement('ul'); 
+		hr = d.createElement('hr');
+		hr.setAttribute('id', 'x-line'); 
+		yoLine.setAttribute('id', 'y-line');
+		line.appendChild(yoLine);
+		line.appendChild(hr);
+		para = d.createElement('li'); 
+		para.setAttribute('class', 'red-txt');
+		txt = d.createTextNode('death rate');
+		para.appendChild(txt);
+		uList.appendChild(para);
 
-		line.innerHTML += '<div id="y-line">';
-		line.innerHTML += '<hr id="x-line">';
+
+		for (var i = 5000; i < 48000; i = i + 5000) {
+			para = d.createElement('li'); 
+			para.setAttribute('class', 'red-txt');
+			txt = d.createTextNode(i / 1000 + 'k');
+			para.appendChild(txt);
+			uList.insertBefore(para, uList.childNodes[1]);  
+		}
+
+		yoLine.appendChild(uList);
 
 		for (var i = 0; i < segmL; i++) {
-			line.innerHTML += div; 
+			div = d.createElement('div');
+			div.setAttribute('class', 'vertical-line');
+			line.appendChild(div);
 		} 
 		
 		divsArr = d.getElementsByClassName('vertical-line');
@@ -533,7 +554,9 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function removeEventView() {
+		var oldElement = $('.event.highlighted').removeClass('highlighted');
 		eventView = $('#event-view').remove(); 
+		oldElement.animate({top: -17}, 500);
 		showDeathText();
 	}
 
