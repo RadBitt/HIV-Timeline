@@ -61,24 +61,26 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	};
 
 	this.drawEvents = function(direction) {
-		var oldEvents, EventId;
-		var segmL = this.Options.segmentLength;
+		var oldEvents, EventId, docFrag;
+		var line = d.getElementById(this.timelineContiner);
 		oldEvents = d.getElementsByClassName('event');
 
 		if (direction == undefined)
-			this.nextSegment(this.Timeline.firstEvent()); 
+			docFrag = this.nextSegment(this.Timeline.firstEvent()); 
 		else if (direction == 'next') {
 			EventId = oldEvents[oldEvents.length-1].id; /* Last Event Id */
 			this.Timeline.getId(parseInt(EventId)); 
 			clearSegment(oldEvents);
-			this.nextSegment(this.Timeline.nextEvent()); 
+			docFrag = this.nextSegment(this.Timeline.nextEvent());
 		} else if (direction == 'prev') {
 			EventId = oldEvents[0].id; /* First Event Id */
 			this.Timeline.getId(parseInt(EventId));
 			clearSegment(oldEvents);
-			this.prevSegment(this.Timeline.prevEvent());
+			docFrag = this.prevSegment(this.Timeline.prevEvent());
 		}
 
+		line.appendChild(docFrag); 
+		animateEvents();
 		drawText(); 
 
 		$('.event').click(function() {
@@ -86,29 +88,55 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		});
 
 		addMobileText(); 
+
+		if (window.location.href.indexOf("?") > -1) {
+			var id = document.location.search.split('=')[1];
+			id = parseInt(id);
+			console.log(id); 
+			drawEventView(id); 
+		}
 	};
 
 	this.nextEvent = function() {
+		this.Timeline.nextEvent();
 		var id = this.Timeline.getInt();
-		checkEventView();
-		checkEventControl(id-1);
-		drawEventView(id+1);
+		var Event = $('#'+id);
+		if(Event.length == 0) {
+			this.Control.removeNextEventButton();
+			return
+		} else if (Event.hasClass('hidden')) { 
+			this.nextEvent();
+			return
+		} else if (!Event.hasClass('hidden')) {
+			checkEventView();
+			drawEventView(id);
+			checkEventControl(id-1);
+		} 
 	};
 
 	this.prevEvent = function() {
+		this.Timeline.prevEvent();
 		var id = this.Timeline.getInt();
-		checkEventView(); 
-		drawEventView(id-1);
-		checkEventControl(id-1);
+		var Event = $('#'+id);
+		if(Event.length == 0) {
+			this.Control.removePrevEventButton();
+			return
+		} else if (Event.hasClass('hidden')) { 
+			this.prevEvent();
+			return
+		} else if (!Event.hasClass('hidden')) {
+			checkEventView();
+			drawEventView(id);
+			checkEventControl(id);
+		} 
 	};
 
 	this.nextSegment = function(Event) { 
 		var docFrag = d.createDocumentFragment(); 
-		var eventElementString, lastElement, EventId;
+		var eventElementString, lastElement, EventId, EventType, classString;
 		var segmL = this.Options.segmentLength;
 		var startYear = getDecade(Event.getDate().getFullYear(), 'next');
 		var endYear = startYear + segmL; 
-		var line = d.getElementById(this.timelineContiner);
 		var initialLeft = this.Options.width + 'px'; 
 
 		$('.oldEvent').animate({left: -1, opacity: 0}, 1000, function() {
@@ -116,10 +144,15 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		});
 		
 		while (Event.getDate().getFullYear() <= endYear) {
-			EventId = Event.getId(); 
+			EventId = Event.getId();
+			EventType = Event.getType();
 			lastElement = d.createElement('div');
 			lastElement.setAttribute('id', EventId);
-			lastElement.setAttribute('class', Event.getType() + ' event');
+			if (!this.Control.isFilter(EventType))
+				classString = EventType + ' event hidden';
+			else
+				classString = EventType + ' event'; 
+			lastElement.setAttribute('class', classString);
 			lastElement.style['left'] = initialLeft;
 			lastElement.style['opacity'] = 0;
 			docFrag.appendChild(lastElement);
@@ -139,19 +172,18 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			Event = this.Timeline.nextEvent();
 		}
 
-		line.appendChild(docFrag);
+		return docFrag;
 
-		animateEvents(); 
+		// line.appendChild(docFrag);
 
 	};
 
 	this.prevSegment = function(Event) {
 		var docFrag = d.createDocumentFragment();
-		var eventElementString, EventId, firstElement;
+		var eventElementString, EventId, EventType, firstElement, classString;
 		var segmL = this.Options.segmentLength;
 		var startYear = getDecade(Event.getDate().getFullYear(), 'prev');
 		var endYear = startYear - segmL;
-		var line = d.getElementById(this.timelineContiner);
 		var initialLeft = this.Options.width; 
 
 		$('.oldEvent').animate({left: initialLeft, opacity: 0}, 1000, function() {
@@ -159,10 +191,15 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		});
 
 		while (Event.getDate().getFullYear() >= endYear) {
-			EventId = Event.getId(); 
+			EventId = Event.getId();
+			EventType = Event.getType(); 
 			firstElement = d.createElement('div'); 
 			firstElement.setAttribute('id', EventId);
-			firstElement.setAttribute('class', Event.getType() + ' event');
+			if (!this.Control.isFilter(EventType))
+				classString = EventType + ' event hidden';
+			else
+				classString = EventType + ' event'; 
+			firstElement.setAttribute('class', classString);
 			firstElement.style['left'] = '0px';
 			firstElement.style['opacity'] = 0;
 			docFrag.insertBefore(firstElement, docFrag.childNodes[0]);
@@ -181,53 +218,48 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			Event = this.Timeline.prevEvent();
 		}
 
-		line.appendChild(docFrag);
-
-		animateEvents(); 
+		return docFrag;
+		// line.appendChild(docFrag);	 
 
 	};
 
-	function drawEventView(id) {
-		var eventView;
-		var eventViewString = '<div id="event-view"></div>';
-		var Event = that.Timeline.getId(id);
+	this.drawSearchResults = function(array) {
+		var resultViewElement;
+		var resultList, resultElement, resultTxt, Event;
+		var docFrag = d.createDocumentFragment(); 
 
 		checkEventView();
-
-		eventView = $(eventViewString).appendTo('#event-viewer'); 
-		eventView.append(''+
-			'<div id="img" style="background-color: grey;"></div>' + 
-			'<div class="event-text">' + 
-			'<h3>' + Event.printDate() + 
-			' - ' + Event.getType() +  '</h3>' +
-			'<p>' + Event.getText() +  '</p>');
-		that.Control.drawCloseButton(); 
-		that.Control.drawNextEventButton();
-		that.Control.drawPrevEventButton();
-		// that.Control.hideFilter();
-		hideDeathText(); 
-		checkEventControl(id);
-		highlightEvent(id); 
-	}
-
-	function checkEventControl(id) {
-		var firstInt = $('#timeline div.event').first().attr('id');
-		var lastInt = $('#timeline div.event').last().attr('id');
-		console.log(id + ' == ' + firstInt);
-		console.log(id + ' == ' + lastInt);  
-		if (id == lastInt && id == firstInt) { 
-			that.Control.removeNextEventButton();
-			that.Control.removePrevEventButton();
-		} else if (id == firstInt) {
-			that.Control.removePrevEventButton();
-		} else if (id == lastInt) {
-			that.Control.removeNextEventButton(); 
+		resultViewElement = d.createElement('div');
+		resultList = d.createElement('ul'); 
+		resultViewElement.setAttribute('id', 'event-view');
+		resultViewElement.setAttribute('class', 'seach-view');
+		resultList.setAttribute('id', 'result-list'); 
+		if (array.length > 0) {
+			for (var i = 0; i < array.length; i++) {
+				Event = this.Timeline.getId(array[i]);
+				resultElement = d.createElement('li');
+				resultTxt = d.createTextNode(Event.getText()); 
+				resultElement.setAttribute('class', Event.getType());
+				resultElement.appendChild(resultTxt);
+				resultElement.addEventListener('click', function() {
+					drawEventView(Event.getId()); 
+				});
+				resultList.appendChild(resultElement);
+			}
 		} else {
-			if ($(that.Control.nextEvent).length == 0)
-				that.Control.drawNextEventButton();
-			if ($(that.Control.prevEvent).length == 0)
-				that.Control.drawPrevEventButton();
+			resultElement = d.createElement('li');
+			resultTxt = d.createTextNode('No events where found within this timeline.'); 
+			resultElement.setAttribute('class', 'error-txt');
+			resultElement.appendChild(resultTxt); 
+			resultList.appendChild(resultElement);
 		}
+		hideDeathText();
+		this.Control.removeNextEventButton();
+		this.Control.removePrevEventButton();
+		resultViewElement.appendChild(resultList); 
+		docFrag.appendChild(resultViewElement);
+		d.getElementById('event-viewer').appendChild(docFrag);
+		// that.Control.hideFilter();
 	}
 
 	function drawText() {
@@ -271,6 +303,94 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	}
 
+	function drawEventView(id) {
+		var eventView;
+		var eventViewString = '<div id="event-view"></div>';
+		var Event = that.Timeline.getId(id);
+		var eventElement = d.getElementById(id.toString()); 
+
+		checkEventView();
+
+		eventView = $(eventViewString).appendTo('#event-viewer'); 
+		eventView.append(''+
+			'<div id="img" style="background-color: grey;"></div>' + 
+			'<div class="event-text">' + 
+			'<h3>' + Event.printDate() + 
+			' - ' + Event.getType() +  '</h3>' +
+			'<p>' + Event.getText() +  '</p>' + 
+			// '<div class="fb-share-button"' + 
+			// 'data-href="http://www.ccsf.edu/Departments/HIV_AIDS_Timeline/"' + 
+			// shareUrl(id) + 
+			// ' data-layout="box_count" data-mobile-iframe="false">
+			'</div>');
+		that.Control.drawCloseButton(); 
+		that.Control.drawNextEventButton();
+		that.Control.drawPrevEventButton();
+		// that.Control.hideFilter();
+		hideDeathText(); 
+		checkEventControl(id);
+		highlightEvent(id);
+
+		if (eventElement == null) {
+			console.log(eventElement);
+			console.log(id); 
+			adjustTimelinePosition(id);
+		}
+
+	}
+
+	function adjustTimelinePosition(id, docFrag) {
+		var first, last, Event, docFrag;
+		var firstElement, lastElement, firstEvent, lastEvent;
+
+		if (docFrag == undefined) {
+			docFrag = d.createDocumentFragment();
+			eventArr = d.getElementsByClassName('event');
+			for (var i = 0; i < eventArr.length; i++) {
+			    docFrag.appendChild(eventArr[i]);
+			}
+		}
+			
+		console.log(docFrag); 
+		firstElement = docFrag.childNodes[0];
+		lastElement = docFrag.childNodes[docFrag.childNodes.length-1]; 
+		first = firstElement['id'];
+		last = lastElement['id'];
+		firstEvent = that.Timeline.getId(first);
+		lastEvent = that.Timeline.getId(last); 
+
+		if (id < first) {
+			docFrag = that.prevSegment(firstEvent);
+			adjustTimelinePosition(docFrag);
+		} else if (id > last) {
+			console.log('made it here'); 
+			docFrag = that.nextSegment(lastEvent);
+			adjustTimelinePosition(last, docFrag);
+		} else if (id <= last && id >= first) {
+			console.log(docFrag); 
+			return docFrag
+		}
+
+	}
+
+	function checkEventControl(id) {
+		var firstInt = $('.event').first().attr('id');
+		var lastInt = $('.event').last().attr('id'); 
+		if (id == lastInt && id == firstInt) { 
+			that.Control.removeNextEventButton();
+			that.Control.removePrevEventButton();
+		} else if (id == firstInt) {
+			that.Control.removePrevEventButton();
+		} else if (id == lastInt) {
+			that.Control.removeNextEventButton(); 
+		} else {
+			if ($(that.Control.nextEvent).length == 0)
+				that.Control.drawNextEventButton();
+			if ($(that.Control.prevEvent).length == 0)
+				that.Control.drawPrevEventButton();
+		}
+	}
+
 	function findPosition(Event) {
 		var eventYear, eventPos;
 		var segmL = that.Options.segmentLength;
@@ -289,6 +409,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		}		
 		// console.log(eventPos);
 		return eventPos; 
+	}
+
+	function shareUrl(id) {
+		if (document.location.href.indexOf)
+		var url = document.location.href + '?event=' + id;
+		return url;
 	}
 
 	function getDecade(year, direction) {
@@ -431,13 +557,19 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		// }
 
 		this.filter = function() {
-			var f, i, s, u, l, checkbox;
+			var f, i, s, u, l, la, txt, checkbox;
 			var docFrag = d.createDocumentFragment(); 
 			var attrArr = ['political', 'celebrity', 'health', 'social', 'international'];
+			var submitStyles = "position: absolute; left: -9999px; width: 1px; height: 1px;";
 
 			f = d.createElement('form');
-			f.setAttribute('method',"");
-			f.setAttribute('action',"");
+			f.setAttribute('name', 'search-form')
+			f.addEventListener('submit', function(e) {
+				var form = e.target;
+				var string = form.elements['search'].value;
+				e.preventDefault();
+				that.drawSearchResults(searchEvents(string)); 
+			});
 
 			i = d.createElement('input');
 			i.setAttribute('type', 'text');
@@ -447,6 +579,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			s = d.createElement("input"); //input element, Submit button
 			s.setAttribute('type',"submit");
 			s.setAttribute('value',"Submit");
+       		s.setAttribute('style', submitStyles);
+       		s.setAttribute('tabindex', '-1');
 			f.appendChild(s);
 			
 			u = d.createElement('ul');
@@ -458,14 +592,21 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				checkbox.setAttribute('checked', true); 
 				checkbox.setAttribute('value', e);
 				l = d.createElement('li');
+				la = d.createElement('label'); 
+				txt = d.createTextNode(e);
+				la.setAttribute('for', 'filter-' + e);
+				la.addEventListener('click', function(e) {
+					var element = e.target;
+					that.Control.toggleFilter(element.outerText); 
+				});
+				la.appendChild(txt); 
 				l.appendChild(checkbox);
-				l.innerHTML += '<label for="' + 'filter-' + e +  '">' + e + '</label>';
+				l.appendChild(la); 
 				u.appendChild(l);
 			})
 			f.appendChild(u);
 
 			docFrag.appendChild(f);
-			console.log(docFrag);
 			return docFrag;
 		};
 
@@ -567,17 +708,21 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			$(this.prevButton).remove();
 		};
 
-		// this.hideFilter = function() {
-		// 	$('#'+this.filterContainer + ' form').hide(200);
-		// }
+		this.toggleFilter = function(typeToFilter) {
+			var string = typeToFilter.toLowerCase()
+			string = '.'+string; 
+			$(string).toggleClass('hidden');
+		}
 
-		// this.showFilter = function() {
-		// 	$('#'+this.filterContainer + ' form').show(200);
-		// }
+		this.isFilter = function(typeOfEvent) {
+			var string = 'filter-' + typeOfEvent;
+			var condition = d.forms['search-form'].elements[string].checked;
+			if(condition) return true; else return false; 
+		}
 
-		// this.toggleFilter = function() {
-		// 	$('#'+this.filterContainer + ' form').toggle();
-		// }
+		function searchEvents(string) {
+			return that.Timeline.searchText(string); 
+		}
 
 	}
 
