@@ -229,39 +229,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var docFrag = d.createDocumentFragment(); 
 
 		checkEventView();
-<<<<<<< HEAD
-
-		eventView = $(eventViewString).appendTo('#event-viewer'); 
-		eventView.append(''+
-			'<div id="img">' +
-			'<img src="' + Event.getPhoto() + '">' +
-			' </div>' + 
-			'<div class="event-text">' + 
-			'<h3>' + Event.printDate() + 
-			' - ' + Event.getType() +  '</h3>' +
-			'<p>' + Event.getText() +  '</p>');
-		that.Control.drawCloseButton(); 
-		that.Control.drawNextEventButton();
-		that.Control.drawPrevEventButton();
-		// that.Control.hideFilter();
-		hideDeathText(); 
-		checkEventControl(id);
-		highlightEvent(id); 
-	}
-
-	function checkEventControl(id) {
-		var firstInt = $('#timeline div.event').first().attr('id');
-		var lastInt = $('#timeline div.event').last().attr('id');
-		console.log(id + ' == ' + firstInt);
-		console.log(id + ' == ' + lastInt);  
-		if (id == lastInt && id == firstInt) { 
-			that.Control.removeNextEventButton();
-			that.Control.removePrevEventButton();
-		} else if (id == firstInt) {
-			that.Control.removePrevEventButton();
-		} else if (id == lastInt) {
-			that.Control.removeNextEventButton(); 
-=======
 		resultViewElement = d.createElement('div');
 		resultList = d.createElement('ul'); 
 		resultViewElement.setAttribute('id', 'event-view');
@@ -279,7 +246,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				});
 				resultList.appendChild(resultElement);
 			}
->>>>>>> refs/remotes/origin/Working-Branch
 		} else {
 			resultElement = d.createElement('li');
 			resultTxt = d.createTextNode('No events where found within this timeline.'); 
@@ -398,6 +364,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			adjustTimelinePosition(docFrag);
 		} else if (id > last) {
 			console.log('made it here'); 
+			
 			docFrag = that.nextSegment(lastEvent);
 			adjustTimelinePosition(last, docFrag);
 		} else if (id <= last && id >= first) {
