@@ -196,7 +196,9 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 		eventView = $(eventViewString).appendTo('#event-viewer'); 
 		eventView.append(''+
-			'<div id="img" style="background-color: grey;"></div>' + 
+			'<div id="img">' +
+			'<img src="' + Event.getPhoto() + '">' +
+			' </div>' + 
 			'<div class="event-text">' + 
 			'<h3>' + Event.printDate() + 
 			' - ' + Event.getType() +  '</h3>' +
