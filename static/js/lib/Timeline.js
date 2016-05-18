@@ -68,7 +68,7 @@ function Timeline() {
 
 		for (var i = first; i <= last; i++){
 			var text = Event.getText();
-			if (text.search(new RegExp(searchString, "i")) > 0){
+			if (text.search(new RegExp(searchString, "i")) >= 0){
 				returnArr.push(Event.getId());
 				console.log("searchText() success");	
 			}
