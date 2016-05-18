@@ -35,11 +35,6 @@
 			<!--</section>-->
 
 			<section class="partner">
-				<h4><a href="http://larkinstreetyouth.org/">Larkin St. Youth Services</a></h4>
-				<p>Provides homeless youth with safe temporary housing, peer-based subtance abuse treatment programs, tools for medical care, education, job training, and more.</p>
-			</section>
-
-			<section class="partner">
 			    <h4><a href="http://www.sfhiv.org/our-services/linkage-integration-navigation-and-comprehensive-services-lincs">LINCS</a></h4>
 			    <p>Provides coordinated comprehensive linkage to care, navigation and partner services for HIV-positive people living in San Francisco.</p>
 			</section>
@@ -52,6 +47,12 @@
 			<section class="partner">
 				<h4><a href="http://www.magnetsf.org/">Magnet</a></h4>
 				<p>Provides free sexual health services, counseling, massage, acupuncture, an art gallery and lounge.</p>
+			</section>
+
+			<section class="partner">
+				<h4><a href="http://apiwellness.org/site/transthrive/">TransThrive</a></h4>
+				<p>A safe space by and for the transgender community. Provides free HIV testing, counseling and case management, needle exchange, primary medical care, workshops on job skills, health, substance use, and mental health therapy.</p>
+			</section>
 		</div>
 
 		<div class="col-md-1 col-sm-12"></div>
