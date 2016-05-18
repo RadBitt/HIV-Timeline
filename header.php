@@ -110,7 +110,7 @@ else
                       })();
                     </script>
                     <gcse:search></gcse:search>
-                  </div><!--end googley-search--> -->
+                  </div>--> 
 
                 </ul>
               </div><!-- /.navbar-collapse -->
