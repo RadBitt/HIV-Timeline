@@ -4,7 +4,7 @@ timelineArray.push({"page": "Website Page", "date": "Date", "photo": "Photos", "
 
 timelineArray.push({"page": "about-hiv", "date": 1930, "photo": "", "id": 2, "category": "International Information", "description": "From phylogenetic tracing, researchers have dated that HIV-1 first emerged in colonial west central Africa between 1910 and 1930. The HIV virus is believed to be a mutated virus from chimpanzees."});
 
-timelineArray.push({"page": "", "date": 1959, "photo": "static/img/timeline-images/File:HIV-budding-Color.jpg", "id": 3, "category": "Political Events", "description": "The first recorded case of HIV-1 comes from a blood sample taken from a man in Kinshasa, The Democratic Republic of Congo in 1959. Later genetic analysis of this sample suggests that HIV-1 may have mutated from a single virus in the 1940s or 50s."});
+timelineArray.push({"page": "", "date": 1959, "photo": "static/img/timeline-images/HIV-budding-Color.jpg", "id": 3, "category": "Political Events", "description": "The first recorded case of HIV-1 comes from a blood sample taken from a man in Kinshasa, The Democratic Republic of Congo in 1959. Later genetic analysis of this sample suggests that HIV-1 may have mutated from a single virus in the 1940s or 50s."});
 
 timelineArray.push({"page": "", "date": 1978, "photo": "", "id": 4, "category": "International Information", "description": "Gay men in the US and Sweden, and heterosexuals in Tanzania and Haiti began showing symptoms for what will later be known as AIDS, such as fever and pneumonia."});
 

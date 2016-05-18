@@ -328,6 +328,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var anotherContainer = d.createElement('div');
 		var eventViewer = d.getElementById('event-viewer'); 
 		var eventElement = d.getElementById(id.toString()); 
+		var imgElement = d.createElement('img');
 
 		checkEventView();
 
@@ -352,6 +353,9 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		that.Control.drawNextEventButton();
 		that.Control.drawPrevEventButton();
 		// that.Control.hideFilter();
+
+		imgElement.setAttribute('src', Event.getPhoto());
+		imgDiv.appendChild(imgElement);
 		
 		checkEventControl(id);
 
