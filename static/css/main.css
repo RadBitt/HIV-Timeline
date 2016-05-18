@@ -393,3 +393,10 @@ ul {
     width: 100%;
   }
 }
+
+
+@media (max-width: 1200px) {
+  .button-wrap {
+    margin: 0;
+  }
+}

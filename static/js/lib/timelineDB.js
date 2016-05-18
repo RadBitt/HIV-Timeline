@@ -1,6 +1,4 @@
 var timelineArray = [];
-			
-timelineArray.push({"page": "Website Page", "date": "Date", "photo": "Photos", "id": 1, "category": "Category", "description": "Description"});
 
 timelineArray.push({"page": "about-hiv", "date": 1930, "photo": "", "id": 2, "category": "International Information", "description": "From phylogenetic tracing, researchers have dated that HIV-1 first emerged in colonial west central Africa between 1910 and 1930. The HIV virus is believed to be a mutated virus from chimpanzees."});
 

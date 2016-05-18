@@ -22,7 +22,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	};
 
 	this.drawFilter = function() {
+		var h3 = d.createElement('h3');
 		var container = d.getElementById(this.filterContainer); 
+		h3.appendChild(d.createTextNode('filter events'));
+		container.appendChild(h3);
 		container.appendChild(this.Control.filter());
 		// this.Control.drawFilterButton();
 	}
@@ -122,8 +125,11 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			}
 		}
 
-		checkSegmentControl();
+		if (window.innerWidth < 1200) {
+			$("html, body").animate({ scrollTop: 0 }, 600);
+		}
 
+		checkSegmentControl();
 
 	};
 
@@ -236,13 +242,15 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	};
 
 	this.drawSearchResults = function(array) {
-		var resultViewElement, i;
+		var eventCard, resultViewElement, i;
 		var resultList, resultElement, resultTxt, Event;
 		var docFrag = d.createDocumentFragment(); 
 
 		checkEventView();
+		eventCard = d.createElement('div');
 		resultViewElement = d.createElement('div');
-		resultList = d.createElement('ul'); 
+		resultList = d.createElement('ul');
+		eventCard.setAttribute('id', 'event-card');
 		resultViewElement.setAttribute('id', 'event-view');
 		resultViewElement.setAttribute('class', 'seach-view');
 		resultList.setAttribute('id', 'result-list'); 
@@ -270,11 +278,11 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			resultElement.appendChild(resultTxt); 
 			resultList.appendChild(resultElement);
 		}
-		hideDeathText();
 		this.Control.removeNextEventButton();
 		this.Control.removePrevEventButton();
-		resultViewElement.appendChild(resultList); 
-		docFrag.appendChild(resultViewElement);
+		resultViewElement.appendChild(resultList);
+		eventCard.appendChild(resultViewElement); 
+		docFrag.appendChild(eventCard);
 		d.getElementById('event-viewer').appendChild(docFrag);
 		// that.Control.hideFilter();
 	}
@@ -326,10 +334,17 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var Event = that.Timeline.getId(id);
 		var eventView = d.createElement('div')
 		var anotherContainer = d.createElement('div');
-		var eventViewer = d.getElementById('event-viewer'); 
-		var eventElement = d.getElementById(id.toString()); 
 		var imgElement = d.createElement('img');
+		var eventViewer = d.getElementById('event-viewer'); 
+		var eventElement = d.getElementById(id.toString());
+		var imgURL = Event.getPhoto(id);
+		var imageStyle = 'background-image: url(' + imgURL + ');';
 
+		if (imgURL.length == 0) {
+			imgURL = 'static/img/icons/logo.png';
+			imageStyle = 'background-image: url(' + imgURL + '); background-size: inherit;';
+		}
+			
 		checkEventView();
 
 		anotherContainer.setAttribute('id', 'event-card')
@@ -339,7 +354,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		p = d.createElement('p');
 		eventText = d.createElement('div');
 		eventText.setAttribute('class', 'event-text'); 
+		imgElement.setAttribute('src', imgURL);
+		imgElement.setAttribute('style', 'display: none;');
+		imgElement.setAttribute('alt', 'An image related to the event.');
 		imgDiv.setAttribute('id', 'event-card-img');
+		imgDiv.setAttribute('style', imageStyle);
+		imgDiv.appendChild(imgElement);
 		h3.appendChild(d.createTextNode(Event.printDate() + ' - ' + Event.getType()));
 		p.appendChild(d.createTextNode(Event.getText()));
 		eventText.appendChild(h3);
@@ -352,10 +372,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		that.Control.drawCloseButton(); 
 		that.Control.drawNextEventButton();
 		that.Control.drawPrevEventButton();
-		// that.Control.hideFilter();
-
-		imgElement.setAttribute('src', Event.getPhoto());
-		imgDiv.appendChild(imgElement);
 		
 		checkEventControl(id);
 
@@ -656,7 +672,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			i.setAttribute('name', 'search');
 			i.setAttribute('placeholder', 'Search events');
 			i.setAttribute('alt', 'search events'); 
-			i.setAttribute('title', 'Search for one keyword for the best results.'); 
+			i.setAttribute('title', 'Search the timeline by keywords'); 
 			f.appendChild(i);
 
 			s = d.createElement("input"); //input element, Submit button
@@ -799,6 +815,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 		this.isFilter = function(typeOfEvent) {
 			var string = 'filter-' + typeOfEvent;
+			console.log(that.Timeline.currentEvent()); 
+			console.log(string); 
 			var condition = d.forms['search-form'].elements[string].checked;
 			if(condition) return true; else return false; 
 		}

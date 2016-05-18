@@ -44,7 +44,7 @@ function getCategory(string) {
 	else if (string == 'Social Activism')
 		return 'social';
 	else if (string == 'Celebrities and AIDS')
-		return 'celebrity';
+		return 'celebrity';	
 }
 
 function printType(string) {

@@ -11,7 +11,14 @@ $(document).ready(function() {
     $('.gsc-search-button-v2').addClass('glyphicon-search');
     $('.gsc-search-button-v2').removeClass('.gsc-search-button-v2');
 
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth < 1200) {
+
+        var parentDiv = d.getElementById('hiv-timeline-container'); 
+        var filterDiv = d.getElementById('filter-container');
+        var timelineContainer = d.getElementById('timeline-container');
+
+        if(timelineContainer.length != null)
+            parentDiv.insertBefore(filterDiv, timelineContainer);
 
     }
 
@@ -19,18 +26,22 @@ $(document).ready(function() {
 
 $(window).scroll(function() {
 
-    if (window.innerWidth <= 900) {
-        if ($(window).scrollTop() > 50){
-            $('nav').css({marginBottom: '51px'});
-            $('#event-viewer-container').css({position: 'fixed', top: 0});
-        } else {
-            $('nav').css({marginBottom: '0'});
-            $('#event-viewer-container').css({position: 'relative', top: 'initial'});
+    var timelineContainer = d.getElementById('timeline-container');
+
+    if(timelineContainer.length != null) {
+        if (window.innerWidth <= 900) {
+            if ($(window).scrollTop() > 50){
+                $('nav').css({marginBottom: '51px'});
+                $('#event-viewer-container').css({position: 'fixed', top: 0});
+            } else {
+                $('nav').css({marginBottom: '0'});
+                $('#event-viewer-container').css({position: 'relative', top: 'initial'});
+            }
         }
+
     }
 
  });
-
 
 function navHighlight()
 {
