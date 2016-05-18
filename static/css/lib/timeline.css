@@ -213,6 +213,13 @@ body {
 	cursor: pointer;
 }
 
+.fb_iframe_widget {
+    display: inline-block;
+    position: absolute;
+    top: -170px;
+    left: 932px;
+}
+
 #filter-button {
 	position: absolute;
 	top: 28px;
@@ -227,6 +234,10 @@ body {
 	position: relative;
 	height: 137px;
 	z-index: 5;
+}
+
+#filter-container h3 {
+	display: none;
 }
 
 #filter-container form {

@@ -233,6 +233,10 @@ ul {
   margin-bottom: 75px;
 }
 
+.videos section p {
+  width: 96%;
+}
+
 .video {
   margin-bottom: 10px;
 }

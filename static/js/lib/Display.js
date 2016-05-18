@@ -31,10 +31,12 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	this.drawEventViewer = function() {
-		var newElement;
-	    d.getElementById(this.eventViewContainer).innerHTML += '<div id="event-viewer"></div>';
+		var eventViewer = d.createElement('div');
+		eventViewer.setAttribute('id', 'event-viewer'); 
+		eventViewer.appendChild(that.Control.drawEventShare());
+	    d.getElementById(this.eventViewContainer).appendChild(eventViewer);
 		this.Control.drawNextButton();
-		this.Control.drawPrevButton(); 
+		this.Control.drawPrevButton();  
 	};
 
 	this.drawSegment = function() {
@@ -342,7 +344,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 		if (imgURL.length == 0) {
 			imgURL = 'static/img/icons/logo.png';
-			imageStyle = 'background-image: url(' + imgURL + '); background-size: inherit;';
+			imageStyle = 'background-image: url(' + imgURL + ');background-size: inherit;';
+			imageStyle += ' background-position: 50%; border: 1px solid #EDEDED'; 
 		}
 			
 		checkEventView();
@@ -368,11 +371,10 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		eventView.appendChild(eventText);
 		anotherContainer.appendChild(eventView);
 		docFrag.appendChild(anotherContainer);
-		eventViewer.appendChild(docFrag); 
+		eventViewer.appendChild(docFrag);
 		that.Control.drawCloseButton(); 
 		that.Control.drawNextEventButton();
 		that.Control.drawPrevEventButton();
-		
 		checkEventControl(id);
 
 		if (eventElement == null) {
@@ -383,8 +385,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		}
 
 		hideDeathText(); 
-		highlightEvent(id);
-
+		updateSelectedEvent(id); 
 	}
 
 	function adjustTimelinePosition(id, docFrag, count) {
@@ -524,13 +525,15 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			eventView.remove();
 	}
 
-	function highlightEvent(id) {
+	function updateSelectedEvent(id) {
 		var Element = $('#'+id);
 		var oldElement = $('.event.highlighted').removeClass('highlighted');
 		oldElement.animate({top: -17}, 500);
 		if (window.innerWidth > 1000)
 			Element.addClass('highlighted');
-		Element.animate({top: -40}, 400);
+		Element.animate({top: -40}, 500, function() {
+			that.Control.updateEventShare(id);
+		});
 	}
 
 	function deathText(year) {
@@ -790,6 +793,26 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				that.drawEvents('prev'); 
 			});
 		};
+
+		this.drawEventShare = function() {
+			var href = 'http://www.ccsf.edu/Departments/HIV_AIDS_Timeline/'; 
+			var fDiv = d.createElement('div');
+			fDiv.setAttribute('id', 'share-button');
+			fDiv.setAttribute('class', 'fb-share-button');
+			fDiv.setAttribute('data-href', href); 
+			fDiv.setAttribute('data-layout', 'button_count');
+			fDiv.setAttribute('data-mobile-iframe', 'false');
+			return fDiv;
+		}
+
+		this.updateEventShare = function(id) {
+			if (d.getElementById('share-button') != null) {
+				var href = 'http://www.ccsf.edu/Departments/HIV_AIDS_Timeline/?event=';
+				var fDiv = d.getElementById('share-button');
+				fDiv.setAttribute('data-href', href + id); 
+				FB.XFBML.parse(d.getElementById('event-viewer'));
+			}
+		}
 
 		this.removeNextEventButton = function () {
 			$(this.nextEvent).remove();

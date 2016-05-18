@@ -31,7 +31,15 @@ else
 
     </head>
     <body>
-
+      <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=961119633985862";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
         <!-- Content Block Begin -->
 
           <!-- Header Block Begin -->
@@ -86,7 +94,7 @@ else
 
                   <li id="classes"><a href="classes<?php echo $ext ?>">classes</a></li>
 
-                  <li id="searchBox">
+                  <!--<li id="searchBox">
                     <form action="" class="search-form">
                       <div class="form-group has-feedback">
                     		<label for="search" class="sr-only">Search</label>
@@ -95,7 +103,7 @@ else
                     	</div>
                     </form>
 
-                  </li>
+                  </li>-->
 
                   <!-- <div class="googley-search">
                     <script>
