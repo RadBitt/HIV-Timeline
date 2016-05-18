@@ -325,11 +325,13 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var docFrag = d.createDocumentFragment(); 
 		var Event = that.Timeline.getId(id);
 		var eventView = d.createElement('div')
+		var anotherContainer = d.createElement('div');
 		var eventViewer = d.getElementById('event-viewer'); 
 		var eventElement = d.getElementById(id.toString()); 
 
 		checkEventView();
 
+		anotherContainer.setAttribute('id', 'event-card')
 		eventView.setAttribute('id', 'event-view'); 
 		imgDiv = d.createElement('div');
 		h3 = d.createElement('h3');
@@ -343,7 +345,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		eventText.appendChild(p);
 		eventView.appendChild(imgDiv);
 		eventView.appendChild(eventText);
-		docFrag.appendChild(eventView);
+		anotherContainer.appendChild(eventView);
+		docFrag.appendChild(anotherContainer);
 		eventViewer.appendChild(docFrag); 
 		that.Control.drawCloseButton(); 
 		that.Control.drawNextEventButton();
@@ -496,7 +499,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	}
 
 	function checkEventView() {
-		var eventView = $('#event-view');
+		var eventView = $('#event-card');
 		if ( eventView.length == 1)
 			eventView.remove();
 	}
@@ -557,6 +560,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	function removeEventView() {
 		var oldElement = $('.event.highlighted').removeClass('highlighted');
+		eventView = $('#event-card').remove();
 		eventView = $('#event-view').remove(); 
 		oldElement.animate({top: -17}, 500);
 		showDeathText();
@@ -692,8 +696,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				position: 'absolute',
 				width: '17px',
 				height: '30px',
-				top: '40%',
-				right: '1%',
+				top: '50%',
+				right: '-31px',
 			};
 			
 			$(eventView).append(newElement);
@@ -711,8 +715,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				position: 'absolute',
 				width: '17px',
 				height: '30px',
-				top: '40%',
-				left: '1%',
+				top: '50%',
+				left: '-31px',
 			};
 			
 			$(eventView).append(newElement); 
@@ -731,7 +735,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				width: '18px',
 				height: '18px',
 				top: '20px',
-				right: '20px',
+				right: '-31px',
 			};
 			
 			$(eventView).append(newElement); 
