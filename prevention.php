@@ -21,13 +21,13 @@
 			</div>
 
 			<div class="brochure">
-				<a href="static/img/brochures/safer-sex-pamphlet.pdf">
+				<a href="static/img/brochures/safe-sex-pamphlet.pdf">
 				<img src="static/img/brochures/safersex.thumb.png">
 				</a>
-				<h4><a href="static/img/brochures/safer-sex-pamphlet.pdf">Safer Sex Self Reflection</a></h4>
+				<h4><a href="static/img/brochures/safe-sex-pamphlet.pdf">Safer Sex Self Reflection</a></h4>
 			</div>
 			<div class="brochure">
-				<a href="static/img/brochures/safer-sex-pamphlet.pdf">
+				<a href="static/img/brochures/hepatitis-pamphlet.pdf">
 				<img src="static/img/brochures/hepatitis.thumb.png">
 				</a>
 				<h4><a href="static/img/brochures/hepatitis-pamphlet.pdf">Hepatitis: Get the Real Facts Brochure</a></h4>
@@ -36,17 +36,17 @@
         </div>
    	 	<div class="content col-md-4">
 			<div class="brochure">
-				<a href="sti-pamphlet.pdf">
+				<a href="static/img/brochures/sti-pamphlet.pdf">
 				<img src="static/img/brochures/STI.thumb.png">
 				</a>
-				<h4><a href="sti-pamphlet.pdf"> Sexually Transmitted Infection (STI)</a></h4>
+				<h4><a href="static/img/brochures/sti-pamphlet.pdf"> Sexually Transmitted Infection (STI)</a></h4>
 			</div>
 
 			<div class="brochure">
-				<a href="harm-reduction-pamphlet.pdf">
+				<a href="static/img/brochures/harm-reduction-pamphlet.pdf">
 				<img src="static/img/brochures/harm.thumb.png">
 				</a>
-				<h4><a href="harm-reduction-pamphlet.pdf">Harm Reduciton: Risk Prevention</a></h4>
+				<h4><a href="static/img/brochures/harm-reduction-pamphlet.pdf">Harm Reduciton: Risk Prevention</a></h4>
 			</div>
 		</div>
 		<div class="col-md-3">
