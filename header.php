@@ -1,6 +1,6 @@
 <?php
 
-$deployment = true;
+$deployment = false;
 
 if ($deployment)
   $ext = '.html';
@@ -125,7 +125,7 @@ else
                       })();
                     </script>
                     <gcse:search></gcse:search>
-                  </div>--> 
+                  </div>-->
 
                 </ul>
               </div><!-- /.navbar-collapse -->

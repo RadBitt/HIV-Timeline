@@ -21,18 +21,13 @@
 
 			<section class="partner">
 				<h4><a href="http://www.shanti.org/">Shanti PROJECT</a></h4>
-				<p>Provides counseling to educate about HIV disease, how to navigate the healthcare system and they provide emotional support with drop-in couselling.</p>
+				<p>Provides counseling to educate about HIV disease, how to navigate the healthcare system and they provide emotional support with drop-in counseling.</p>
 			</section>
 
 			<section class="partner">
 				<h4><a href="http://www.baypositives.org/">Bay Positives</a></h4>
 				<p>Provides services to help young people (ages 26 and younger) with a weekly drop-in support group and social events. They also provide personal one-on-one help on a case by case basis and more.</p>
 			</section>
-
-			<!--<section class="partner">-->
-			<!--	<h4>AIDS Walk San Francisco</h4>-->
-			<!--	<p>is a yearly fundraiser event. Since 1987, AIDS Walk San Francisco has raised $86 million for HIV programs and services in the Bay Area and has grown into the largest AIDS fundraising even in Northern California.</p>-->
-			<!--</section>-->
 
 			<section class="partner">
 			    <h4><a href="http://www.sfhiv.org/our-services/linkage-integration-navigation-and-comprehensive-services-lincs">LINCS</a></h4>
@@ -60,7 +55,7 @@
 		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="testing.php">Testing</a></li>
+					<li><a href="testing.<?php echo $ext ?>">Testing</a></li>
 				</ul>
 			</div>
 			<div class="centerBlock">

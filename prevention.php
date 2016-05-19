@@ -31,7 +31,7 @@
 				<img src="static/img/brochures/hepatitis.thumb.png">
 				</a>
 				<h4>Hepatitis: Get the Real Facts Brochure</h4>
-			</div>		
+			</div>
 
         </div>
    	 	<div class="content col-md-4">
@@ -52,7 +52,7 @@
 		<div class="col-md-3">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="support.php">Community Support</a></li>
+					<li><a href="support<?php echo $ext ?>">Community Support</a></li>
 				</ul>
 			</div>
 
