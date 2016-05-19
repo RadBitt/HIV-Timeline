@@ -21,8 +21,8 @@
 
 			<section class="partner">
 				<h4><a href="http://www.shanti.org/">Shanti PROJECT</a></h4>
-				<p>Provides counseling to educate about HIV disease, how to navigate the healthcare system and they provide emotional support with drop-in counseling.</p>
-			</section>
+<<<<<<< HEAD
+				<p>Provides counseling to educate about HIV disease, how to navigate the healthcare system, and emotional support with drop-in couselling.</p>
 
 			<section class="partner">
 				<h4><a href="http://www.baypositives.org/">Bay Positives</a></h4>

@@ -14,7 +14,7 @@
 			<div class="content col-md-6 col-sm-12">
 				<h3>What is HIV?</h3>
 				<h4>HIV stands for Human Immunodeficiency Virus.</h4>
-				<p>An HIV virus infection causes chronic inflammation and weakens the body's immune system. Over time, this inflammation can affect many systems in the body and make it increasingly difficult for the body to fight off other infections. People with the HIV infection may experience serious symptoms, or none at all. They may not even know they have the infection and are able to pass it on to others. <strong>There is no cure.</strong> New treatment for this chronic disease is less toxic than the virus and suppresses viral load (amount of HIV virus in the body) which decreases transmission to others, and allows people to live longer fuller lives.</p>
+				<p>An HIV virus infection causes chronic inflammation and weakens the body's immune system. Over time, this inflammation can affect many systems in the body and make it increasingly difficult for the body to fight off other infections. People with the HIV infection may experience serious symptoms, or none at all. They may not even know they have the infection, and are able to pass it on to others. <strong>There is no cure.</strong> New treatment for this chronic disease is less toxic than the virus and suppresses viral load (amount of HIV virus in the body) which decreases transmission to others, and allows people to live longer, fuller lives.</p>
 
 				<h3>What is AIDS?</h3>
 				<h4>AIDS stands for Acquired Immune Deficiency Syndrome.</h4>
@@ -26,7 +26,7 @@
 				<ul>
 					<li>Sexual contact through anal and vaginal sex</li>
 					<li>Blood exposure through sharing needles</li>
-					<li>Preinatal during pregnancy, birth, or breastfeeding</li>
+					<li>Perinatal during pregnancy, birth, or breastfeeding</li>
 				</ul>
 			</div>
 		</div>
