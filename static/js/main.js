@@ -48,8 +48,7 @@ function navHighlight()
     //  Gets the pathname of current URL, omitting the leading forward slash
     var active = window.location.pathname;
     active = active.split('/')[1];
-    active = active.split('.')[0]; 
-    d.title = active.charAt(0).toUpperCase() + active.slice(1) + ' | ' + d.title; 
+    active = active.split('.')[0];
 
     //  If pathname is '', home gets hard coded active class
     //  Basically hard-coded switch cases for the drop-down pages, because their path name
@@ -67,6 +66,7 @@ function navHighlight()
     {
         //  console.log("before services");
         // document.getElementById("services").setAttribute("class", "active");
+        replaceTitle();
         document.getElementById(active).style.borderTopColor = "#4B90E0";
     }
 
@@ -74,11 +74,13 @@ function navHighlight()
     {
         //  console.log("before services");
         // document.getElementById("services").setAttribute("class", "active");
+        replaceTitle();
         document.getElementById("services").style.borderTopColor = "#4B90E0";
     }
 
     else if (active == "aboutHIV" || active == "prevention" || active == "videos")
     {
+        replaceTitle();
         document.getElementById("information").style.borderTopColor = "#4B90E0";
         // document.getElementById("information").setAttribute("class", "active");
         //  console.log("hit info");
@@ -86,6 +88,7 @@ function navHighlight()
 
     else if (active == "partners" || active == "advocacy")
     {
+        replaceTitle();
         document.getElementById("community").style.borderTopColor = "#4B90E0";
         // document.getElementById("community").setAttribute("class", "active");
         //  console.log("hit info");
@@ -98,4 +101,9 @@ function navHighlight()
         // document.getElementById(active).setAttribute("class", "active");
         //  console.log("hit else statement");
     }
+
+    function replaceTitle() {
+        d.title = active.charAt(0).toUpperCase() + active.slice(1) + ' | ' + d.title; 
+    }
+
 }
