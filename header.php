@@ -125,7 +125,7 @@ else
                       })();
                     </script>
                     <gcse:search></gcse:search>
-                  </div>--> 
+                  </div>-->
 
                 </ul>
               </div><!-- /.navbar-collapse -->

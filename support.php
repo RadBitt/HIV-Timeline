@@ -21,8 +21,8 @@
 
 			<section class="partner">
 				<h4><a href="http://www.shanti.org/">Shanti PROJECT</a></h4>
+<<<<<<< HEAD
 				<p>Provides counseling to educate about HIV disease, how to navigate the healthcare system, and emotional support with drop-in couselling.</p>
-			</section>
 
 			<section class="partner">
 				<h4><a href="http://www.baypositives.org/">Bay Positives</a></h4>
@@ -55,7 +55,7 @@
 		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="testing.php">Testing</a></li>
+					<li><a href="testing.<?php echo $ext ?>">Testing</a></li>
 				</ul>
 			</div>
 			<div class="centerBlock">

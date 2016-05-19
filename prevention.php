@@ -30,6 +30,7 @@
 				<a href="static/img/brochures/safer-sex-pamphlet.pdf">
 				<img src="static/img/brochures/hepatitis.thumb.png">
 				</a>
+<<<<<<< HEAD
 				<h4><a href="static/img/brochures/hepatitis-pamphlet.pdf">Hepatitis: Get the Real Facts Brochure</a></h4>
 			</div>		
 
@@ -52,7 +53,7 @@
 		<div class="col-md-3">
 			<div class="more-services">
 				<ul>More Services
-					<li><a href="support.php">Community Support</a></li>
+					<li><a href="support<?php echo $ext ?>">Community Support</a></li>
 				</ul>
 			</div>
 
