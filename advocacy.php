@@ -11,15 +11,14 @@
 	</div>
 
 	<div class="container">
-		<div class="content col-md-6 col-sm-6">
-			<!-- <p><strong>Community Leadership Training</strong> is a student, faculty, and stuff partnership to design and carry out HIV/STI prevention activities with a social justice perspective. For more information, click <a href="https://www.ccsf.edu/en/educational-programs/school-and-departments/school-of-health-and-physical-education/health-education-and-community-health-studies0/LinkCtr/community_leadership.html">here</a>.</p> -->
+		<div class="content col-md-6 col-sm-12">
 			<p><strong>Gender Diversity Project</strong> is a student, faculty, and staff partnership to educate and advocate for the safety and rights of transgender, gender variant, and gender queer communities at CCSF and beyond. For more information, click <a href="http://www.ccsf.edu/en/educational-programs/school-and-departments/school-of-health-and-physical-education/health-education-and-community-health-studies0/LinkCtr/gender_diversity_project.html">here</a>.</p>
 			<p><strong>Project SAFE</strong> is a peer education component of the projects and programs of the HIV/STI Prevention Studies Office. Our peer educators are involved in a wide range of activities such as safer sex fairs, World AIDS day and Transgender Awareness Day events, staffing a Peer education and Resources Room in MUB 301, and the projects of Community Leadership Training and the Gender Diversity Project. The Project SAFE club is supported by the CCSF Interclub Council of the Associated Students (A.S.). The club supports students in the above and/or other activities as determined by elected club officers, club members, and the faculty advisors under thebylaws of the A.S. This student club meets in the LINK Center (Linking Learning and Action) MUB 301. For more information, click <a href="http://sanfranciscopolice.org/project-safe">here</a>.</p>
 		</div>
 
-		<div class="col-md-3 col-sm-12"></div>
+		<div class="col-md-1 col-sm-12"></div>
 
-		<div class="timeline-events-container col-md-3 col-sm-3">
+		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="support<?php echo $ext ?>">Community Support</a></li>

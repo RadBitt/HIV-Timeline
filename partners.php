@@ -28,6 +28,8 @@
 			</ul>
 		</div>
 
+		<div class="col-md-1 col-sm-12"></div>
+
 		<div class="timeline-events-container col-md-3 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
