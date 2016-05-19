@@ -363,7 +363,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		imgDiv.setAttribute('id', 'event-card-img');
 		imgDiv.setAttribute('style', imageStyle);
 		imgDiv.appendChild(imgElement);
-		h3.appendChild(d.createTextNode(Event.printDate() + ' - ' + Event.getType()));
+		h3.appendChild(d.createTextNode(Event.printDate() + ' - ' + printType(Event.getType())));
 		p.appendChild(d.createTextNode(Event.getText()));
 		eventText.appendChild(h3);
 		eventText.appendChild(p);

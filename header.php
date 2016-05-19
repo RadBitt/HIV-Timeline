@@ -16,6 +16,11 @@ else
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel='shortcut icon' href='static/img/icons/favicon.png' type='image/x-icon'>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta property="og:url"           content="http://www.ccsf.edu/Departments/HIV_AIDS_Timeline/" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="HIV AIDS Timeline" />
+        <meta property="og:description"   content="" />
+        <meta property="og:image"         content="http://www.ccsf.edu/Departments/HIV_AIDS_Timeline/static/img/takethelead.png" />
 
         <!-- External CSS files FOR ALL pages are referenced here -->
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
