@@ -49,6 +49,7 @@ function navHighlight()
     var active = window.location.pathname;
     active = active.split('/')[1];
     active = active.split('.')[0]; 
+    d.title = active.charAt(0).toUpperCase() + active.slice(1) + ' | ' + d.title; 
 
     //  If pathname is '', home gets hard coded active class
     //  Basically hard-coded switch cases for the drop-down pages, because their path name
