@@ -53,7 +53,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		line.appendChild(hr);
 		para = d.createElement('li'); 
 		para.setAttribute('class', 'red-txt');
-		txt = d.createTextNode('death rate');
+		txt = d.createTextNode('death toll');
 		para.appendChild(txt);
 		uList.appendChild(para);
 
