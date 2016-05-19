@@ -92,7 +92,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		oldEvents = d.getElementsByClassName('event');
 
 		if (direction == undefined && docFrag == undefined)
-			docFrag = this.nextSegment(this.Timeline.firstEvent());
+			docFrag = this.nextSegment(this.Timeline.currentEvent());
 		else if (direction == null && docFrag != undefined) {
 			clearSegment(oldEvents);
 			removeAnimation(null);
@@ -378,8 +378,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		checkEventControl(id);
 
 		if (eventElement == null) {
-			console.log(eventElement);
-			console.log(id); 
 			adjustTimelinePosition(id);
 			this.Timeline.getId(id); 
 		}
@@ -391,9 +389,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	function adjustTimelinePosition(id, docFrag, count) {
 		var first, last, Event, docFrag;
 		var firstElement, lastElement, firstEvent, lastEvent;
-		
-		console.log(docFrag);
-
+	
 		if (docFrag == undefined) {
 			docFrag = d.createDocumentFragment();
 			eventArr = d.getElementsByClassName('event');
@@ -406,7 +402,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		lastElement = docFrag.childNodes[docFrag.childNodes.length-1]; 
 		first = parseInt(firstElement['id']);
 		last = parseInt(lastElement['id']);
-		console.log('F: ' + first + ' < (' + id + ') > L: ' + last); 
+		// console.log('F: ' + first + ' < (' + id + ') > L: ' + last); 
 		if (id < first) {
 			firstEvent = that.Timeline.skipTo(first-1);
 			docFrag = that.prevSegment(firstEvent, 'search');
@@ -444,7 +440,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 		var lastInt = eventArr[eventArr.length-1]['id'];
 
 		if (firstInt <= that.Timeline.firstEventInt) { 
-			console.log(firstInt + '<=' + that.Timeline.firstEventInt);
 			that.Control.removePrevButton();
 		} else if (lastInt >= that.Timeline.numOfEvents()) {
 			that.Control.removeNextButton(); 
@@ -458,22 +453,27 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 	function findPosition(Event) {
 		var eventYear, eventPos;
-		var segmL = that.Options.segmentLength;
+		var segmL = that.Options.segmentLength + 1;
 		var displayWidth = parseInt(that.Options.width);
 		var pixelsPerSeg = (displayWidth / segmL);//
 		var pixelsPerMonth = Event.getDate().getMonth() * (pixelsPerSeg / 12); // 
 		eventYear = parseInt(Event.getDate().getFullYear().toString().charAt(3)); //
-		eventPos = pixelsPerSeg * eventYear + pixelsPerMonth;
+		eventPos = (pixelsPerSeg * eventYear) + pixelsPerMonth - eventYear;
 		// console.log(pixelsPerSeg + ' * ' + eventYear + ' + ' + pixelsPerMonth); 
 		if (eventPos > displayWidth) { 
 			// console.log(displayWidth - pixelsPerMonth);
-			return displayWidth - 22; 
+			return displayWidth; 
 		} else {
 			// console.log(eventPos);
 			return eventPos;
 		}		
 		// console.log(eventPos);
 		return eventPos; 
+
+		function addMonthPixels() {
+			Event.getDate().getMonth()
+		}
+
 	}
 
 	function shareUrl(id) {
@@ -838,8 +838,6 @@ function Display(TimelineObject, optionsObject, controlObject) {
 
 		this.isFilter = function(typeOfEvent) {
 			var string = 'filter-' + typeOfEvent;
-			console.log(that.Timeline.currentEvent()); 
-			console.log(string); 
 			var condition = d.forms['search-form'].elements[string].checked;
 			if(condition) return true; else return false; 
 		}

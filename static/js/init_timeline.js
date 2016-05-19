@@ -11,23 +11,19 @@ var Timeline = new Timeline();
 var Display = new Display(Timeline); 
 
 for (var i = 0; i < timelineArray.length; i++) {
-	id = timelineArray[i].id
-	date = timelineArray[i].date + '';
-	category = getCategory(timelineArray[i].category)
-	title = timelineArray[i].title
-	photos = timelineArray[i].photo
-	description = timelineArray[i].description
-	if (date.length == 4) {
-		randMonth = getRandomArbitrary(1, 12);
-		date = date + '/' + randMonth + '/1';
-		// console.log(date); 
-	}
+	id = timelineArray[i].id;
+	date = timelineArray[i].date;
+	category = getCategory(timelineArray[i].category);
+	title = timelineArray[i].title;
+	photos = timelineArray[i].photo;
+	description = timelineArray[i].description;
 		 
 	Timeline.addEvent(id, date, category, description, photos);
 }
 
 Timeline.sortEvents(Timeline.getArray(), 1, Timeline.numOfEvents());
 Timeline.resetIds();
+Timeline.getId(4); 
 Display.drawContainer();
 Display.drawFilter(); 
 Display.drawEventViewer();
