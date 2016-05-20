@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="container">
-		<div class="content col-md-6 col-sm-12">
+		<div class="content col-md-5 col-sm-12">
 			<p>Visit our friends:</p>
 			<ul class="partners-list">
 				<li><a href="http://www.sfaf.org/">SF AIDS Foundation</a></li>
@@ -28,9 +28,7 @@
 			</ul>
 		</div>
 
-		<div class="col-md-1 col-sm-12"></div>
-
-		<div class="timeline-events-container col-md-3 col-sm-12">
+		<div class="timeline-events-container col-md-2 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="support<?php echo $ext ?>">Community Support</a></li>

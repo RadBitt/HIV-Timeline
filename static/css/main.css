@@ -40,8 +40,14 @@ ul {
   margin-bottom: 30px;
 }
 
-.content h4 {
+.content section h3:first-child,
+.content section h4:first-child {
+  margin-top: 0;
+}
+
+.content h4, .content h3 {
   font-size: 16px;
+  font-weight: bold;
 }
 
 .timeline-events-container {
@@ -65,7 +71,7 @@ ul {
 }
 
 .more-services {
-  margin-top: 22px;
+  margin-top: 0px;
 }
 
 .more-services ul, .external-links {
@@ -220,6 +226,9 @@ ul {
 .brochure img {
   width: 115px;
   height: auto;
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */
+  transform: rotate(90deg);
   /*float: left;*/
 }
 

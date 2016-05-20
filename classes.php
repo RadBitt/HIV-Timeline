@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="container classes">
-		<div class="content col-md-6 col-sm-12">
+		<div class="content col-md-5 col-sm-12">
 			<p>Our classes and certificate programs are designed to prepare students to work in entry level public health social services settings with a focus on HIV, STIs, Hepatitis and TB.</p>
 
 			<h3>Certificate in Infectious Disease Prevention in Priority Populations</h3>
@@ -28,9 +28,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-1 col-sm-12"></div>
-
-		<div class="col-md-3 col-sm-12">
+		<div class="col-md-2 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="support<?php echo $ext ?>">Community Support</a></li>

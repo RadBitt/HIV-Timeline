@@ -27,9 +27,7 @@
 
 		</div>
 
-		<div class="col-md-1 col-sm-12"></div>
-
-		<div class="more-services col-md-3 col-sm-12">
+		<div class="more-services col-md-2 col-sm-12">
 			<ul>More Services
 				<li><a href="support<?php echo $ext ?>">Community Support</a></li>
 				<li><a href="testing<?php echo $ext ?>">Testing</a></li>

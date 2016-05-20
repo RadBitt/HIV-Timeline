@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="prevention container">
-		<div class="content col-md-4">
+		<div class="content col-md-3">
 			<div class="brochure">
 				<a href="static/img/brochures/hiv-treatment-prevention.pdf">
 				<img src="static/img/brochures/HIV.thumb.png">
@@ -34,7 +34,7 @@
 			</div>		
 
         </div>
-   	 	<div class="content col-md-4">
+   	 	<div class="content col-md-2">
 			<div class="brochure">
 				<a href="static/img/brochures/sti-pamphlet.pdf">
 				<img src="static/img/brochures/STI.thumb.png">
@@ -49,7 +49,7 @@
 				<h4><a href="static/img/brochures/harm-reduction-pamphlet.pdf">Harm Reduciton: Risk Prevention</a></h4>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="support.php">Community Support</a></li>

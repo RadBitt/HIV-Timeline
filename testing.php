@@ -22,9 +22,7 @@
  			<p>Screening services for Sexually Transmitted Infections (STI) are available at the City College of San Francisco <a href="https://www.ccsf.edu/en/student-services/student-health-services.html">Student Health Center</a> at a reduced rate or at no cost if a student qualifies for <a href="http://www.ccsf.edu/en/student-services/student-health-services/medical-service/family-pact.html">Family Pact Program</a> and meets the criteria for screening.</p>
 		</div>
 
-		<div class="col-md-2 col-sm-12"></div>
-
-		<div class="timeline-events-container col-md-3 col-sm-12">
+		<div class="timeline-events-container col-md-2 col-sm-12">
 			<div class="more-services">
 				<ul>More Services
 					<li><a href="support.php">Community Support</a></li>
