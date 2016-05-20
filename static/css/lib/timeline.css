@@ -116,7 +116,6 @@ body {
 
 .event-text h3 {
     margin-top: 0;
-    text-transform: capitalize;
 }
 
 .event-text p {
@@ -236,8 +235,9 @@ body {
 	z-index: 5;
 }
 
-#filter-container h3 {
-	display: none;
+#filter-container h5 {
+	/*display: none;*/
+	margin: 0 0 10px 0;
 }
 
 #filter-container form {
@@ -246,6 +246,7 @@ body {
 }
 
 #filter-container form ul {
+	overflow: visible;
 	width: 200px;
 	padding: 0 0 0 0;
 	-moz-column-count: 2;
@@ -256,7 +257,7 @@ body {
 #filter-container input[name=search] {
 	background: none;
 	width: 200px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	padding-left: 10px;
 	border: 1px solid #4A90E2;
 	border-radius: 10px;
@@ -556,6 +557,10 @@ body {
 	}
 
 	.mobile-event {
+		cursor: default;
+	}
+
+	.mobile-event {
 		display: block;
 		margin-bottom: 30px;
 	}
@@ -570,7 +575,7 @@ body {
 	}
 
 	.mobile-event .text {
-		text-indent: 30px;
+		margin-left: 30px;
 	}
  
 /* Event Icon Styles */

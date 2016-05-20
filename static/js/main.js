@@ -28,7 +28,7 @@ $(window).scroll(function() {
 
     var timelineContainer = d.getElementById('timeline-container');
 
-    if(timelineContainer.length != null) {
+    if(timelineContainer != null) {
         if (window.innerWidth <= 900) {
             if ($(window).scrollTop() > 50){
                 $('nav').css({marginBottom: '51px'});
@@ -50,7 +50,7 @@ function navHighlight()
     // for deployment:
     // active = active.slice(31);
     // active = active.split('.')[0];
-    active = active.slice(14);
+    active = active.split('/')[3];
     active = active.split('.')[0];
 
     //  If pathname is '', home gets hard coded active class

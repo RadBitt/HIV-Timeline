@@ -22,10 +22,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	};
 
 	this.drawFilter = function() {
-		var h3 = d.createElement('h3');
 		var container = d.getElementById(this.filterContainer); 
-		h3.appendChild(d.createTextNode('filter events'));
-		container.appendChild(h3);
 		container.appendChild(this.Control.filter());
 		// this.Control.drawFilterButton();
 	}
@@ -660,6 +657,9 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			var docFrag = d.createDocumentFragment(); 
 			var attrArr = ['political', 'celebrity', 'health', 'social', 'international'];
 			var submitStyles = "position: absolute; left: -9999px; width: 1px; height: 1px;";
+			var h5 = d.createElement('h5');
+			h5.appendChild(d.createTextNode('Event filter:'));
+
 
 			f = d.createElement('form');
 			f.setAttribute('name', 'search-form')
@@ -683,6 +683,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 			s.setAttribute('value',"Submit");
        		s.setAttribute('style', submitStyles);
        		s.setAttribute('tabindex', '1');
+       		f.appendChild(h5); 
 			f.appendChild(s);
 			
 			u = d.createElement('ul');
