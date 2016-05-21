@@ -89,7 +89,7 @@ ul {
 *  ============================================================================
 */
 .navbar-nav li {
-    border-top: 2px solid transparent;
+    border-top: 3px solid transparent;
 }
 
 .navbar {

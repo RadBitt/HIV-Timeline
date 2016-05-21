@@ -92,6 +92,10 @@ function navHighlight()
         d.getElementById(active).style.borderTopColor = "#4B90E0";
     }
 
+    function setBorderTop() {
+        
+    }
+
     function replaceTitle() {
         d.title = active.charAt(0).toUpperCase() + active.slice(1) + ' | ' + d.title;
     }

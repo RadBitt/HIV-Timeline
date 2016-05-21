@@ -699,9 +699,8 @@ function Display(TimelineObject, optionsObject, controlObject) {
 				txt = d.createTextNode(e);
 				la.setAttribute('for', 'filter-' + e);
 				la.setAttribute('title', 'Hide these events');
-				la.addEventListener('click', function(e) {
-					var element = e.target;
-					that.Control.toggleFilter(element.outerText); 
+				la.addEventListener('click', function() {
+					that.Control.toggleFilter(e); 
 				});
 				la.appendChild(txt); 
 				l.appendChild(checkbox);
