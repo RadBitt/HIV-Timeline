@@ -70,7 +70,7 @@ timelineArray.push({"id": 34, "date": "11/1/1987", "category": "Social Activism"
 
 timelineArray.push({"id": 35, "date": "7/1/1987", "category": "Social Activism", "photo": "static/img/timeline-images/And_the_Band_Played_On_first_edition.jpg", "description": "And the Band Played On: Politics, People and the AIDS Epidemic, a history of the early years of the epidemic by Randy Shilts, is published.", "page": ""});
 
-timelineArray.push({"id": 36, "date": "10/1/1987", "category": "Social Activism", "photo": "static/img/timeline-images/Aids_Quilt.jpg/1280px-Aids_Quilt.jpg", "description": "The AIDS Memorial Quilt is started in San Francisco, CA. ", "page": "partners"});
+timelineArray.push({"id": 36, "date": "10/1/1987", "category": "Social Activism", "photo": "static/img/timeline-images/1280px-Aids_Quilt.jpg", "description": "The AIDS Memorial Quilt is started in San Francisco, CA. ", "page": "partners"});
 
 timelineArray.push({"id": 37, "date": "4/1/1988", "category": "Public Health and Medicine", "photo": "", "description": "The first official needle exchange was started in the US to prevent transmission of HIV through drug use.", "page": ""});
 
@@ -80,7 +80,7 @@ timelineArray.push({"id": 39, "date": "12/1/1988", "category": "Political Events
 
 timelineArray.push({"id": 40, "date": "11/1/1988", "category": "Social Activism", "photo": "", "description": "ACT UP demonstrates at FDA headquarters in protest of slow pace of drug approval process. ", "page": "support"});
 
-timelineArray.push({"id": 41, "date": "12/1/1988", "category": "Social Activism", "photo": "static/img/timeline-images/Who_needs_a_virtual_world%3F.jpg", "description": "First comprehensive needle exchange program (NEP) established in North America in Tacoma, WA. New York City creates first government-funded NEP and San Francisco establishes what becomes largest NEP in the nation.", "page": ""});
+timelineArray.push({"id": 41, "date": "12/1/1988", "category": "Social Activism", "photo": "static/img/timeline-images/Who_needs_a_virtual_world.jpg", "description": "First comprehensive needle exchange program (NEP) established in North America in Tacoma, WA. New York City creates first government-funded NEP and San Francisco establishes what becomes largest NEP in the nation.", "page": ""});
 
 timelineArray.push({"id": 42, "date": "10/1/1989", "category": "International Information", "photo": "", "description": "Haiti stops distribution of tainted blood products. 5th International AIDS Conference (\u201cThe Scientific and Social Challenge of AIDS\u201d), Montreal, Canada.", "page": ""});
 
@@ -106,7 +106,7 @@ timelineArray.push({"id": 52, "date": "8/1/1990", "category": "Celebrities and A
 
 timelineArray.push({"id": 53, "date": "11/1/1990", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/920x920.jpg", "description": " Ryan White, 18, hemophiliac, AIDS activist, dies", "page": ""});
 
-timelineArray.push({"id": 54, "date": "11/1/1990", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/Keith_Haring_(1986).jpg", "description": "Keith Haring, pop artist, dies.", "page": ""});
+timelineArray.push({"id": 54, "date": "11/1/1990", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/Keith_Haring_1986.jpg", "description": "Keith Haring, pop artist, dies.", "page": ""});
 
 timelineArray.push({"id": 55, "date": "10/1/1991", "category": "Public Health and Medicine", "photo": "", "description": "A third antiretroviral drug didoexycytidine (ddc) was authorized by the FDA for use by patients intolerant of AZT.", "page": ""});
 
@@ -200,7 +200,7 @@ timelineArray.push({"id": 99, "date": "1/1/1996", "category": "Celebrities and A
 
 timelineArray.push({"id": 100, "date": "2/1/1996", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/adair02.jpg", "description": "Peter Adair, filmmaker, dies. ", "page": ""});
 
-timelineArray.push({"id": 101, "date": "1/1/1996", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/1000509261001/1000509261001_1432190081001_Bio-Biography-Magic-Johnson-SF.jpg", "description": "Magic Johnson, basketball star, returns to play basketball. ", "page": ""});
+timelineArray.push({"id": 101, "date": "1/1/1996", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/1000509261001_1432190081001_Bio-Biography-Magic-Johnson-SF.jpg", "description": "Magic Johnson, basketball star, returns to play basketball. ", "page": ""});
 
 timelineArray.push({"id": 102, "date": "9/1/1996", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/Rent-theater-poster.jpg", "description": "Rent, Broadway musical with AIDS theme, wins Tony for Best Musical and the Pulitzer Prize.", "page": ""});
 
@@ -260,7 +260,7 @@ timelineArray.push({"id": 129, "date": "10/1/2004", "category": "International I
 
 timelineArray.push({"id": 130, "date": "5/1/2004", "category": "Political Events", "photo": "", "description": "President Bush\u2019s $15 billion initiative to combat the global AIDS pandemic, known as PEPFAR, began full implementation in June. PEPFAR was to concentrate on fifteen focus countries, all of them in Africa except Guyana, Haiti and Vietnam (which was a late addition to the list). The initiative set a goal of providing AIDS treatment to 200,000 people living in the focus countries by June 2005.", "page": ""});
 
-timelineArray.push({"id": 131, "date": "8/1/2004", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/villager_50/keith.jpg", "description": "Keith Cylar, long time AIDS activist and founder and co-president of Housing Works, Inc. in the US, dies at age 45.", "page": ""});
+timelineArray.push({"id": 131, "date": "8/1/2004", "category": "Celebrities and AIDS", "photo": "static/img/timeline-images/keith.jpg", "description": "Keith Cylar, long time AIDS activist and founder and co-president of Housing Works, Inc. in the US, dies at age 45.", "page": ""});
 
 timelineArray.push({"id": 132, "date": "3/1/2005", "category": "Public Health and Medicine", "photo": "", "description": "The FDA grants \u201cTentative Approval to Generic AIDS Drug Regimen for Potential Purchase Under PEPFAR\u201d, marking first approval of an HIV drug manufactured by a non-US-based generic drug company, under FDA\u2019s new expedited review process. A 2005 study by Rucker Johnson and Steven Raphael found that the link among race, prison and HIV is so strong that it almost completely explains the disproportionate impact of HIV in the black community.", "page": ""});
 

@@ -50,9 +50,9 @@ body {
 	display: none;
 }
 
-#timeline-heading {
+/*#timeline-heading {
 	padding: 20px 0; 
-}
+}*/
 
 #timeline-heading h1 {
 	margin: 0;
@@ -188,7 +188,9 @@ body {
 
 .rule-text {
 	position: absolute;
-	top: 0;
+	top: 20px;
+	left: -17px;
+	font-weight: bold;
 }
 
 #mobile-decade {
@@ -233,6 +235,7 @@ body {
 	position: relative;
 	height: 137px;
 	z-index: 5;
+	margin: 50px 0 0 0;
 }
 
 #filter-container h5 {
@@ -333,7 +336,7 @@ body {
 	position: absolute;
     width: 14px;
     height: 23px;
-    bottom: 0px;
+    top: 388px;
     right: 0px;
 }
 
@@ -342,7 +345,7 @@ body {
 	position: absolute;
     width: 14px;
     height: 23px;
-    bottom: 0px;
+    top: 388px;
     left:   0px;
 }
 

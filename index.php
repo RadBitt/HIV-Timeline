@@ -12,11 +12,13 @@
 		<script type="text/javascript" src="static/js/lib/Deaths.js"></script>
 		<script type="text/javascript" src="static/js/lib/timelineDB.js"></script>	
 	
+
+		<div id="timeline-heading" class="heading-text">
+			<h1>HIV Timeline</h1>
+		</div>
+
 		<!-- Timeline elements -->
 		<div id="hiv-timeline-container">
-			<div id="timeline-heading">
-				<h1>HIV Timeline</h1>
-			</div>
 			<div id="filter-container"></div>
 			<div id="event-viewer-container"></div>
 			<div id="timeline-container"></div>

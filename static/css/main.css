@@ -116,6 +116,17 @@ ul {
   margin-bottom: 20px;
 }*/
 
+#timeline-heading {
+  margin: 0;
+  bottom: 0;
+  padding: 0;
+}
+
+#timeline-heading h1 {
+  position: inherit;
+  margin: 0;
+}
+
 .heading-text {
   background: rgba(74, 144, 226, 0.5);
   position: relative;

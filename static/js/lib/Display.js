@@ -536,7 +536,7 @@ function Display(TimelineObject, optionsObject, controlObject) {
 	function deathText(year) {
 		if (Deaths[year] != null) {
 			newDeath = '<div style="height: 0px; top: 0" class="death-text">';
-			newDeath += '<p>' + Deaths[year] + '</p></div>';
+			newDeath += '<p>' + Deaths[year].toLocaleString() + '</p></div>';
 			return newDeath;
 		} else return false; 
 	}
