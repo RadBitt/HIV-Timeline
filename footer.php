@@ -7,7 +7,7 @@
               </ul>
             </div>
           </div>
-
+          <script type="text/javascript" src="static/js/lib/relatedEvents.js"></script>
         <!-- Footer Block End -->
 
     </body>

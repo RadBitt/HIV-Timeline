@@ -125,6 +125,7 @@ ul {
 #timeline-heading h1 {
   position: inherit;
   margin: 0;
+  padding-left: 0;
 }
 
 .heading-text {
@@ -311,7 +312,7 @@ ul {
 }
 
 #prevention-header-image {
-  background-image: url(../img/takethelead.png);
+  background-image: url(../img/TakeTheLead_blue.png);
 }
 
 #videos-header-image {
@@ -427,4 +428,9 @@ ul {
   .button-wrap {
     margin: 0;
   }
+
+  .video {
+    width: 100%;  
+  }
+
 }

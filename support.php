@@ -57,11 +57,7 @@
 			</div>
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
-					<li><a href="#">Community</a></li>
-					<li><a href="#">Group</a></li>
-					<li><a href="#">Healthcare</a></li>
-					<li><a href="#">Fundraiser</a></li>
-					<li><a href="#">California</a></li>
+					
 				</ul>
 			</div>
 		</div> <!-- end timeline-events-container -->

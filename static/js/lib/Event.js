@@ -1,6 +1,6 @@
 // Event Class
 
-function Event(id, dateString, category, description, imgStringUrl) {
+function Event(id, dateString, category, description, imgStringUrl, page) {
 
 	this.category = category;
 
@@ -12,12 +12,18 @@ function Event(id, dateString, category, description, imgStringUrl) {
 
 	this.photo = imgStringUrl;
 
+	this.page = page;
+
 	this.setId = function(newId) {
 		this.id = newId; 
 	}
 
 	this.getId = function() {
 		return this.id; 
+	}
+
+	this.getPage = function() {
+		return this.page; 	
 	}
 
 	this.getDate = function() {

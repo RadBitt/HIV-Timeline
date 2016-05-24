@@ -39,7 +39,7 @@
 				<a href="static/img/brochures/sti-pamphlet.pdf">
 				<img src="static/img/brochures/STI.thumb.png">
 				</a>
-				<h4><a href="static/img/brochures/sti-pamphlet.pdf"> Sexually Transmitted Infection (STI)</a></h4>
+				<h4><a href="static/img/brochures/sti-pamphlet.pdf">Sexually Transmitted Infection (STI)</a></h4>
 			</div>
 
 			<div class="brochure">
@@ -58,9 +58,7 @@
 
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
-					<li><a href="#">Testing</a></li>
-					<li><a href="#">Screening</a></li>
-					<li><a href="#">Research</a></li>
+
 				</ul>
 			</div>
 		</div>

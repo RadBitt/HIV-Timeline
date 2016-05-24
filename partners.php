@@ -36,9 +36,7 @@
 			</div>
 			<div class="centerBlock">
 				<ul class="timeline-events">Timeline Events
-					<li><a href="#">Testing</a></li>
-					<li><a href="#">Screening</a></li>
-					<li><a href="#">Research</a></li>
+
 				</ul>
 			</div>
 		</div> <!-- end timeline-events-container -->

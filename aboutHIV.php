@@ -42,11 +42,7 @@
 
 			<div class="">
 				<ul class="timeline-events centerBlock">Timeline Events
-					<li><a href="/#">Social Justice</a></li>
-					<li><a href="/#">Education</a></li>
-					<li><a href="/#">Prevention</a></li>
-					<li><a href="/#">Community</a></li>
-					<li><a href="/#">Advocacy</a></li>
+
 				</ul>
 			</div>
 

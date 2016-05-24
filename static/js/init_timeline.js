@@ -1,10 +1,3 @@
-var date,
-	celebGroup,
-	healthGroup,
-	interGroup,
-	poliGroup,
-	sociGroup;
-
 var id = 0;
 
 var Timeline = new Timeline();
@@ -17,8 +10,9 @@ for (var i = 0; i < timelineArray.length; i++) {
 	title = timelineArray[i].title;
 	photos = timelineArray[i].photo;
 	description = timelineArray[i].description;
+	page = timelineArray[i].page; 
 		 
-	Timeline.addEvent(id, date, category, description, photos);
+	Timeline.addEvent(id, date, category, description, photos, page);
 }
 
 Timeline.sortEvents(Timeline.getArray(), 1, Timeline.numOfEvents());
